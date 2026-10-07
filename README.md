@@ -8,6 +8,8 @@
 
 Windows x64 · 免费开源 · MIT · Beta
 
+[项目介绍](https://jsfgmkg95d-source.github.io/life-cockpit/) · [60 秒演示视频](https://github.com/jsfgmkg95d-source/life-cockpit/releases/download/v0.14.0-beta.1/life-cockpit-demo-60s.mp4)
+
 <!-- Screenshot assets below contain synthetic demonstration data only. -->
 ![人生驾驶舱：今天的任务与计时。图中均为示例数据。](docs/images/today.jpg)
 
