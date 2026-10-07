@@ -1,0 +1,333 @@
+{
+  "description": "Synthetic mathematical scoring cases. No personal projects or budgets.",
+  "scoring_cases": [
+    {
+      "id": "S01",
+      "name": "四维全部确认",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": true,
+      "tasks": [
+        {
+          "w": 50,
+          "r": 1
+        },
+        {
+          "w": 30,
+          "r": 0.5
+        },
+        {
+          "w": 10,
+          "r": 1
+        },
+        {
+          "w": 10,
+          "r": 1
+        }
+      ],
+      "expected": {
+        "state": "finalized",
+        "lower": 85,
+        "upper": 85,
+        "coverage": 100,
+        "final": 85
+      }
+    },
+    {
+      "id": "S02",
+      "name": "六个合成任务中一项明确未达成",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": true,
+      "tasks": [
+        {
+          "w": 30,
+          "r": 1
+        },
+        {
+          "w": 10,
+          "r": 1
+        },
+        {
+          "w": 20,
+          "r": 1
+        },
+        {
+          "w": 10,
+          "r": 0
+        },
+        {
+          "w": 5,
+          "r": 1
+        },
+        {
+          "w": 5,
+          "r": 1
+        }
+      ],
+      "expected": {
+        "state": "finalized",
+        "lower": 87.5,
+        "upper": 87.5,
+        "coverage": 100,
+        "final": 87.5
+      }
+    },
+    {
+      "id": "S03",
+      "name": "一项结果未知不算零",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": false,
+      "tasks": [
+        {
+          "w": 30,
+          "r": 1
+        },
+        {
+          "w": 10,
+          "r": 1
+        },
+        {
+          "w": 20,
+          "r": 1
+        },
+        {
+          "w": 10,
+          "r": 0
+        },
+        {
+          "w": 5,
+          "r": 1
+        },
+        {
+          "w": 5,
+          "r": null
+        }
+      ],
+      "expected": {
+        "state": "provisional",
+        "lower": 81.25,
+        "upper": 87.5,
+        "coverage": 93.75,
+        "final": null
+      }
+    },
+    {
+      "id": "S04",
+      "name": "全部未知",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": false,
+      "tasks": [
+        {
+          "w": 50,
+          "r": null
+        },
+        {
+          "w": 30,
+          "r": null
+        }
+      ],
+      "expected": {
+        "state": "provisional",
+        "lower": 0,
+        "upper": 100,
+        "coverage": 0,
+        "final": null
+      }
+    },
+    {
+      "id": "S05",
+      "name": "全部确认未达成",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": true,
+      "tasks": [
+        {
+          "w": 50,
+          "r": 0
+        },
+        {
+          "w": 30,
+          "r": 0
+        }
+      ],
+      "expected": {
+        "state": "finalized",
+        "lower": 0,
+        "upper": 0,
+        "coverage": 100,
+        "final": 0
+      }
+    },
+    {
+      "id": "S06",
+      "name": "计划休息",
+      "mode": "rest",
+      "plan_confirmed": true,
+      "record_complete": true,
+      "tasks": [],
+      "expected": {
+        "state": "not_applicable",
+        "lower": null,
+        "upper": null,
+        "coverage": null,
+        "final": null
+      }
+    },
+    {
+      "id": "S07",
+      "name": "未确认计划",
+      "mode": "work",
+      "plan_confirmed": false,
+      "record_complete": false,
+      "tasks": [
+        {
+          "w": 50,
+          "r": 1
+        }
+      ],
+      "reason": "unplanned",
+      "expected": {
+        "state": "not_applicable",
+        "lower": null,
+        "upper": null,
+        "coverage": null,
+        "final": null
+      }
+    },
+    {
+      "id": "S08",
+      "name": "过量完成封顶",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": true,
+      "tasks": [
+        {
+          "w": 50,
+          "r": 1.5
+        },
+        {
+          "w": 30,
+          "r": 1
+        }
+      ],
+      "expected": {
+        "state": "finalized",
+        "lower": 100,
+        "upper": 100,
+        "coverage": 100,
+        "final": 100
+      }
+    },
+    {
+      "id": "S09",
+      "name": "全部确认但未点击结算",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": false,
+      "tasks": [
+        {
+          "w": 50,
+          "r": 1
+        },
+        {
+          "w": 30,
+          "r": 1
+        }
+      ],
+      "expected": {
+        "state": "provisional",
+        "lower": 100,
+        "upper": 100,
+        "coverage": 100,
+        "final": null
+      }
+    },
+    {
+      "id": "S10",
+      "name": "四维部分缺失",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": false,
+      "tasks": [
+        {
+          "w": 50,
+          "r": 1
+        },
+        {
+          "w": 30,
+          "r": null
+        },
+        {
+          "w": 10,
+          "r": 0
+        },
+        {
+          "w": 10,
+          "r": 1
+        }
+      ],
+      "expected": {
+        "state": "provisional",
+        "lower": 60,
+        "upper": 90,
+        "coverage": 70,
+        "final": null
+      }
+    },
+    {
+      "id": "S11",
+      "name": "拆分任务预算不增",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": true,
+      "tasks": [
+        {
+          "w": 25,
+          "r": 1
+        },
+        {
+          "w": 25,
+          "r": 1
+        },
+        {
+          "w": 30,
+          "r": 1
+        }
+      ],
+      "expected": {
+        "state": "finalized",
+        "lower": 100,
+        "upper": 100,
+        "coverage": 100,
+        "final": 100
+      }
+    },
+    {
+      "id": "S12",
+      "name": "负向更正不产生负分",
+      "mode": "work",
+      "plan_confirmed": true,
+      "record_complete": true,
+      "tasks": [
+        {
+          "w": 50,
+          "r": -0.1
+        },
+        {
+          "w": 30,
+          "r": 1
+        }
+      ],
+      "expected": {
+        "state": "finalized",
+        "lower": 37.5,
+        "upper": 37.5,
+        "coverage": 100,
+        "final": 37.5
+      }
+    }
+  ]
+}

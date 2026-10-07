@@ -1,0 +1,307 @@
+/* The UI uses one type scale, one control system, and one quiet accent. */
+@font-face {
+  font-family: "Cockpit Sans";
+  src: url('/fonts/noto-sans-sc-variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --ui-font: "Cockpit Sans", "Noto Sans SC", "Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --ui-ink: #242830;
+  --ui-muted: #667080;
+  --ui-line: #e6e8ed;
+  --ui-accent: #4167ca;
+  --ui-soft: #f4f6fb;
+  --ui-radius: 10px;
+  --ui-control-radius: 8px;
+  --ui-shadow: 0 1px 2px #1d263508, 0 8px 28px #1d263506;
+  font-family: var(--ui-font);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-shell.polished-shell.planner-shell {
+  --paper: #fff;
+  --ink: var(--ui-ink);
+  --muted: var(--ui-muted);
+  --line: var(--ui-line);
+  --green: var(--ui-accent);
+  --pale: #f0f4fd;
+  --planner-accent: var(--ui-accent);
+  --planner-accent-hover: #3457b5;
+  --planner-ink: var(--ui-ink);
+  --planner-muted: var(--ui-muted);
+  --planner-line: var(--ui-line);
+  --control-ink: var(--ui-ink);
+  --control-muted: var(--ui-muted);
+  --control-line: var(--ui-line);
+  --control-accent: var(--ui-accent);
+  --control-focus: var(--ui-accent);
+  grid-template-columns: 228px minmax(0, 1fr);
+  font-family: var(--ui-font);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ui-ink);
+  background: #f6f6f4;
+}
+.planner-shell :is(button, input, select, textarea, kbd) { font-family: var(--ui-font); }
+.planner-shell :is(h1, h2, h3, h4) { font-synthesis: none; font-weight: 600; }
+.planner-shell :is(time, .minutes, .budget-cell, .time-readout, .score-number) { font-variant-numeric: tabular-nums; }
+.app-shell.polished-shell.planner-shell :is(.overview-value, .score-value, .day-summary-number strong) { font-family: var(--ui-font); font-variant-numeric: tabular-nums; }
+.app-shell.polished-shell.planner-shell .overview-value small { color: var(--ui-muted); }
+
+.app-shell.polished-shell.planner-shell .sidebar {
+  width: 228px; padding: 30px 17px 22px;
+  background: #f6f6f4; border-right-color: #e8e8e5;
+}
+.planner-shell .sidebar .brand { gap: 12px; padding: 0 9px; margin-bottom: 32px; }
+.app-shell.polished-shell.planner-shell .sidebar .brand-mark {
+  width: 34px; height: 34px; border: 1px solid #e7e8eb; border-radius: 10px;
+  color: var(--ui-accent); background: #fff; box-shadow: 0 1px 3px #1c273508;
+}
+.app-shell.polished-shell.planner-shell .sidebar .brand-name {
+  font-family: var(--ui-font); font-size: 17px; font-weight: 600; letter-spacing: -.025em; color: var(--ui-ink);
+}
+.planner-shell .brand-subtitle { font-size: 10px; font-weight: 400; letter-spacing: .07em; color: #68717e; margin-top: 4px; }
+.app-shell.polished-shell.planner-shell .nav { gap: 6px; }
+.app-shell.polished-shell.planner-shell .nav button {
+  min-height: 44px; padding: 11px 13px; gap: 11px; border-radius: 8px;
+  font-size: 13px; font-weight: 450; color: #5e6672;
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+.app-shell.polished-shell.planner-shell .nav button svg { color: #7b8490; stroke-width: 1.65; }
+.app-shell.polished-shell.planner-shell .nav button:hover { background: #eeefec; color: var(--ui-ink); }
+.app-shell.polished-shell.planner-shell .nav button.active {
+  color: var(--ui-ink); background: #fff; border-color: #e3e5e8;
+  font-weight: 550; box-shadow: 0 1px 3px #222c3807;
+}
+.app-shell.polished-shell.planner-shell .nav button.active svg { color: var(--ui-accent); }
+.planner-shell .sidebar-bottom { border-top-color: #e2e4e3; }
+.planner-shell .sidebar-settings { color: #626d7d; font-size: 12px; border-radius: 8px; gap: 10px; }
+.planner-shell .local-indicator { color: #68717e; font-size: 11px; }
+.app-shell.polished-shell.planner-shell .topbar { padding: 13px 40px; min-height: 68px; border-bottom-color: var(--ui-line); background: #ffffffef; }
+.app-shell.polished-shell.planner-shell .main { max-width: 1440px; padding: 34px 40px 52px; margin-inline: auto; }
+.planner-shell .planner-topbar { gap: 14px; }
+.planner-shell .planner-search-button {
+  color: #667080; font-size: 12px; min-height: 38px; border-radius: 8px;
+  border-color: #e5e8ee; background: #f9fafc; padding: 8px 12px;
+}
+.planner-shell .planner-search-button:hover { background: #f3f5f9; border-color: #d7dee9; }
+.planner-shell .planner-search-button kbd { color: #68717e; font-size: 10px; border-radius: 4px; padding: 1px 4px; }
+.planner-shell .planner-topbar-actions { gap: 12px; }
+
+/* Shared controls: size, optical alignment, and all interaction states. */
+.app-shell.polished-shell.planner-shell :is(.button-primary, .button-secondary, .button-quiet, .icon-button) {
+  min-height: 40px; padding: 9px 14px; gap: 7px;
+  font-size: 13px; font-weight: 500; line-height: 1.45; letter-spacing: 0;
+  border-radius: var(--ui-control-radius); text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
+}
+.app-shell.polished-shell.planner-shell .button-primary {
+  background: var(--ui-accent); color: #fff; border: 1px solid #3d61bf;
+  box-shadow: inset 0 1px 0 #ffffff1c, 0 1px 2px #253f8514;
+}
+.app-shell.polished-shell.planner-shell .button-primary:hover:not(:disabled) {
+  background: #3559bc; border-color: #3154b2; color: #fff;
+  box-shadow: inset 0 1px 0 #ffffff15, 0 2px 5px #2c4d9f1f;
+}
+.app-shell.polished-shell.planner-shell .button-secondary {
+  color: #485365; background: #fff; border: 1px solid #dce1e9;
+  box-shadow: 0 1px 2px #202f4705;
+}
+.app-shell.polished-shell.planner-shell .button-secondary:hover:not(:disabled) {
+  color: #304364; border-color: #c9d2e2; background: #f8faff; box-shadow: 0 1px 3px #27375508;
+}
+.app-shell.polished-shell.planner-shell .button-quiet {
+  padding: 9px 11px; color: #637084; border-color: transparent; background: transparent; box-shadow: none;
+}
+.app-shell.polished-shell.planner-shell .button-quiet:hover:not(:disabled) { background: #f0f3f9; color: #355bb9; }
+.app-shell.polished-shell.planner-shell .icon-button { width: 40px; min-width: 40px; padding: 9px; color: #667080; background: transparent; box-shadow: none; }
+.app-shell.polished-shell.planner-shell .icon-button:hover:not(:disabled) { color: #355bb9; background: #eef2fa; }
+.app-shell.polished-shell.planner-shell :is(.button-primary, .button-secondary, .button-quiet, .icon-button):active:not(:disabled) { transform: translateY(.5px); box-shadow: inset 0 1px 2px #18294910; }
+.planner-shell :is(button, summary, a):focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 3px; box-shadow: 0 0 0 4px #4167ca14; }
+.app-shell.polished-shell.planner-shell :is(button, input, select, textarea):disabled { cursor: default; opacity: 1; }
+.app-shell.polished-shell.planner-shell .button-primary:disabled { background: #eef1f6; color: #8a95a5; border-color: #e3e7ee; box-shadow: none; transform: none; }
+.app-shell.polished-shell.planner-shell :is(.button-secondary, .button-quiet, .icon-button):disabled { color: #8c96a5; border-color: #e8ecf2; background: #f9fafc; box-shadow: none; transform: none; }
+.app-shell.polished-shell.planner-shell :is(input, select, textarea) {
+  min-height: 42px; padding: 10px 12px; border: 1px solid #dce1e9; border-radius: 8px;
+  color: var(--ui-ink); background: #fff; font-size: 14px; line-height: 1.5;
+  transition: border-color 160ms ease, box-shadow 160ms ease; box-shadow: 0 1px 2px #202b3b03;
+}
+.app-shell.polished-shell.planner-shell :is(input, select, textarea):focus { border-color: #7593dd; box-shadow: 0 0 0 3px #4167ca13; outline: none; }
+.app-shell.polished-shell.planner-shell :is(input, select, textarea):disabled { background: #f7f8fa; color: #788294; }
+.planner-shell :is(input, textarea)::placeholder { color: #818b9b; }
+.app-shell.polished-shell.planner-shell input[type="checkbox"] { min-height: 17px; height: 17px; width: 17px; padding: 0; box-shadow: none; accent-color: var(--ui-accent); }
+.planner-shell .field-label { color: #465063; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.planner-shell :is(.field-hint, .quiet-note) { font-size: 12px; line-height: 1.75; color: var(--ui-muted); }
+.app-shell.polished-shell.planner-shell :is(.quick-task-quantity, .quick-task-note) > summary { font-size: 12px; line-height: 1.8; color: var(--ui-muted); border-radius: 6px; }
+.app-shell.polished-shell.planner-shell :is(.quick-task-quantity, .quick-task-note) > summary:hover { color: #355bb9; }
+
+/* Type hierarchy is readable without turning every label into a heading. */
+.app-shell.polished-shell.planner-shell .workspace .page-heading h1,
+.planner-shell .planner-day-heading h1 { font-size: 30px; line-height: 1.35; font-weight: 600; letter-spacing: -.035em; color: var(--ui-ink); }
+.app-shell.polished-shell.planner-shell .workspace .page-heading p,
+.planner-shell .planner-day-heading p { font-size: 13px; line-height: 1.8; color: var(--ui-muted); }
+.planner-shell .planner-day-heading { margin-bottom: 24px; gap: 18px; }
+.planner-shell .planner-day-heading .eyebrow { color: #667080; font-size: 11px; font-weight: 450; letter-spacing: .02em; margin-bottom: 7px; }
+.app-shell.polished-shell.planner-shell .planner-day .date-switch { border-color: #dfe4ec; border-radius: 9px; }
+.app-shell.polished-shell.planner-shell .planner-day .date-switch input { font-size: 12px; color: #536177; min-height: 40px; border: 0; box-shadow: none; }
+.planner-shell .planner-day-metrics { padding-bottom: 23px; margin-bottom: 24px; gap: 12px 0; }
+.planner-shell .planner-day-metrics > div { padding-inline: 24px; gap: 5px; border-color: var(--ui-line); }
+.planner-shell .planner-day-metrics > div:first-child { padding-left: 0; }
+.planner-shell .planner-day-metrics span { color: var(--ui-muted); font-size: 12px; }
+.planner-shell .planner-day-metrics strong { font-size: 24px; font-weight: 550; line-height: 1.4; color: #2f3b50; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.planner-shell .planner-day-metrics strong small { color: #667080; font-size: 11px; margin-left: 4px; }
+.planner-shell .planner-day-layout { grid-template-columns: minmax(0, 1fr) 316px; gap: 30px; }
+.planner-shell .planner-tabs { margin-bottom: 20px; border-bottom-color: var(--ui-line); }
+.app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch { gap: 0; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button { min-height: 44px; padding: 10px 12px; border: 0; border-bottom: 2px solid transparent; border-radius: 0; color: #657085; font-size: 12px; line-height: 1.4; background: transparent; box-shadow: none; }
+.app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button:hover { color: #355bb9; background: #f6f8fc; }
+.app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button[aria-pressed="true"] { color: #31415d; border-bottom-color: var(--ui-accent); font-weight: 550; }
+.app-shell.polished-shell.planner-shell .planner-day .daily-add-actions { gap: 8px; }
+.planner-shell .daily-options > summary { color: #626c7d; font-size: 12px; border-radius: 7px; min-height: 40px; }
+
+/* Task rows keep one action legible, with secondary actions quiet. */
+.app-shell.polished-shell.planner-shell .planner-day .task-list-summary { padding: 10px 0 16px; }
+.app-shell.polished-shell.planner-shell .planner-day .task-list-summary strong { font-size: 14px; font-weight: 550; color: #344156; }
+.app-shell.polished-shell.planner-shell .planner-day :is(.task-list-count, .task-list-meta) { font-size: 12px; color: var(--ui-muted); }
+.app-shell.polished-shell.planner-shell .planner-day .task-row { grid-template-columns: 30px minmax(0, 1fr) 82px auto; gap: 0 12px; padding: 22px 0 14px; border-color: var(--ui-line); border-radius: 0; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row h4 { font-size: 15px; font-weight: 550; line-height: 1.65; color: #2c3442; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-project { color: #687386; font-size: 12px; margin-bottom: 4px; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-mark { width: 30px; height: 32px; background: #f2f4f8; border-radius: 8px; color: #7889a5; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-time { margin-top: 5px; color: #687386; font-size: 12px; gap: 4px 10px; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-time span { color: #687386; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-outcome { font-size: 12px; color: #657086; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-result strong { font-size: 20px; color: #344156; }
+.app-shell.polished-shell.planner-shell .planner-day .task-focus-action { color: #355bb9; background: #f0f4fe; border: 1px solid #dbe4f8; box-shadow: 0 1px 2px #29447504; min-height: 38px; font-size: 12px; }
+.app-shell.polished-shell.planner-shell .planner-day .task-focus-action:hover:not(:disabled) { color: #2d50a7; background: #e7eefc; border-color: #c5d4f4; box-shadow: 0 1px 3px #2944750c; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-action { color: #637084; font-size: 12px; padding: 7px 10px; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-details > summary { color: #657086; font-size: 11px; min-height: 30px; }
+.app-shell.polished-shell.planner-shell .planner-day .task-row-details p { font-size: 12px; line-height: 1.75; color: var(--ui-muted); }
+.app-shell.polished-shell.planner-shell .planner-day .task-row.is-search-target { background: #f5f8ff; box-shadow: inset 3px 0 0 #6e8ed8; }
+
+/* The clock is a calm, tangible anchor beside the day's work. */
+.planner-shell .planner-focus-pane { top: 90px; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-cockpit {
+  padding: 21px; background: linear-gradient(160deg, #fbfcff, #f8faff);
+  border: 1px solid #e1e7f1; border-radius: 14px; box-shadow: var(--ui-shadow);
+}
+.planner-shell .planner-focus-pane .time-heading { margin-bottom: 17px; }
+.planner-shell .planner-focus-pane .time-heading h2 { color: #4b5a72; font-size: 14px; font-weight: 550; }
+.planner-shell .planner-focus-pane .time-state { color: #657086; font-size: 11px; }
+.planner-shell .planner-focus-pane .time-hero { gap: 17px; }
+.planner-shell .planner-focus-pane .time-clock { width: 140px; height: 140px; filter: drop-shadow(0 3px 5px #425a8704); }
+.planner-shell .planner-focus-pane .time-clock-rim { fill: #fff; stroke: #dae3f0; }
+.planner-shell .planner-focus-pane .time-clock-hour { stroke: #344258; }
+.planner-shell .planner-focus-pane .time-clock-minute { stroke: #70809d; }
+.planner-shell .planner-focus-pane .time-clock-second { stroke: #8298c5; }
+.planner-shell .planner-focus-pane .time-clock-second.running { stroke: var(--ui-accent); }
+.planner-shell .planner-focus-pane .time-dial > span { color: #66748c; font-size: 11px; }
+.planner-shell .planner-focus-pane .time-kicker { color: #596984; font-size: 12px; line-height: 1.7; }
+.planner-shell .planner-focus-pane .time-readout { font-size: 40px; font-weight: 500; letter-spacing: -.04em; line-height: 1.25; color: #30405b; font-variant-numeric: tabular-nums; margin: 7px 0; }
+.planner-shell .planner-focus-pane :is(.time-context, .time-hint, .focus-target-hint) { color: #65738a; font-size: 12px; line-height: 1.75; }
+.planner-shell .planner-focus-pane .time-block-choice select { color: #445269; font-size: 13px; padding: 9px 10px; border-radius: 8px; }
+.planner-shell .focus-duration-options { padding: 3px; gap: 2px; border-color: #e1e7f1; border-radius: 8px; background: #edf1f8; }
+.planner-shell .focus-duration-options button { min-height: 34px; border-radius: 5px; font-size: 11px; color: #62718b; }
+.planner-shell .focus-duration-options button[aria-pressed="true"] { color: #355bb9; border-color: #dde5f3; box-shadow: 0 1px 3px #25385b09; font-weight: 500; }
+.planner-shell .planner-focus-pane .time-actions { gap: 8px; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-actions button { font-size: 12px; min-height: 40px; padding: 9px 10px; }
+.planner-shell .planner-focus-pane .time-accumulation { padding-top: 18px; margin-top: 18px; gap: 15px 12px; border-color: #e4eaf3; }
+.planner-shell .planner-focus-pane .time-accumulation span { color: #68768c; font-size: 11px; }
+.planner-shell .planner-focus-pane .time-accumulation strong { color: #354763; font-size: 17px; font-weight: 550; }
+.planner-shell .planner-focus-pane .time-compound > span { color: #65738a; font-size: 11px; line-height: 1.8; }
+.planner-shell .planner-focus-pane .time-inline-link { color: #385eb9; font-size: 11px; }
+.planner-shell .planner-focus-pane .time-history > summary { color: #5b6c87; font-size: 12px; }
+.planner-shell .planner-focus-pane .time-history > summary > span { color: #68768c; font-size: 11px; }
+.planner-shell .planner-focus-pane :is(.time-history-note, .time-timeline li > div > span) { color: #65738a; font-size: 11px; line-height: 1.8; }
+.planner-shell .planner-focus-pane .time-week strong { font-size: 10px; }
+.planner-shell .global-focus-context { font-size: 12px; font-weight: 450; }
+.planner-shell .global-focus-context strong { font-size: 13px; font-weight: 550; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 1280px) {
+  .app-shell.polished-shell.planner-shell .main { padding-inline: 28px; }
+  .app-shell.polished-shell.planner-shell .topbar { padding-inline: 28px; }
+  .planner-shell .planner-day-layout { gap: 24px; grid-template-columns: minmax(0, 1fr) 300px; }
+  .app-shell.polished-shell.planner-shell .planner-day .task-row { grid-template-columns: 28px minmax(0, 1fr) 64px auto; gap: 0 10px; }
+}
+@media (max-width: 1000px) {
+  .app-shell.polished-shell.planner-shell { grid-template-columns: 196px minmax(0, 1fr); }
+  .app-shell.polished-shell.planner-shell .sidebar { width: 196px; padding-inline: 12px; }
+  .planner-shell .planner-day-layout { grid-template-columns: minmax(0, 1fr); }
+  .planner-shell .planner-focus-pane { position: static; }
+  .planner-shell .planner-focus-pane .time-hero { grid-template-columns: 130px minmax(0, 1fr); gap: 22px; }
+  .planner-shell .planner-focus-pane .time-clock { width: 120px; height: 120px; }
+}
+@media (max-width: 760px) {
+  .app-shell.polished-shell.planner-shell { grid-template-columns: minmax(0, 1fr); }
+  .app-shell.polished-shell.planner-shell .sidebar { width: auto; padding: 18px 20px 9px; }
+  .planner-shell .sidebar .brand { margin-bottom: 14px; padding: 0; }
+  .app-shell.polished-shell.planner-shell .sidebar .brand-mark { width: 32px; height: 32px; }
+  .app-shell.polished-shell.planner-shell .nav { gap: 4px; }
+  .app-shell.polished-shell.planner-shell .nav button { padding: 10px 11px; font-size: 12px; }
+  .app-shell.polished-shell.planner-shell .sidebar-bottom .sidebar-settings { width: 44px; min-width: 44px; height: 44px; min-height: 44px; font-size: 0; padding: 11px; gap: 0; }
+  .app-shell.polished-shell.planner-shell .topbar { padding: 8px 20px; min-height: 60px; }
+  .planner-shell .planner-search-button { width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 11px; }
+  .app-shell.polished-shell.planner-shell .main { padding: 26px 20px 40px; }
+}
+@media (max-width: 640px) {
+  .app-shell.polished-shell.planner-shell .sidebar { padding-inline: 16px; }
+  .app-shell.polished-shell.planner-shell .main { padding: 24px 16px 36px; }
+  .app-shell.polished-shell.planner-shell .topbar { padding-inline: 16px; }
+  .app-shell.polished-shell.planner-shell .workspace .page-heading h1, .planner-shell .planner-day-heading h1 { font-size: 28px; }
+  .planner-shell .planner-day-heading p { font-size: 13px; }
+  .planner-shell .planner-day-metrics { margin-bottom: 20px; }
+  .planner-shell .planner-day-metrics > div { gap: 4px; }
+  .planner-shell .planner-day-metrics span { font-size: 11px; }
+  .planner-shell .planner-day-metrics strong { font-size: 22px; }
+  .planner-shell .planner-day-metrics strong small { font-size: 11px; }
+  .planner-shell .planner-tabs { gap: 10px; padding-bottom: 9px; }
+  .app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button { padding-inline: 9px; font-size: 11px; }
+  .app-shell.polished-shell.planner-shell .planner-day .daily-add-actions { gap: 3px; }
+  .app-shell.polished-shell.planner-shell .planner-day .daily-add-actions > .button-primary { font-size: 12px; padding-inline: 11px; }
+  .app-shell.polished-shell.planner-shell .planner-day .task-row { grid-template-columns: 26px minmax(0, 1fr); gap: 7px 10px; padding: 20px 0 12px; }
+  .app-shell.polished-shell.planner-shell .planner-day .task-row-mark { width: 26px; height: 29px; }
+  .app-shell.polished-shell.planner-shell .planner-day .task-row h4 { font-size: 15px; }
+  .app-shell.polished-shell.planner-shell .planner-day .task-row-result { grid-column: 2; grid-row: 2; }
+  .app-shell.polished-shell.planner-shell .planner-day .task-row-actions { grid-column: 2; grid-row: 3; flex-direction: row; justify-content: flex-start; }
+  .app-shell.polished-shell.planner-shell .planner-day .task-row-details { grid-column: 2; grid-row: 4; }
+  .app-shell.polished-shell.planner-shell .planner-focus-pane .time-cockpit { padding: 17px; border-radius: 12px; }
+  .planner-shell .planner-focus-pane .time-hero { grid-template-columns: 94px minmax(0, 1fr); gap: 15px; }
+  .planner-shell .planner-focus-pane .time-clock { width: 92px; height: 92px; }
+  .planner-shell .planner-focus-pane .time-dial > span { font-size: 10px; line-height: 1.7; }
+  .planner-shell .planner-focus-pane .time-readout { font-size: 34px; }
+  .planner-shell .planner-focus-pane .time-state { font-size: 10px; }
+  .planner-shell .planner-focus-pane .time-accumulation { gap: 14px 12px; }
+  .app-shell.polished-shell.planner-shell .planner-topbar-actions > .button-quiet { width: 44px; min-width: 44px; flex: 0 0 44px; min-height: 44px; padding: 10px; }
+}
+@media (max-width: 360px) {
+  .app-shell.polished-shell.planner-shell .sidebar { padding-inline: 12px; }
+  .app-shell.polished-shell.planner-shell .main, .app-shell.polished-shell.planner-shell .topbar { padding-inline: 12px; }
+  .planner-shell .planner-tabs .daily-add-actions { width: 100%; justify-content: flex-end; }
+  .planner-shell .planner-focus-pane .time-hero { grid-template-columns: 76px minmax(0, 1fr); gap: 11px; }
+  .planner-shell .planner-focus-pane .time-clock { width: 76px; height: 76px; }
+  .planner-shell .planner-focus-pane .time-readout { font-size: 30px; }
+  .planner-shell .focus-duration-options button { font-size: 10px; padding-inline: 2px; }
+}
+@media (pointer: coarse) {
+  .app-shell.polished-shell.planner-shell :is(.button-primary, .button-secondary, .button-quiet, .icon-button, .planner-search-button, .sidebar-settings, .daily-view-switch button, .focus-duration-options button, .time-inline-link, .daily-options > summary) { min-height: 44px; }
+  .app-shell.polished-shell.planner-shell :is(input:not([type="checkbox"]), select) { min-height: 44px; }
+  .app-shell.polished-shell.planner-shell .icon-button { width: 44px; min-width: 44px; }
+  .app-shell.polished-shell.planner-shell .planner-day .date-switch .icon-button { width: 44px; height: 44px; min-height: 44px; }
+  .app-shell.polished-shell.planner-shell .planner-day .date-switch input,
+  .app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-add-actions > .button-primary,
+  .app-shell.polished-shell.planner-shell .planner-focus-pane .time-actions button,
+  .app-shell.polished-shell.planner-shell .planner-focus-pane .focus-duration-options button,
+  .app-shell.polished-shell.planner-shell .planner-focus-pane .time-history > summary { min-height: 44px; }
+  .app-shell.polished-shell.planner-shell .planner-day .task-row-details > summary,
+  .app-shell.polished-shell.planner-shell .planner-day .daily-options > summary,
+  .app-shell.polished-shell.planner-shell .filter-group button { min-height: 44px; min-width: 44px; }
+  .app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button { min-width: 44px; }
+  .app-shell.polished-shell.planner-shell :is(.quick-task-quantity, .quick-task-note) > summary { min-height: 44px; padding-block: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .planner-shell *, .planner-shell *::before, .planner-shell *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

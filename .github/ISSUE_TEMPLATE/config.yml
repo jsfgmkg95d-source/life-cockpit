@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Usage guide / 使用指南
+    url: https://github.com/jsfgmkg95d-source/life-cockpit/blob/main/docs/quickstart.md
+    about: Start here for installation, first use and backups.

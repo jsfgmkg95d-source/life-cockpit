@@ -1,0 +1,15 @@
+node_modules/
+dist/
+data/
+backups/
+.runtime/
+output/
+tmp/
+release/
+test-results/
+*.tsbuildinfo
+*.log
+*.sqlite*
+.env
+.env.*
+!.env.example

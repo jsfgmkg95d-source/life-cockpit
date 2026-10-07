@@ -1,0 +1,29 @@
+name: Windows build and tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '24.16.0'
+          cache: npm
+      - run: npm ci
+      - run: node node_modules/electron/install.js
+      - run: npm run check:public
+      - run: npm run build
+      - run: npm test
+      - run: npm run test:desktop
+      - run: npm run desktop:build
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: life-cockpit-windows-x64
+          path: release/windows/
+          retention-days: 7

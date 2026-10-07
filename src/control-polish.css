@@ -1,0 +1,517 @@
+/* Shared controls: quiet surfaces, clear states, one deliberate accent. */
+:root {
+  --control-ink: #202522;
+  --control-muted: #626b64;
+  --control-line: #dfe4df;
+  --control-accent: #345f4b;
+  --control-focus: #46765f;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(button, a, input, select, textarea, summary) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(button, a, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--control-focus);
+  outline-offset: 3px;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.button-primary, .button-secondary, .button-quiet, .icon-button) {
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-decoration: none;
+  transition: background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease, color 140ms ease;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.button-primary, .button-secondary) {
+  min-height: 38px;
+  padding: 9px 14px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .button-primary {
+  border-color: var(--control-accent);
+  background: var(--control-accent);
+  color: #fff;
+  box-shadow: 0 1px 2px #14261b14, inset 0 1px #ffffff0d;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .button-primary:hover:not(:disabled) {
+  background: #2c513f;
+  border-color: #2c513f;
+  box-shadow: 0 2px 5px #14261b18;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .button-primary:active:not(:disabled) {
+  background: #254534;
+  border-color: #254534;
+  box-shadow: inset 0 1px 2px #14261b20;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .button-secondary {
+  border-color: var(--control-line);
+  background: #fff;
+  color: #39433d;
+  box-shadow: 0 1px 2px #20252206;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .button-secondary:hover:not(:disabled) {
+  border-color: #cdd5ce;
+  background: #f5f7f4;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .button-secondary:active:not(:disabled) {
+  background: #edf1ec;
+  border-color: #c7d1c8;
+  box-shadow: inset 0 1px 2px #20252208;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.button-quiet, .icon-button) {
+  color: #626d65;
+  background: transparent;
+  box-shadow: none;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.button-quiet, .icon-button):hover:not(:disabled) {
+  color: #2c4537;
+  background: #eef2ed;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.button-quiet, .icon-button):active:not(:disabled) {
+  background: #e5ece4;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) button:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .button-primary:disabled {
+  background: #e6ebe6;
+  border-color: #e0e5df;
+  color: #68756b;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.button-secondary, .button-quiet, .icon-button):disabled {
+  background: #f5f7f4;
+  border-color: #e6eae4;
+  color: #737b74;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  min-width: 0;
+  min-height: 40px;
+  border: 1px solid var(--control-line);
+  border-radius: 8px;
+  background-color: #fff;
+  color: var(--control-ink);
+  font-size: 13px;
+  line-height: 1.55;
+  padding: 10px 12px;
+  box-shadow: 0 1px 2px #20252203;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(input, textarea)::placeholder {
+  color: #7e877f;
+  opacity: 1;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(input, select, textarea):hover:not(:disabled):not(:focus) {
+  border-color: #c6d0c7;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(input, select, textarea):focus {
+  border-color: var(--control-focus);
+  box-shadow: 0 0 0 3px #46765f12;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(input, select, textarea):disabled {
+  color: #69726b;
+  background-color: #f4f6f3;
+  border-color: #e5e9e2;
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(input, select, textarea)[aria-invalid="true"] {
+  border-color: #b66452;
+  box-shadow: 0 0 0 3px #b664520e;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(input[type="checkbox"], input[type="radio"]) {
+  accent-color: var(--control-accent);
+  width: 15px;
+  min-width: 15px;
+  height: 15px;
+  margin-top: 3px;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .checkbox-label {
+  color: #536157;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .field {
+  gap: 7px;
+  min-width: 0;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.field-label, .field > span:first-child) {
+  color: #4e5a52;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.field-hint, .field > small, .field-label small) {
+  color: var(--control-muted);
+  font-size: 12px;
+  line-height: 1.75;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.polished-shell .search input {
+  padding-left: 34px;
+}
+
+.polished-shell .search svg {
+  top: 13px;
+}
+
+.modal,
+.modal.day-modal,
+.modal.day-modal-wide,
+.modal.day-modal.quick-task-modal,
+.restore-dialog {
+  border: 1px solid #e0e6df;
+  border-radius: 18px;
+  background: #fff;
+  color: var(--control-ink);
+  max-width: calc(100vw - 24px);
+  max-height: min(88vh, calc(100dvh - 48px));
+  box-shadow: 0 32px 90px #17211b2e, 0 6px 20px #17211b12;
+  font-family: "Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+}
+
+.modal::backdrop,
+.restore-dialog::backdrop {
+  background: #17211b70;
+  backdrop-filter: none;
+}
+
+.modal[open] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal > form,
+.modal.day-modal > form,
+.modal.day-modal.quick-task-modal > form {
+  min-height: 0;
+  flex: 1 1 auto;
+  max-height: none;
+  overflow: hidden;
+}
+
+.modal .modal-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid #e9ede7;
+  background: #fff;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.modal .modal-header > div {
+  min-width: 0;
+}
+
+.modal .modal-header h2 {
+  color: var(--control-ink);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -.4px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.modal .modal-header p {
+  color: var(--control-muted);
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+
+.modal .modal-header .icon-button {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0 -5px 0 0;
+  padding: 6px;
+}
+
+.modal .modal-content {
+  min-height: 0;
+  padding: 25px 28px 24px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #ccd6cc transparent;
+}
+
+.modal .modal-footer {
+  padding: 18px 28px;
+  gap: 10px;
+  background: #fbfcfa;
+  border-top: 1px solid #e9ede7;
+  flex-wrap: wrap;
+}
+
+.modal .modal-footer .save-note {
+  color: #6b766d;
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: normal;
+}
+
+.modal .form-grid {
+  column-gap: 20px;
+  min-width: 0;
+}
+
+.modal .form-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #59665d;
+  letter-spacing: .3px;
+  padding-bottom: 10px;
+  margin: 12px 0 20px;
+  border-color: #e7ece5;
+}
+
+.modal :is(.finish-task p, .finish-result > p, .finish-evidence p, .day-subtle) {
+  color: var(--control-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.modal .finish-task h3 {
+  font-size: 17px;
+  font-weight: 550;
+  color: var(--control-ink);
+  line-height: 1.6;
+}
+
+.modal.day-modal:has(.finish-actions) {
+  width: min(580px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+}
+
+.modal .finish-result > strong {
+  color: #26382c;
+  font-size: 36px;
+  letter-spacing: -1px;
+}
+
+.modal .finish-result > strong > span {
+  color: #637064;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+.modal .finish-result-choices {
+  gap: 10px;
+}
+
+.modal .finish-result-choices button {
+  background: #fff;
+  color: #4f5c53;
+  border: 1px solid #dfe6dd;
+  border-radius: 10px;
+  font-size: 14px;
+  min-height: 50px;
+  padding: 13px 14px;
+}
+
+.modal .finish-result-choices button:hover:not(:disabled) {
+  background: #f5f8f3;
+  border-color: #b9caba;
+}
+
+.modal .finish-result-choices button.selected {
+  background: #eff5ee;
+  border-color: var(--control-accent);
+  color: #2c543c;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px var(--control-accent);
+}
+
+.modal :is(.finish-optional, .quick-task-quantity) {
+  border-color: #e7ece5;
+}
+
+.modal :is(.finish-optional, .quick-task-quantity, .quick-task-note) > summary {
+  color: #5a695f;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.modal :is(.quick-task-note p, .quick-task-shared small, .quick-task-preview span, .quick-task-preview p, .quick-resume small) {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--control-muted);
+}
+
+.modal :is(.quick-task-shared, .quick-task-preview) {
+  background: #f4f7f2;
+  border-color: #e0e8db;
+  color: #53664e;
+  border-radius: 10px;
+}
+
+.modal .quick-resume {
+  color: #785b34;
+  background: #fbf7ef;
+  border-color: #eadfc9;
+  border-radius: 10px;
+}
+
+.modal .finish-actions > .button-quiet {
+  color: #526257;
+  font-size: 13px;
+  min-height: 40px;
+  padding: 9px 11px;
+}
+
+:is(.polished-shell, .modal, .restore-dialog, .setup-page) .inline-error {
+  background: #fdf5f1;
+  border: 1px solid #e9d2c9;
+  color: #8a4939;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.8;
+  padding: 13px 16px;
+  overflow-wrap: anywhere;
+}
+
+.polished-shell .toast {
+  padding: 13px 18px;
+  max-width: min(480px, calc(100vw - 32px));
+  background: #263f31;
+  border: 1px solid #3b5741;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  box-shadow: 0 12px 36px #1a2b2426, 0 2px 6px #1a2b2414;
+  overflow-wrap: anywhere;
+}
+
+.restore-dialog h2 {
+  color: var(--control-ink);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -.3px;
+  margin-bottom: 16px;
+}
+
+.restore-dialog :is(p, li) {
+  color: #59665e;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.restore-dialog .restore-scope {
+  background: #fbf7ef;
+  border-color: #eadfc9;
+}
+
+.restore-dialog .restore-scope p,
+.restore-dialog .restore-warnings li {
+  color: #795b32;
+}
+
+@media (max-width: 600px) {
+  .modal,
+  .modal.day-modal,
+  .modal.day-modal-wide,
+  .modal.day-modal.quick-task-modal,
+  .restore-dialog {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    border-radius: 14px;
+    max-height: calc(100dvh - 24px);
+  }
+
+  .modal .modal-header {
+    padding: 20px 20px 17px;
+    gap: 10px;
+  }
+
+  .modal .modal-header h2 {
+    font-size: 19px;
+  }
+
+  .modal .modal-content {
+    padding: 22px 20px;
+  }
+
+  .modal .modal-footer {
+    padding: 16px 20px;
+    gap: 8px;
+  }
+
+  .modal .modal-footer :is(.button-primary, .button-secondary, .button-quiet) {
+    white-space: normal;
+    min-width: 0;
+  }
+
+  .modal .modal-footer .save-note {
+    flex-basis: 100%;
+    min-width: 0;
+  }
+
+  .modal .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .modal .span-two {
+    grid-column: auto;
+  }
+
+  .modal .quick-task-budget {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .modal .quick-task-shared {
+    grid-column: auto;
+  }
+}
+
+@media (pointer: coarse) {
+  :is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(.button-primary, .button-secondary, .button-quiet, .icon-button) {
+    min-height: 44px;
+  }
+
+  .modal .modal-header .icon-button {
+    flex-basis: 40px;
+    width: 40px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.polished-shell, .modal, .restore-dialog, .setup-page) :is(button, a, input, select, textarea) {
+    transition: none;
+  }
+}

@@ -1,0 +1,455 @@
+/* Theme palettes are also used by the small previews in the theme picker. */
+html[data-theme="ice"], .theme-preview[data-theme="ice"] {
+  color-scheme: light;
+  --theme-canvas: #f5f7ff;
+  --theme-surface: #fff;
+  --theme-sidebar: #edf0fc;
+  --theme-ink: #202a46;
+  --theme-muted: #5d6981;
+  --theme-line: #dce2f3;
+  --theme-soft: #edf1fc;
+  --theme-accent: #6556d8;
+  --theme-action: #6556d8;
+  --theme-action-hover: #5748c4;
+  --theme-on-action: #fff;
+  --theme-success: #247456;
+  --theme-pending: #70569d;
+  --theme-unmet: #a04d41;
+  --theme-warning: #856015;
+  --theme-danger: #b64351;
+  --theme-disabled: #8791aa;
+  --theme-shadow: 0 3px 18px #35406808;
+  --theme-dialog-shadow: 0 18px 80px #19234130;
+  --theme-backdrop: #17203c70;
+}
+html[data-theme="peach"], .theme-preview[data-theme="peach"] {
+  color-scheme: light;
+  --theme-canvas: #fff7f3;
+  --theme-surface: #fffefc;
+  --theme-sidebar: #f8eae3;
+  --theme-ink: #3d2926;
+  --theme-muted: #7c655f;
+  --theme-line: #eedbd2;
+  --theme-soft: #fff0e8;
+  --theme-accent: #b04436;
+  --theme-action: #ec8c7c;
+  --theme-action-hover: #e88070;
+  --theme-on-action: #3d2926;
+  --theme-success: #347254;
+  --theme-pending: #7357a2;
+  --theme-unmet: #a04d41;
+  --theme-warning: #8d6125;
+  --theme-danger: #b04436;
+  --theme-disabled: #a28b83;
+  --theme-shadow: 0 3px 18px #6f382609;
+  --theme-dialog-shadow: 0 18px 80px #492d2730;
+  --theme-backdrop: #3d292665;
+}
+html[data-theme="midnight"], .theme-preview[data-theme="midnight"] {
+  color-scheme: dark;
+  --theme-canvas: #111524;
+  --theme-surface: #1c2236;
+  --theme-sidebar: #151b2c;
+  --theme-ink: #edf1fc;
+  --theme-muted: #a9b3cb;
+  --theme-line: #343c53;
+  --theme-soft: #232a42;
+  --theme-accent: #a6a1ff;
+  --theme-action: #a6a1ff;
+  --theme-action-hover: #b7b3ff;
+  --theme-on-action: #111524;
+  --theme-success: #6ed9ae;
+  --theme-pending: #b6a4e4;
+  --theme-unmet: #eeae9c;
+  --theme-warning: #efc58b;
+  --theme-danger: #ffadaf;
+  --theme-disabled: #7f89a4;
+  --theme-shadow: 0 3px 18px #05081726;
+  --theme-dialog-shadow: 0 18px 80px #03051080;
+  --theme-backdrop: #030611a6;
+}
+html[data-theme], .theme-preview[data-theme] {
+  --theme-accent-soft: color-mix(in srgb, var(--theme-action) 12%, var(--theme-surface));
+  --theme-success-soft: color-mix(in srgb, var(--theme-success) 10%, var(--theme-surface));
+  --theme-pending-soft: color-mix(in srgb, var(--theme-pending) 12%, var(--theme-surface));
+  --theme-unmet-soft: color-mix(in srgb, var(--theme-unmet) 11%, var(--theme-surface));
+  --theme-warning-soft: color-mix(in srgb, var(--theme-warning) 11%, var(--theme-surface));
+  --theme-danger-soft: color-mix(in srgb, var(--theme-danger) 10%, var(--theme-surface));
+  --theme-focus: color-mix(in srgb, var(--theme-accent) 23%, transparent);
+  --theme-selected-line: color-mix(in srgb, var(--theme-accent) 50%, var(--theme-line));
+}
+
+/* Map earlier component vocabularies here, including variables defined on the shell. */
+html[data-theme], html[data-theme] .app-shell.polished-shell.planner-shell,
+html[data-theme] :is(.modal, .restore-dialog, .setup-page) {
+  --paper: var(--theme-surface);
+  --surface: var(--theme-surface);
+  --ink: var(--theme-ink);
+  --text: var(--theme-ink);
+  --muted: var(--theme-muted);
+  --line: var(--theme-line);
+  --border: var(--theme-line);
+  --green: var(--theme-accent);
+  --pale: var(--theme-accent-soft);
+  --danger: var(--theme-danger);
+  --ui-ink: var(--theme-ink);
+  --ui-muted: var(--theme-muted);
+  --ui-line: var(--theme-line);
+  --ui-soft: var(--theme-soft);
+  --ui-accent: var(--theme-accent);
+  --ui-shadow: var(--theme-shadow);
+  --control-ink: var(--theme-ink);
+  --control-muted: var(--theme-muted);
+  --control-line: var(--theme-line);
+  --control-accent: var(--theme-accent);
+  --control-focus: var(--theme-accent);
+  --planner-warm: var(--theme-canvas);
+  --planner-ink: var(--theme-ink);
+  --planner-muted: var(--theme-muted);
+  --planner-line: var(--theme-line);
+  --planner-accent: var(--theme-action);
+  --planner-accent-hover: var(--theme-action-hover);
+  --cockpit-canvas: var(--theme-canvas);
+  --cockpit-line: var(--theme-line);
+  --cockpit-soft: var(--theme-soft);
+  --vital-green: var(--theme-success);
+  --vital-green-bright: var(--theme-success);
+  --vital-green-ink: var(--theme-success);
+  --vital-green-soft: var(--theme-success-soft);
+  --vital-coral: var(--theme-unmet);
+  --vital-coral-soft: var(--theme-unmet-soft);
+  --vital-purple: var(--theme-pending);
+  --vital-purple-soft: var(--theme-pending-soft);
+  --graphic-blue: var(--theme-accent);
+  --graphic-purple: var(--theme-pending);
+  --graphic-teal: var(--theme-success);
+  --graphic-gold: var(--theme-warning);
+  --board-blue: var(--theme-accent);
+  --board-green: var(--theme-success);
+  --board-amber: var(--theme-unmet);
+  --board-muted: var(--theme-muted);
+  --time-accent: var(--theme-accent);
+  --time-ink: var(--theme-ink);
+  --time-muted: var(--theme-muted);
+  --time-line: var(--theme-line);
+  --harvest-ink: var(--theme-success);
+  --harvest-gold: var(--theme-warning);
+  --harvest-light: var(--theme-success-soft);
+}
+html[data-theme], html[data-theme] body,
+html[data-theme] .app-shell.polished-shell.planner-shell {
+  background: var(--theme-canvas);
+  color: var(--theme-ink);
+}
+html[data-theme] ::selection { color: var(--theme-on-action); background: var(--theme-action); }
+
+/* Shell and navigation. */
+html[data-theme] .app-shell.polished-shell.planner-shell .sidebar { background: var(--theme-sidebar); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.workspace, .main) { background: var(--theme-canvas); }
+html[data-theme] .app-shell.polished-shell.planner-shell .topbar { background: var(--theme-surface); color: var(--theme-muted); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.brand-name, .topbar .breadcrumb strong) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.brand-subtitle, .brand small, .nav-label, .sidebar-bottom, .sidebar-settings, .local-indicator, .eyebrow, .build-tag) { color: var(--theme-muted); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .sidebar .brand-mark { color: var(--theme-accent); background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .nav button { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .nav button svg { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .nav button:hover { background: var(--theme-soft); color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell .nav button.active { color: var(--theme-accent); background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .nav button.active svg { color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .sidebar .sidebar-settings.active { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .nav button .nav-count { background: transparent; color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.status-dot, .local-indicator i) { background: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.planner-search-button, .build-tag) { color: var(--theme-muted); background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-search-button:hover { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-selected-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-search-button kbd { color: var(--theme-muted); background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .global-focus-bar { color: var(--theme-muted); background: var(--theme-accent-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .global-focus-bar :is(strong, time, .global-focus-duration) { color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .global-focus-context span { color: var(--theme-muted); }
+
+/* Controls also cover native dialogs and first-run screens outside the shell. */
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) { color: var(--theme-ink); background-color: var(--theme-surface); border-color: var(--theme-line); box-shadow: none; }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea):focus { border-color: var(--theme-accent); box-shadow: 0 0 0 3px var(--theme-focus); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea):hover:not(:disabled):not(:focus) { border-color: var(--theme-selected-line); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea):disabled { color: var(--theme-disabled); background-color: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(input, textarea)::placeholder { color: var(--theme-muted); opacity: 1; }
+html[data-theme] :is(input[type="checkbox"], input[type="radio"]) { accent-color: var(--theme-action); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea)[aria-invalid="true"] { border-color: var(--theme-danger); box-shadow: 0 0 0 3px var(--theme-danger-soft); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(.button-primary) { color: var(--theme-on-action); background: var(--theme-action); border-color: var(--theme-action); box-shadow: none; }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-actions > .button-primary { color: var(--theme-on-action); background: var(--theme-action); border-color: var(--theme-action); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) .button-primary:hover:not(:disabled),
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-actions > .button-primary:hover:not(:disabled) { color: var(--theme-on-action); background: var(--theme-action-hover); border-color: var(--theme-action-hover); box-shadow: none; }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) .button-primary:active:not(:disabled) { color: var(--theme-on-action); background: var(--theme-action-hover); border-color: var(--theme-action-hover); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) .button-secondary { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); box-shadow: none; }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) .button-secondary:hover:not(:disabled) { color: var(--theme-accent); background: var(--theme-soft); border-color: var(--theme-selected-line); box-shadow: none; }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(.button-quiet, .icon-button) { color: var(--theme-muted); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(.button-quiet, .icon-button):hover:not(:disabled) { color: var(--theme-accent); background: var(--theme-accent-soft); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(.button-primary, .button-secondary, .button-quiet, .icon-button):disabled { color: var(--theme-disabled); background: var(--theme-soft); border-color: var(--theme-line); box-shadow: none; }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-actions > .button-primary:disabled { color: var(--theme-disabled); background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(button, summary, a):focus-visible { outline-color: var(--theme-accent); box-shadow: 0 0 0 3px var(--theme-focus); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.main, .sidebar, .topbar) :is(.field-label, .field > span:first-child, .checkbox-label) { color: var(--theme-ink); }
+html[data-theme] :is(.modal, .restore-dialog, .setup-page) :is(.field-label, .checkbox-label) { color: var(--theme-ink); }
+
+/* Text hierarchy is scoped to named reading surfaces, without changing state colors. */
+html[data-theme] .app-shell.polished-shell.planner-shell .main :is(h1, h2, h3, h4, .overview-value, .day-summary-number strong, .project-name, .milestone-text, .detail-dl dd, .metric-totals strong) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell .main :is(.page-heading p, .planner-day-heading p, .planner-day-heading .eyebrow, .day-subtle, .field-hint, .field small, .save-note, .day-summary p, .day-summary-number > span, .day-filter, .detail-caption, .list-caption, .project-subtitle, .role-label, .budget-cell, .budget-cell small, .detail-heading p, .detail-section h3, .detail-dl dt, .project-note p, .unrecorded, .overview-label, .overview-note, .overview-value small) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.loading-screen, .empty-state, .day-empty, .schedule-empty, .insights-loading, .cockpit-project-empty, .first-run-recovery > p) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.empty-state h2, .day-empty h3, .schedule-empty strong, .cockpit-project-empty h3) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.day-empty, .day-summary, .day-block, .day-prepare, .planner-personal, .daily-extra, .dashboard, .cockpit-insights, .vital-insights, .cockpit-projects, .project-list, .detail-panel, .score-panel, .report-panel, .growth-panel, .focus-bridge, .life-controller, .life-focus-disclosure, .secondary-panel, .github-panel, .settings-section) { color: var(--theme-ink); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.vital-insights, .cockpit-projects, .project-list, .detail-panel, .dashboard, .score-panel, .report-panel, .growth-panel, .focus-bridge, .life-controller, .life-focus-disclosure, .secondary-panel, .github-panel) { background: var(--theme-surface); box-shadow: var(--theme-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .planner-task-surface { background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .task-board-shell.task-list-shell { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day > :is(.planner-personal, .daily-extra) { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.day-empty, .cockpit-cards > div, .metric-totals li, .dimensions-grid > div, .plan-task-editor, .result-evidence, .plan-history > details, .change-preview, .reuse-plan, .score-evidence, .growth-coverage, .backup-path, .quick-task-preview, .quick-task-shared, .confirmation-check) { background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.overview-line, .overview-item, .detail-section, .project-row, .project-day-task, .settings-section, .budget-list > div, .event-item, .event-history > div, .finish-section, .history-task, .plan-time-budget, .day-section, .daily-command-bar, .daily-extra, .dashboard-details, .growth-project, .growth-followup > div, .score-details, .score-history-item, .score-table th, .score-table td, .time-review, .review-checkline, .inbox-row, .inbox-archived, .inbox-arrange-date, .inbox-capture-options) { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.project-note, .project-day-label, .project-day-task p, .event-topline, .event-actions > span, .event-history, .event-history small, .task-main p, .task-project, .task-meta, .block-heading p, .block-index, .plan-task-preview, .plan-budget-summary, .history-block, .history-task p, .history-task small, .result-evidence p, .result-evidence > div, .change-preview p, .change-preview del) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.project-note strong, .project-day-detail > strong, .change-preview strong, .plan-task-editor > header strong, .day-state-label) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.secondary-panel, .github-panel, .daily-extra, .planner-personal, .plan-task-editor, .plan-time-budget, .plan-history) > summary { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.github-body a, .life-link, .life-practice-open, .project-note > svg) { color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.quiet-note, .acceptance-quote, .latest-notice, .report-suggestion, .adoption-form) { color: var(--theme-muted); background: var(--theme-soft); border-color: var(--theme-line); }
+
+/* Homepage metrics, draft and project cards. */
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day-metrics > div { --metric-accent: var(--theme-accent); --metric-tint: var(--theme-accent-soft); background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day-metrics > div:nth-child(2) { --metric-accent: var(--theme-unmet); --metric-tint: var(--theme-unmet-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day-metrics > div:nth-child(3) { --metric-accent: var(--theme-success); --metric-tint: var(--theme-success-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day-metrics > div:nth-child(4) { --metric-accent: var(--theme-pending); --metric-tint: var(--theme-pending-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day-metrics :is(strong, strong small) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day-metrics span { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day-metrics .metric-icon { color: var(--metric-accent); background: var(--metric-tint); border-color: color-mix(in srgb, var(--metric-accent) 20%, transparent); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.draft-preview-kicker, .draft-project-name, .draft-source-note, .day-prepare .draft-source-note, .day-draft-card p, .day-draft-card small, .day-draft-card small > span, .day-prepare-footer p, .draft-preview-more > summary) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .day-draft-card { background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .day-draft-card :is(h3, strong) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.draft-preview-badge, .draft-task-number) { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .day-prepare-footer { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card { --project-accent: var(--theme-accent); --project-tint: var(--theme-accent-soft); background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card.role-cashflow { --project-accent: var(--theme-success); --project-tint: var(--theme-success-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card.role-growth { --project-accent: var(--theme-unmet); --project-tint: var(--theme-unmet-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card.role-future_asset { --project-accent: var(--theme-pending); --project-tint: var(--theme-pending-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card.role-maintenance { --project-accent: var(--theme-accent); --project-tint: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card:hover { background: var(--theme-soft); border-color: var(--theme-selected-line); box-shadow: var(--theme-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card:focus-within { border-color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card .cockpit-project-emblem { color: var(--project-accent); background: var(--project-tint); border-color: color-mix(in srgb, var(--project-accent) 20%, transparent); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.cockpit-projects-heading p, .cockpit-projects-heading span, .cockpit-project-card > p, .cockpit-project-card > p strong, .cockpit-project-meta, .cockpit-project-meta > span:first-child) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-meta > span { background: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card > button.cockpit-project-action { color: var(--theme-accent); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .cockpit-project-card > button.cockpit-project-action:hover:not(:disabled) { color: var(--theme-accent); background: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.cockpit-projects-heading h2 > svg, .cockpit-project-empty > svg, .insights-loading > svg) { color: var(--theme-accent); border-color: var(--theme-line); background: transparent; }
+
+/* Results remain distinct from work status and unknown outcomes. */
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button { color: var(--theme-muted); background: transparent; }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button:hover { color: var(--theme-accent); background: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button[aria-pressed="true"] { color: var(--theme-accent); border-bottom-color: var(--theme-action); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .date-switch { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .date-switch input { color: var(--theme-ink); background: transparent; }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day :is(.task-list-summary, .task-list-count, .task-list-meta, .task-row-project, .task-row-project > span, .task-row-acceptance, .task-row-time, .task-row-time span, .task-row-result strong > span, .task-row-outcome, .task-row-action, .task-row-details, .task-row-details > summary, .task-row-details p, .task-list-closed > summary, .task-list-shell .board-time > summary) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day :is(.task-list-summary strong, .task-row h4, .task-row-result strong) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day :is(.task-row, .task-list-summary, .task-list-closed, .task-list-shell .board-time) { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .task-row-mark { color: var(--theme-muted); background: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .state-doing .task-row-mark { color: var(--theme-accent); background: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .outcome-achieved :is(.task-row-mark, .task-row-outcome) { color: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day :is(.outcome-unmet, .outcome-partial) .task-row-outcome { color: var(--theme-unmet); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .state-review .task-row-mark { color: var(--theme-pending); background: var(--theme-pending-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .task-row-actions .task-row-action { color: var(--theme-muted); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .task-row-actions .task-row-action:hover:not(:disabled) { color: var(--theme-accent); background: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .task-focus-action { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-selected-line); box-shadow: none; }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .task-focus-action:hover:not(:disabled) { color: var(--theme-accent); background: var(--theme-soft); border-color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-day .task-row.is-search-target { background: var(--theme-accent-soft); border-color: var(--theme-selected-line); box-shadow: 0 0 0 2px var(--theme-selected-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.task-row-track, .board-track, .overview-segment, .trend-track) { background: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.task-row-track > span, .board-track > span, .overview-segment.achieved, .trend-track > span) { background: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell .overview-segment.doing { background: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .overview-segment.attention { background: var(--theme-pending); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.board-unknown, .overview-segment.cancelled) { background: repeating-linear-gradient(110deg, var(--theme-line) 0 4px, var(--theme-soft) 4px 7px); }
+html[data-theme] .app-shell.polished-shell.planner-shell .board-card { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.board-status, .board-state-icon, .board-group-heading h3 > span) { color: var(--theme-muted); background: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.board-status.status-doing, .state-doing .board-state-icon) { color: var(--theme-accent); background: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.board-status.status-review, .state-review .board-state-icon) { color: var(--theme-pending); background: var(--theme-pending-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .board-status.status-cancelled { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.outcome-achieved .board-state-icon, .result-state.confirmed) { color: var(--theme-success); background: var(--theme-success-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.outcome-unmet, .outcome-partial) .board-state-icon { color: var(--theme-unmet); background: var(--theme-unmet-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .daily-options > div { background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-dialog-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .daily-filter-chip .button-quiet { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-line); }
+
+/* Main completion card and the Odette portraits. */
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.vital-kicker, .vital-progress-copy > p, .vital-task-preview small, .vital-ring-caption > small, .vital-ring-caption > strong > span, .vital-result-legend > span, .vital-time-caption, .vital-time-caption > span:last-child, .vital-footprints header > span, .vital-footprint-detail, .vital-result small, .vital-result div > span) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.vital-progress-copy h3, .vital-ring-caption > strong, .vital-ring-caption > strong.vital-ring-word, .vital-task-preview strong, .vital-footprints h3, .vital-result h4) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.vital-kicker > svg, .vital-footprints h3 > svg) { color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-ring-track { stroke: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-ring-achieved { stroke: var(--theme-action); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-ring-unmet { stroke: var(--theme-unmet); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-ring .vital-ring-pending { stroke: var(--theme-pending); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.vital-confirmation-label, .vital-odette-label, .vital-task-mark, .vital-result-emblem) { color: var(--theme-pending); background: var(--theme-pending-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-task-preview .is-achieved .vital-task-mark { color: var(--theme-success); background: var(--theme-success-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-task-preview .is-unmet .vital-task-mark { color: var(--theme-unmet); background: var(--theme-unmet-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-result-legend .is-achieved i { background: var(--theme-action); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-result-legend .is-unmet i { background: var(--theme-unmet); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-result-legend .is-pending i { background: transparent; border-color: var(--theme-pending); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.vital-progress-prompt, .vital-time-caption) { background: var(--theme-soft); color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.vital-progress-prompt > svg, .vital-time-caption > svg) { color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-footprints { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-footprint { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-footprint:hover { background: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-footprint[aria-pressed="true"] { color: var(--theme-ink); background: var(--theme-accent-soft); border-color: var(--theme-selected-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-footprint.is-future { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-result { background: var(--theme-pending-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-result:nth-child(2) { background: var(--theme-unmet-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .vital-result:nth-child(2) .vital-result-emblem { color: var(--theme-unmet); background: var(--theme-unmet-soft); }
+html[data-theme] .odette-portrait { --odette-tint: var(--theme-pending-soft); }
+html[data-theme] :is(.odette-happy, .odette-ecstatic) { --odette-tint: var(--theme-success-soft); }
+html[data-theme] .odette-sad { --odette-tint: var(--theme-unmet-soft); }
+html[data-theme] .odette-resting { --odette-tint: var(--theme-warning-soft); }
+
+/* Timer: a real clock face, with theme colors applied to SVG paint as well. */
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-cockpit { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-cockpit.is-running { background: var(--theme-surface); border-color: var(--theme-selected-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane :is(.time-heading h2, .time-readout, .time-accumulation strong, .time-timeline strong) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane :is(.time-state, .time-dial > span, .time-kicker, .time-context, .time-hint, .focus-target-hint, .time-block-choice > span, .time-accumulation span, .time-compound > span, .time-history > summary, .time-history > summary > span, .time-history-note, .time-empty, .time-forgot > summary, .time-forgot p, .time-timeline li > div > span) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-state i { background: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .is-running .time-state i { background: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-rim { fill: var(--theme-surface); stroke: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock text { fill: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-tick { stroke: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-hour-tick { stroke: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-hour { stroke: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-minute { stroke: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-second { stroke: var(--theme-pending); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-second.running { stroke: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-center { fill: var(--theme-ink); stroke: var(--theme-surface); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane :is(.focus-duration-options, .time-entry-icon) { color: var(--theme-accent); background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .focus-duration-options button { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .focus-duration-options button[aria-pressed="true"] { color: var(--theme-accent); background: var(--theme-surface); border-color: var(--theme-selected-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane :is(.time-accumulation, .time-history, .time-timeline > li) { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-compound .time-inline-link,
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-focus-pane .time-inline-link { color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.time-notice, .focus-bridge-feedback) { color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .time-existing-check { color: var(--theme-muted); }
+
+/* Calendar faces keep their own gentle semantic backgrounds in every theme. */
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-month-heading h1, .harvest-month-stats strong, .harvest-detail h3, .harvest-detail-progress strong, .harvest-detail-totals li > strong, .harvest-detail-date) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-month-heading > div > span, .harvest-month-heading h1 small, .harvest-month-stats strong small, .harvest-month-stats span, .harvest-month-stats p, .harvest-weekdays, .harvest-date-caption, .harvest-detail-date > span, .harvest-detail-message, .harvest-detail-progress > span, .harvest-detail-progress > small, .harvest-detail-totals li > span, .harvest-detail-totals span small, .harvest-footnote, .harvest-legend) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-month-stats, .harvest-detail-totals li) { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-date, .harvest-detail) { color: var(--theme-muted); background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-date, .harvest-detail)[data-mood="happy"],
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-date, .harvest-detail)[data-mood="ecstatic"] { background: var(--theme-success-soft); border-color: color-mix(in srgb, var(--theme-success) 25%, var(--theme-line)); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-date, .harvest-detail)[data-mood="sad"] { background: var(--theme-unmet-soft); border-color: color-mix(in srgb, var(--theme-unmet) 25%, var(--theme-line)); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-date, .harvest-detail)[data-mood="encouraging"] { background: var(--theme-pending-soft); border-color: color-mix(in srgb, var(--theme-pending) 25%, var(--theme-line)); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.harvest-date, .harvest-detail)[data-mood="resting"] { background: var(--theme-warning-soft); border-color: color-mix(in srgb, var(--theme-warning) 25%, var(--theme-line)); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-date.tone-future { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-month-panel { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-date:hover { border-color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-date.is-today { border-color: var(--theme-warning); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-date.is-selected { border-color: var(--theme-accent); box-shadow: inset 0 0 0 1.5px var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-date-number i { background: var(--theme-warning); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-detail-art { background: transparent; }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-detail-progress > div { background: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-detail-progress i { background: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-detail-note { color: var(--theme-warning); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-reward { background: var(--theme-success-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-reward[data-mood="sad"] { background: var(--theme-unmet-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-reward[data-mood="encouraging"] { background: var(--theme-pending-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-reward-copy > strong { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell .harvest-reward-copy > p { color: var(--theme-muted); }
+
+/* Projects, capture and time planning. */
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.list-head, .detail-top, .detail-actions) { color: var(--theme-muted); background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .project-row { background: var(--theme-surface); }
+html[data-theme] .app-shell.polished-shell.planner-shell .project-row:hover { background: var(--theme-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .project-row.selected { background: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .project-row.selected::before { background: var(--theme-action); }
+html[data-theme] .app-shell.polished-shell.planner-shell .project-icon { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .filter-group button { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .filter-group button.selected { color: var(--theme-accent); background: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .status-pill { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .status-pill::before { background: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .status-pill.active { color: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell .status-pill.active::before { background: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell .status-pill.paused::before { background: var(--theme-warning); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.inbox-count, .inbox-capture) { background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell .inbox-capture:focus-within { border-color: var(--theme-accent); box-shadow: 0 0 0 3px var(--theme-focus); }
+html[data-theme] .app-shell.polished-shell.planner-shell .inbox-capture-main textarea { color: var(--theme-ink); background: transparent; }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.inbox-count, .inbox-meta, .inbox-arrange-date, .inbox-arrange-date > p, .inbox-capture-options > summary, .inbox-archived > summary, .inbox-archived .inbox-copy h3, .inbox-meta span + span::before) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-lanes { background: repeating-linear-gradient(to bottom, var(--theme-line) 0, var(--theme-line) 1px, transparent 1px, transparent 64px); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-lane { background: color-mix(in srgb, var(--theme-surface) 55%, transparent); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.schedule-legend, .schedule-hour, .schedule-lane-label, .schedule-footnote, .schedule-detail-row span, .schedule-task-row span, .schedule-task-row small, .schedule-details > summary) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.schedule-block, .schedule-legend .planned) { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-selected-line); border-left-color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-block :is(strong, span, small) { color: var(--theme-accent); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.schedule-block.actual, .schedule-legend .actual) { color: var(--theme-success); background: var(--theme-success-soft); border-color: color-mix(in srgb, var(--theme-success) 35%, var(--theme-line)); border-left-color: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-block.actual :is(strong, span, small) { color: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-block.inactive { background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-block.inactive :is(strong, span, small) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-legend .point { background: var(--theme-warning-soft); border-color: var(--theme-warning); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-point { color: var(--theme-warning); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-point i { background: var(--theme-warning); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-now-line { border-color: var(--theme-danger); }
+html[data-theme] .app-shell.polished-shell.planner-shell .schedule-now-line span { color: var(--theme-danger); background: var(--theme-canvas); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.schedule-details, .schedule-unscheduled, .schedule-detail-row, .schedule-task-row) { border-color: var(--theme-line); }
+
+/* Review, stored records, optional personal notes and settings. */
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.review-checkline, .time-review-heading > div, .time-review-metrics span, .time-review-day strong, .time-review-day > span, .time-review-note, .growth-heading small, .growth-coverage, .growth-coverage small, .growth-metric > strong, .growth-values span, .growth-values small, .growth-stock, .growth-stock small, .growth-metric details, .growth-followup, .score-value small, .score-status, .score-coverage, .score-coverage small, .score-details, .score-history-item summary small, .score-table th, .score-table td, .report-refs, .report-refs summary, .report-card-heading small) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.time-review-metrics strong, .growth-coverage strong, .growth-values b, .growth-stock strong, .score-value, .score-coverage strong, .score-table td strong, .report-digest strong) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell .time-review-bar { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .time-review-bar i { background: var(--theme-action); }
+html[data-theme] .app-shell.polished-shell.planner-shell .time-review-bar.unknown i { background: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.trend-day, .report-card, .report-refs, .growth-stock) { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .trend-day.selected { background: var(--theme-accent-soft); border-color: var(--theme-selected-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.trend-day small, .cockpit-cards small, .cockpit-cards > div > span, .project-pulses small) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.report-saved, .pin-button[aria-pressed="true"], .board-more-actions button[aria-pressed="true"]) { color: var(--theme-success); background: var(--theme-success-soft); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.focus-bridge-icon, .life-symbol) { color: var(--theme-accent); background: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.focus-bridge-intro span, .focus-bridge-intro p, .focus-bridge-preview-head, .focus-bridge-row small, .focus-bridge-confirm span, .focus-bridge-note, .life-overline, .life-date, .life-column-label, .life-subtle, .life-fortune-focus, .life-project-context p, .life-project-context span, .life-metrics, .life-practice > span, .life-practice p, .life-details > summary, .life-details > summary span:last-child, .life-action-kicker, .life-action-copy small, .life-action-copy details, .life-action-copy details p, .life-action-copy details li, .life-reflect label, .life-save-row > span, .life-month > summary, .life-month-grid p, .life-month-avoid, .life-traditional, .life-traditional p, .life-traditional small, .life-source, .life-focus-disclosure > summary, .life-focus-disclosure > summary span) { color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.focus-bridge-preview-head strong, .focus-bridge-row strong, .life-action-copy strong, .life-month-grid strong, .life-month-avoid strong) { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.life-fortune, .life-project-context, .life-save-banner) { background: var(--theme-soft); border-color: var(--theme-line); color: var(--theme-muted); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.focus-bridge-preview, .focus-bridge-row, .life-header, .life-details, .life-detail-body, .life-action-list > div, .life-month, .life-source, .life-traditional, .life-focus-disclosure[open] > summary) { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .life-action-list input:checked { background: var(--theme-action); border-color: var(--theme-action); }
+html[data-theme] .app-shell.polished-shell.planner-shell .life-action-list input:not(:checked) { background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .life-action-list input:checked::after { color: var(--theme-on-action); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.focus-bridge-done, .dimension-ok) { color: var(--theme-success); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.settings-page > details, .main > details.settings-section) > summary { color: var(--theme-ink); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.backup-settings p, .backup-settings li, .backup-path, .budget-list > div, .budget-list small, .ai-settings small) { color: var(--theme-muted); }
+
+/* Dialogs and feedback, including rare recovery/conflict paths. */
+html[data-theme] :is(.modal, .modal.day-modal, .modal.day-modal-wide, .modal.day-modal.quick-task-modal, .restore-dialog, .planner-command-dialog) { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-dialog-shadow); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.modal, .restore-dialog, .planner-command-dialog) { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); box-shadow: var(--theme-dialog-shadow); }
+html[data-theme] :is(.modal, .restore-dialog, .planner-command-dialog)::backdrop { background: var(--theme-backdrop); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.modal, .restore-dialog)::backdrop { background: var(--theme-backdrop); }
+html[data-theme] :is(.modal, .restore-dialog) :is(.modal-header, .modal-footer) { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .modal-footer { background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] :is(.modal, .restore-dialog) :is(h2, h3, .finish-result > strong, .quick-task-preview strong, .restore-counts strong) { color: var(--theme-ink); }
+html[data-theme] :is(.modal, .restore-dialog) :is(p, .field-hint, .field small, .form-section-title, .save-note, .finish-result > strong > span, .finish-optional > summary, .quick-task-quantity > summary, .quick-task-note > summary, .quick-task-preview span, .quick-task-shared small, .evidence-source, .restore-counts caption, .restore-counts th, .restore-counts td) { color: var(--theme-muted); }
+html[data-theme] :is(.modal, .restore-dialog) :is(.finish-result-choices button, .quick-task-shared, .quick-task-preview, .result-evidence, .conflict-comparison, .change-preview) { color: var(--theme-ink); background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] .modal .finish-result-choices button.selected { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-accent); }
+html[data-theme] .modal .finish-result-choices button:hover:not(:disabled) { border-color: var(--theme-selected-line); background: var(--theme-accent-soft); }
+html[data-theme] :is(.modal, .restore-dialog) :is(.finish-optional, .quick-task-quantity, .form-section-title, .conflict-comparison dl > div, .restore-counts th, .restore-counts td) { border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.planner-command-input, .planner-command-dialog > footer) { color: var(--theme-muted); border-color: var(--theme-line); background: var(--theme-surface); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-command-results button { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-command-results :is(button:hover, button.selected) { background: var(--theme-accent-soft); }
+html[data-theme] .app-shell.polished-shell.planner-shell .planner-command-results small { color: var(--theme-muted); }
+html[data-theme] :is(.setup-page, .setup-card) { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] .setup-page :is(.setup-copy > p, .setup-card > p, .setup-principles, .setup-project small, .setup-project .minutes, .setup-note) { color: var(--theme-muted); }
+html[data-theme] .setup-page .setup-total strong { color: var(--theme-accent); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(.inline-error, .time-error, .insights-error) { color: var(--theme-danger); background: var(--theme-danger-soft); border-color: color-mix(in srgb, var(--theme-danger) 30%, var(--theme-line)); }
+html[data-theme] :is(.app-shell.polished-shell.planner-shell, .modal, .restore-dialog, .setup-page) :is(.inline-error, .time-error, .insights-error) :is(p, button) { color: var(--theme-danger); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.score-warning, .score-missing, .capacity-ack, .quick-resume, .restore-scope, .metric-warning) { color: var(--theme-warning); background: var(--theme-warning-soft); border-color: color-mix(in srgb, var(--theme-warning) 30%, var(--theme-line)); }
+html[data-theme] :is(.modal, .restore-dialog) :is(.restore-scope, .quick-resume, .capacity-ack) { color: var(--theme-warning); background: var(--theme-warning-soft); border-color: color-mix(in srgb, var(--theme-warning) 30%, var(--theme-line)); }
+html[data-theme] :is(.modal, .restore-dialog) :is(.restore-scope p, .restore-warnings li, .restore-hint, .quick-resume small) { color: var(--theme-warning); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.attention-note, .dimension-gap, .daily-draft-notice) { color: var(--theme-warning); }
+/* These two legacy status labels use !important; keep the exception equally narrow. */
+html[data-theme] .app-shell.polished-shell.planner-shell .draft-missing { color: var(--theme-warning) !important; }
+html[data-theme] .app-shell.polished-shell.planner-shell .metric-warning { color: var(--theme-warning) !important; }
+html[data-theme] .app-shell.polished-shell.planner-shell .focus-bridge-feedback.error { color: var(--theme-danger); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.planner-error, .global-focus-error) { color: var(--theme-danger); background: var(--theme-danger-soft); border-color: color-mix(in srgb, var(--theme-danger) 30%, var(--theme-line)); }
+html[data-theme] .app-shell.polished-shell.planner-shell :is(.planner-error, .global-focus-error) :is(p, span, strong, button) { color: var(--theme-danger); }
+html[data-theme] .app-shell.polished-shell.planner-shell .toast { color: var(--theme-on-action); background: var(--theme-action); border-color: var(--theme-action); box-shadow: var(--theme-dialog-shadow); }
+
+/* Loading and recovery are rendered before the workspace shell exists. */
+html[data-theme] :is(.loading-screen, .first-run-recovery, .setup-recovery-entry) { color: var(--theme-ink); background: var(--theme-canvas); }
+html[data-theme] :is(.loading-screen, .first-run-recovery) :is(p, .backup-path, .brand small, .budget-list small, .backup-settings li) { color: var(--theme-muted); }
+html[data-theme] :is(.loading-screen, .first-run-recovery) :is(h1, h2, h3, .brand-name) { color: var(--theme-ink); }
+html[data-theme] .first-run-recovery :is(.settings-section, .backup-settings, .backup-path) { border-color: var(--theme-line); }
+html[data-theme] .first-run-recovery .backup-path { background: var(--theme-soft); }
+html[data-theme] :is(.loading-screen, .first-run-recovery, .setup-recovery-entry) .button-primary { color: var(--theme-on-action); background: var(--theme-action); border-color: var(--theme-action); }
+html[data-theme] :is(.loading-screen, .first-run-recovery, .setup-recovery-entry) .button-primary:hover:not(:disabled) { background: var(--theme-action-hover); border-color: var(--theme-action-hover); }
+html[data-theme] :is(.loading-screen, .first-run-recovery, .setup-recovery-entry) .button-secondary { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] :is(.loading-screen, .first-run-recovery, .setup-recovery-entry) :is(.button-quiet, .icon-button) { color: var(--theme-muted); }
+html[data-theme] :is(.loading-screen, .first-run-recovery, .setup-recovery-entry) :is(.button-secondary, .button-quiet, .icon-button):hover:not(:disabled) { color: var(--theme-accent); background: var(--theme-accent-soft); border-color: var(--theme-selected-line); }
+html[data-theme] :is(.loading-screen, .first-run-recovery, .setup-recovery-entry) :is(.button-primary, .button-secondary, .button-quiet, .icon-button):disabled { color: var(--theme-disabled); background: var(--theme-soft); border-color: var(--theme-line); }
+html[data-theme] .first-run-recovery :is(input, select, textarea) { color: var(--theme-ink); background: var(--theme-surface); border-color: var(--theme-line); }
+html[data-theme] :is(.loading-screen, .first-run-recovery, .setup-recovery-entry) :is(button, input, select, summary, a):focus-visible { outline-color: var(--theme-accent); box-shadow: 0 0 0 3px var(--theme-focus); }
+html[data-theme] :is(.loading-screen, .first-run-recovery) .inline-error { color: var(--theme-danger); background: var(--theme-danger-soft); border-color: var(--theme-danger); }
+html[data-theme] .app-shell.polished-shell.planner-shell .event-void { background: var(--theme-soft); }

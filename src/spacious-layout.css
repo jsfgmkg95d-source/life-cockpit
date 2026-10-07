@@ -1,0 +1,184 @@
+/* Room for the readable type scale. Scoped to the workspace, not the widget.
+   Theme colors and task/timer semantics remain owned by their existing modules. */
+#root .planner-shell {
+  --layout-gap: 28px;
+  --layout-inset: 28px;
+  grid-template-columns: 216px minmax(0, 1fr);
+}
+#root .planner-shell .sidebar { width: 216px; padding: 30px 18px 22px; }
+#root .planner-shell .sidebar .brand { gap: 12px; }
+#root .planner-shell .brand-subtitle { letter-spacing: 0; }
+#root .planner-shell .sidebar .brand-subtitle { white-space: nowrap; font-size: 14px; }
+#root .planner-shell .nav { gap: 10px; }
+#root .planner-shell .nav button { min-height: 48px; border-radius: 10px; }
+#root .planner-shell .topbar { min-height: 72px; padding: 12px 32px; }
+#root .planner-shell .main { width: 100%; max-width: 1760px; margin-inline: auto; padding: 36px clamp(24px, 3vw, 56px) 56px; }
+#root .planner-shell .planner-day-heading { align-items: center; gap: 24px; margin-bottom: 28px; }
+#root .planner-shell .planner-day-heading h1 { font-size: 36px; font-weight: 550; letter-spacing: -.035em; }
+#root .planner-shell .planner-day-heading .eyebrow { margin-right: 14px; }
+#root .planner-shell .planner-day-heading p { margin-top: 8px; }
+#root .planner-shell .date-switch { flex-shrink: 0; gap: 4px; }
+
+/* One quiet summary strip replaces four competing boxes. */
+#root .planner-shell .planner-day-metrics {
+  gap: 0; margin-bottom: 24px; padding: 8px 0 24px;
+  border-bottom: 1px solid var(--theme-line); background: transparent;
+}
+#root .planner-shell .planner-day-metrics > div {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  min-width: 0; padding: 0 24px; border: 0; border-left: 1px solid var(--theme-line);
+  border-radius: 0; background: transparent; box-shadow: none;
+}
+#root .planner-shell .planner-day-metrics > div:first-child { padding-left: 0; border-left: 0; }
+#root .planner-shell .planner-day-metrics > div::before,
+#root .planner-shell .planner-day-metrics .metric-icon { display: none; }
+#root .planner-shell .planner-day-metrics strong { font-size: 30px; font-weight: 500; line-height: 1.3; }
+#root .planner-shell .planner-day-metrics strong small { font-size: 14px; font-weight: 400; }
+#root .planner-shell .planner-tabs { gap: 16px; margin-bottom: 28px; padding-bottom: 12px; }
+#root .planner-shell .daily-view-switch { gap: 16px; }
+#root .planner-shell .daily-add-actions { gap: 12px; }
+#root .planner-shell .planner-day-layout { grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; align-items: start; }
+#root .planner-shell .planner-main-pane { gap: var(--layout-gap); min-width: 0; }
+#root .planner-shell .planner-focus-pane { min-width: 0; position: sticky; top: 96px; order: 0; }
+#root .planner-shell :is(.planner-task-surface, .vital-insights, .cockpit-projects, .time-cockpit) {
+  min-width: 0; margin: 0; padding: var(--layout-inset);
+  border: 1px solid color-mix(in srgb, var(--theme-line) 70%, transparent);
+  border-radius: 16px; background: var(--theme-surface); box-shadow: none;
+}
+
+/* The task title owns its row. Actions retain visible, full-size targets. */
+#root .planner-shell .task-list-summary { align-items: flex-start; gap: 12px; padding: 0 0 20px; }
+#root .planner-shell .task-list-summary > div { flex-wrap: wrap; gap: 8px 16px; }
+#root .planner-shell .task-list-summary strong { font-size: 20px; font-weight: 550; }
+#root .planner-shell .task-list-meta { gap: 8px 16px; }
+#root .planner-shell .task-row { grid-template-columns: 32px minmax(0, 1fr) auto; gap: 12px 16px; padding: 24px 0 20px; }
+#root .planner-shell .task-row-mark { grid-column: 1; grid-row: 1; margin-top: 3px; }
+#root .planner-shell .task-row-copy { grid-column: 2; grid-row: 1; min-width: 0; }
+#root .planner-shell .task-row-project { gap: 6px 10px; margin-bottom: 6px; }
+#root .planner-shell .task-row h4 { margin: 0 0 6px; font-weight: 550; }
+#root .planner-shell .task-row-time { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; }
+#root .planner-shell .task-row-time > span { margin: 0; }
+#root .planner-shell .task-row-result { grid-column: 3; grid-row: 1; align-self: start; padding-top: 3px; }
+#root .planner-shell .task-row-actions {
+  grid-column: 2 / -1; grid-row: 2; display: flex; flex-wrap: wrap;
+  flex-direction: row; align-items: center; justify-content: flex-start; gap: 8px 12px; margin: 2px 0 0;
+}
+#root .planner-shell .task-row-actions > button { flex: 0 1 auto; min-height: 44px; padding: 9px 14px; white-space: normal; }
+#root .planner-shell .task-row-actions > .button-primary { color: var(--theme-on-action); background: var(--theme-action); border: 1px solid var(--theme-action); }
+#root .planner-shell .task-row-actions > .button-primary:hover:not(:disabled) { color: var(--theme-on-action); background: var(--theme-action-hover); border-color: var(--theme-action-hover); }
+#root .planner-shell .task-row-actions > .task-remove-action { margin-left: auto; }
+#root .planner-shell .task-row-details { grid-column: 2 / -1; grid-row: 3; margin: 0; padding: 0; }
+#root .planner-shell .task-row-details > summary { min-height: 44px; display: flex; align-items: center; }
+#root .planner-shell .task-row-details[open] { padding-bottom: 8px; }
+#root .planner-shell .task-list-closed { margin-top: 16px; }
+#root .planner-shell .task-list-closed > summary { padding-block: 14px; }
+#root .planner-shell .day-draft-card { padding: 20px 0; border-width: 0 0 1px; border-radius: 0; background: transparent; gap: 12px 16px; }
+#root .planner-shell .draft-preview-heading { gap: 16px; margin-bottom: 16px; }
+#root .planner-shell .day-prepare-footer { gap: 16px; padding-top: 20px; margin-top: 20px; }
+
+/* Clock and readout share the top; task and actions use the whole card. */
+#root .planner-shell .planner-focus-pane .time-heading { gap: 10px; margin-bottom: 24px; }
+#root .planner-shell .planner-focus-pane .time-hero {
+  display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 12px 18px; align-items: center;
+}
+#root .planner-shell .planner-focus-pane .time-controls { display: contents; }
+#root .planner-shell .planner-focus-pane .time-dial { grid-column: 1; grid-row: 1 / 5; gap: 8px; padding: 0; }
+#root .planner-shell .planner-focus-pane .time-clock { width: 128px; height: 128px; }
+#root .planner-shell .planner-focus-pane .time-dial > span { font-size: 14px; line-height: 1.6; }
+#root .planner-shell .planner-focus-pane .time-kicker { grid-column: 2; grid-row: 1; overflow-wrap: anywhere; }
+#root .planner-shell .planner-focus-pane .time-readout { grid-column: 2; grid-row: 2; font-size: 38px; font-weight: 500; letter-spacing: -.04em; }
+#root .planner-shell .planner-focus-pane .time-hero { text-align: left; }
+#root .planner-shell .planner-focus-pane :is(.time-kicker, .time-readout, .time-context, .focus-target-hint) { text-align: left; }
+#root .planner-shell .planner-focus-pane .focus-target-hint { grid-column: 2; grid-row: 3; }
+#root .planner-shell .planner-focus-pane .time-context { grid-column: 2; grid-row: 4; }
+#root .planner-shell .planner-focus-pane .time-block-choice { grid-column: 1 / -1; grid-row: 5; min-width: 0; width: 100%; margin-top: 10px; }
+#root .planner-shell .planner-focus-pane .time-block-choice select { min-height: 48px; padding: 10px 12px; font-size: 16px; border-radius: 8px; }
+#root .planner-shell .planner-focus-pane .focus-duration-options { grid-column: 1 / -1; grid-row: 6; padding: 4px; gap: 4px; }
+#root .planner-shell .planner-focus-pane .focus-duration-options button { min-height: 44px; padding: 8px 4px; font-size: 14px; white-space: normal; }
+#root .planner-shell .planner-focus-pane .time-actions { grid-column: 1 / -1; grid-row: 7; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+#root .planner-shell .planner-focus-pane .time-actions button { flex: 1 1 120px; min-height: 46px; padding: 10px 12px; font-size: 16px; white-space: normal; }
+#root .planner-shell .planner-focus-pane .time-actions > .button-primary { flex-basis: 100%; }
+#root .planner-shell .planner-focus-pane .time-hint { grid-column: 1 / -1; grid-row: 8; margin: 4px 0 0; }
+#root .planner-shell .planner-focus-pane .time-forgot { grid-column: 1 / -1; grid-row: 9; }
+#root .planner-shell .planner-focus-pane .time-accumulation { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; margin-top: 24px; padding-top: 24px; }
+#root .planner-shell .planner-focus-pane .time-accumulation > div { gap: 6px; }
+#root .planner-shell .planner-focus-pane .time-accumulation strong { font-size: 20px; line-height: 1.5; font-weight: 500; }
+#root .planner-shell .planner-focus-pane .time-compound { margin-top: 16px; }
+#root .planner-shell .planner-focus-pane .time-history { margin-top: 16px; padding-top: 16px; }
+#root .planner-shell .planner-focus-pane .time-history > summary { flex-wrap: wrap; gap: 8px; }
+#root .planner-shell .planner-focus-pane .time-week-preview { margin-top: 20px; padding-top: 20px; }
+
+/* Progress has one readable column at laptop widths. */
+#root .planner-shell .vital-insights { display: block; }
+#root .planner-shell .vital-insights-heading { margin-bottom: 24px; gap: 12px; }
+#root .planner-shell .vital-progress-main { grid-template-columns: 144px minmax(0, 1fr); gap: 24px; align-items: center; }
+#root .planner-shell .vital-progress-character { width: 144px; }
+#root .planner-shell .vital-ring-wrap { width: 100%; max-width: 144px; height: auto; aspect-ratio: 1; }
+#root .planner-shell .vital-footprints { margin: 24px 0 0; padding: 24px 0 0; border-left: 0; border-top: 1px solid var(--theme-line); }
+#root .planner-shell .vital-footprint-days { gap: 8px; margin-top: 16px; }
+#root .planner-shell .vital-time-caption { margin-top: 20px; padding: 12px 0; background: transparent; border-top: 1px solid var(--theme-line); border-radius: 0; }
+#root .planner-shell .cockpit-projects-heading { margin-bottom: 20px; gap: 16px; }
+#root .planner-shell .cockpit-project-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+#root .planner-shell .cockpit-project-card { padding: 20px 0; border: 0; border-top: 1px solid var(--theme-line); border-radius: 0; background: transparent; box-shadow: none; }
+#root .planner-shell .cockpit-project-card::before { display: none; }
+#root .planner-shell .cockpit-project-card:hover { background: transparent; }
+#root .planner-shell .cockpit-project-meta { gap: 8px; margin-bottom: 8px; }
+#root .planner-shell .cockpit-project-meta > span { background: transparent; padding: 0; }
+#root .planner-shell .cockpit-project-card > p { margin-block: 12px; }
+#root .planner-shell .planner-day > :is(.planner-personal, .daily-extra) { margin-top: 28px; padding: 4px 24px; border-radius: 12px; background: transparent; }
+
+@media (min-width: 1600px) {
+  #root .planner-shell .planner-day-layout { grid-template-columns: minmax(0, 1fr) 380px; gap: 40px; }
+  #root .planner-shell .vital-insights { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0 28px; }
+  #root .planner-shell .vital-footprints { margin: 0; padding: 0 0 0 28px; border-top: 0; border-left: 1px solid var(--theme-line); }
+  #root .planner-shell .cockpit-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+}
+@media (max-width: 1240px) {
+  #root .planner-shell { grid-template-columns: 196px minmax(0, 1fr); }
+  #root .planner-shell .sidebar { width: 196px; padding-inline: 14px; }
+  #root .planner-shell .main { padding: 28px 28px 44px; }
+  #root .planner-shell .planner-day-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  #root .planner-shell .planner-focus-pane { position: static; order: -1; }
+  #root .planner-shell .planner-focus-pane .time-hero { grid-template-columns: 160px minmax(0, 1fr); }
+  #root .planner-shell .planner-focus-pane .time-clock { width: 144px; height: 144px; }
+  #root .planner-shell .planner-focus-pane .time-actions > .button-primary { flex-basis: 120px; }
+}
+@media (max-width: 768px) {
+  #root .planner-shell { display: block; --layout-inset: 24px; }
+  #root .planner-shell .sidebar { width: auto; padding: 20px 24px 12px; }
+  #root .planner-shell .sidebar .brand { padding-right: 86px; }
+  #root .planner-shell .nav { gap: 8px; }
+  #root .planner-shell .topbar { min-height: 64px; padding: 10px 24px; }
+  #root .planner-shell .main { padding: 28px 24px 40px; }
+  #root .planner-shell .planner-day-heading { flex-wrap: wrap; gap: 16px; }
+  #root .planner-shell .planner-day-heading h1 { font-size: 32px; }
+  #root .planner-shell .planner-day-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 0; }
+  #root .planner-shell .planner-day-metrics > div { padding-inline: 20px; }
+  #root .planner-shell .planner-day-metrics > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  #root .planner-shell .planner-tabs { flex-wrap: wrap; }
+  #root .planner-shell .daily-view-switch { gap: 8px; }
+  #root .planner-shell .vital-progress-main { grid-template-columns: 112px minmax(0, 1fr); gap: 20px; }
+  #root .planner-shell .vital-progress-character { width: 112px; }
+  #root .planner-shell .vital-footprint-days { gap: 4px; }
+}
+@media (max-width: 480px) {
+  #root .planner-shell { --layout-inset: 20px; --layout-gap: 24px; }
+  #root .planner-shell .main { padding-inline: 16px; }
+  #root .planner-shell .sidebar { padding-inline: 16px; }
+  #root .planner-shell .topbar { padding-inline: 16px; }
+  #root .planner-shell .task-row { grid-template-columns: 28px minmax(0, 1fr); gap: 10px 12px; }
+  #root .planner-shell .task-row-result { grid-column: 2; grid-row: 2; }
+  #root .planner-shell .task-row-actions { grid-column: 1 / -1; grid-row: 3; gap: 8px; }
+  #root .planner-shell .task-row-actions > button { padding-inline: 10px; }
+  #root .planner-shell .task-row-actions > .task-remove-action { margin-left: 0; }
+  #root .planner-shell .task-row-details { grid-column: 1 / -1; grid-row: 4; }
+  #root .planner-shell .planner-focus-pane .time-hero { grid-template-columns: 112px minmax(0, 1fr); gap: 12px; }
+  #root .planner-shell .planner-focus-pane .time-clock { width: 112px; height: 112px; }
+  #root .planner-shell .planner-focus-pane .time-readout { font-size: 32px; }
+  #root .planner-shell .planner-focus-pane .is-running .time-readout { grid-column: 1 / -1; grid-row: 5; font-size: 40px; }
+  #root .planner-shell .planner-focus-pane .time-actions > .button-primary { flex-basis: 100%; }
+  #root .planner-shell .vital-progress-main { grid-template-columns: minmax(0, 1fr); }
+  #root .planner-shell .vital-progress-character { justify-self: center; }
+  #root .planner-shell .vital-footprint-days { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  #root .planner-shell .day-draft-card .draft-remove-action { grid-column: 2; }
+}

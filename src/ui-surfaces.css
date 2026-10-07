@@ -1,0 +1,1116 @@
+/* Content surfaces share the workspace type scale, palette and spacing rhythm. */
+.app-shell.polished-shell.planner-shell :is(.planner-panel-head, .growth-heading, .time-review-heading, .score-heading) {
+  gap: 16px;
+}
+.app-shell.polished-shell.planner-shell :is(.planner-panel-head h2, .time-review-heading h2, .growth-heading h3, .score-heading h2, .settings-section h2) {
+  color: var(--ui-ink);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -.018em;
+}
+.app-shell.polished-shell.planner-shell :is(.planner-panel-head p, .settings-section > p, .day-subtle, .detail-caption, .list-caption) {
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell :is(.settings-section, .score-panel, .growth-panel, .detail-panel, .project-list) {
+  border-color: var(--ui-line);
+}
+
+/* Capture has a single inviting writing surface; optional metadata stays quiet. */
+.app-shell.polished-shell.planner-shell .planner-inbox-page {
+  max-width: 940px;
+}
+.app-shell.polished-shell.planner-shell .inbox-panel {
+  padding-top: 8px;
+}
+.app-shell.polished-shell.planner-shell .inbox-count {
+  margin-top: 4px;
+  padding: 4px 9px;
+  border: 1px solid var(--ui-line);
+  border-radius: 20px;
+  color: var(--ui-muted);
+  background: #fff;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.app-shell.polished-shell.planner-shell .inbox-arrange-date {
+  margin-block: 6px 20px;
+  padding: 12px 0;
+  color: var(--ui-muted);
+  border-bottom: 1px solid var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .inbox-arrange-date > p {
+  color: var(--ui-muted);
+  font-size: 13px;
+}
+.app-shell.polished-shell.planner-shell .inbox-capture {
+  padding: 17px 18px 10px;
+  margin-bottom: 28px;
+  border-color: #dce1eb;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 2px 6px #24283003, 0 8px 24px #24283003;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.app-shell.polished-shell.planner-shell .inbox-capture:focus-within {
+  border-color: #a3b5e2;
+  box-shadow: 0 0 0 3px #4167ca0a, 0 6px 22px #24283004;
+}
+.app-shell.polished-shell.planner-shell .inbox-capture-main {
+  align-items: center;
+  gap: 14px;
+}
+.app-shell.polished-shell.planner-shell .inbox-capture-options {
+  margin-top: 12px;
+  padding-top: 5px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .inbox-capture-options > summary {
+  display: list-item;
+  min-height: 38px;
+  padding: 8px 2px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.app-shell.polished-shell.planner-shell .inbox-capture-options > div {
+  padding: 12px 0 9px;
+  gap: 18px;
+}
+.app-shell.polished-shell.planner-shell .inbox-row {
+  align-items: center;
+  padding: 21px 2px;
+  gap: 18px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .inbox-copy h3 {
+  color: var(--ui-ink);
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.65;
+  letter-spacing: -.01em;
+}
+.app-shell.polished-shell.planner-shell .inbox-meta {
+  margin-top: 7px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  gap: 6px 10px;
+}
+.app-shell.polished-shell.planner-shell .inbox-meta span {
+  padding: 2px 0;
+  background: transparent;
+  border-radius: 0;
+}
+.app-shell.polished-shell.planner-shell .inbox-meta span + span::before {
+  content: '·';
+  padding-right: 10px;
+  color: #a0a7b2;
+}
+.app-shell.polished-shell.planner-shell .inbox-actions {
+  gap: 6px;
+}
+.app-shell.polished-shell.planner-shell .inbox-archived {
+  margin-top: 30px;
+  border-top: 1px solid var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .inbox-archived > summary {
+  min-height: 44px;
+  padding-block: 12px;
+  color: var(--ui-muted);
+  font-size: 13px;
+}
+.app-shell.polished-shell.planner-shell .inbox-archived .inbox-copy h3 {
+  color: var(--ui-muted);
+  font-weight: 450;
+}
+
+/* Time stays proportional; the list below remains the full-detail reading path. */
+.app-shell.polished-shell.planner-shell .schedule-legend {
+  margin-bottom: 24px;
+  gap: 16px;
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .schedule-legend .planned {
+  background: #eaf0fc;
+  border-color: #9fb3e5;
+}
+.app-shell.polished-shell.planner-shell .schedule-legend .actual {
+  background: #e7eeed;
+  border-color: #9eafad;
+}
+.app-shell.polished-shell.planner-shell .schedule-legend .point {
+  background: #f6edde;
+  border-color: #c5aa7d;
+}
+.app-shell.polished-shell.planner-shell .schedule-hour {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .schedule-lanes {
+  gap: 14px;
+  background: repeating-linear-gradient(to bottom, #eaedf2 0, #eaedf2 1px, transparent 1px, transparent 64px);
+}
+.app-shell.polished-shell.planner-shell .schedule-lane {
+  background: #fafbfd70;
+  border-inline-color: #edf0f5;
+}
+.app-shell.polished-shell.planner-shell .schedule-lane-label {
+  color: var(--ui-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+.app-shell.polished-shell.planner-shell .schedule-block {
+  border-color: #d3def4;
+  border-left-color: #7995d7;
+  border-radius: 7px;
+  background: #edf2fc;
+  color: #4b6291;
+}
+.app-shell.polished-shell.planner-shell .schedule-block strong {
+  color: #365487;
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.5;
+}
+.app-shell.polished-shell.planner-shell .schedule-block :is(span, small) {
+  color: #50678b;
+  font-size: 11px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+.app-shell.polished-shell.planner-shell .schedule-block.actual {
+  border-color: #d4e0de;
+  border-left-color: #88a39c;
+  background: #edf3f1;
+}
+.app-shell.polished-shell.planner-shell .schedule-block.actual strong {
+  color: #49685f;
+}
+.app-shell.polished-shell.planner-shell .schedule-block.actual small {
+  color: #546d63;
+}
+.app-shell.polished-shell.planner-shell .schedule-block.inactive {
+  border-color: var(--ui-line);
+  border-left-color: #b5bdca;
+  background: #f3f4f7;
+}
+.app-shell.polished-shell.planner-shell .schedule-block.inactive :is(strong, small) {
+  color: var(--ui-muted);
+}
+.app-shell.polished-shell.planner-shell .schedule-block.compact strong {
+  font-size: 11px;
+  line-height: 1.2;
+}
+.app-shell.polished-shell.planner-shell .schedule-point {
+  color: #897046;
+  font-size: 11px;
+}
+.app-shell.polished-shell.planner-shell .schedule-empty {
+  padding: 30px 0;
+  gap: 15px;
+  color: var(--ui-muted);
+  font-size: 13px;
+}
+.app-shell.polished-shell.planner-shell .schedule-empty strong {
+  color: var(--ui-ink);
+  font-size: 14px;
+  font-weight: 550;
+}
+.app-shell.polished-shell.planner-shell .schedule-footnote {
+  margin-block: 15px 25px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell :is(.schedule-details, .schedule-unscheduled) {
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .schedule-unscheduled h3 {
+  margin-bottom: 12px;
+  color: var(--ui-ink);
+  font-size: 14px;
+  font-weight: 550;
+}
+.app-shell.polished-shell.planner-shell :is(.schedule-task-row, .schedule-detail-row) {
+  padding-block: 16px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell :is(.schedule-task-row strong, .schedule-detail-row strong) {
+  color: var(--ui-ink);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 550;
+}
+.app-shell.polished-shell.planner-shell :is(.schedule-task-row span, .schedule-task-row small, .schedule-detail-row span) {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .schedule-details > summary {
+  min-height: 44px;
+  color: var(--ui-muted);
+  font-size: 13px;
+}
+
+/* Project list and inspector have the same hierarchy as the daily workspace. */
+.app-shell.polished-shell.planner-shell .portfolio-grid {
+  gap: 26px;
+  align-items: start;
+}
+.app-shell.polished-shell.planner-shell :is(.project-list, .detail-panel) {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #24283003;
+}
+.app-shell.polished-shell.planner-shell .list-head {
+  padding-block: 14px;
+  border-color: var(--ui-line);
+  background: #fafbfc;
+  color: var(--ui-muted);
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.app-shell.polished-shell.planner-shell .project-row {
+  padding-block: 22px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .project-row:hover {
+  background: #f8f9fc;
+}
+.app-shell.polished-shell.planner-shell .project-row.selected {
+  background: #f1f4fb;
+}
+.app-shell.polished-shell.planner-shell .project-row.selected::before {
+  top: 15px;
+  bottom: 15px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--ui-accent);
+}
+.app-shell.polished-shell.planner-shell .project-icon {
+  border-color: #e2e7f0;
+  background: var(--ui-soft);
+  color: #7789a7;
+  border-radius: 9px;
+}
+.app-shell.polished-shell.planner-shell .project-name {
+  color: var(--ui-ink);
+  font-size: 14px;
+  font-weight: 550;
+  letter-spacing: -.01em;
+  line-height: 1.6;
+}
+.app-shell.polished-shell.planner-shell .project-subtitle {
+  margin-top: 4px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.app-shell.polished-shell.planner-shell :is(.role-label, .budget-cell, .status-pill) {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .budget-cell small {
+  color: var(--ui-muted);
+  font-size: 11px;
+}
+.app-shell.polished-shell.planner-shell .status-pill::before {
+  background: #a4adbb;
+}
+.app-shell.polished-shell.planner-shell .status-pill.active {
+  color: #477466;
+}
+.app-shell.polished-shell.planner-shell .status-pill.active::before {
+  background: #719b88;
+}
+.app-shell.polished-shell.planner-shell .status-pill.paused::before {
+  background: #b69b6f;
+}
+.app-shell.polished-shell.planner-shell .detail-top {
+  padding: 14px 22px;
+  border-color: var(--ui-line);
+  color: var(--ui-muted);
+  background: #fafbfc;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.app-shell.polished-shell.planner-shell .detail-body {
+  padding: 25px 22px 22px;
+}
+.app-shell.polished-shell.planner-shell .detail-heading {
+  gap: 13px;
+  margin-bottom: 24px;
+}
+.app-shell.polished-shell.planner-shell .detail-heading h2 {
+  color: var(--ui-ink);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.5;
+}
+.app-shell.polished-shell.planner-shell .detail-heading p {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.app-shell.polished-shell.planner-shell .detail-section {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .detail-section h3 {
+  margin-bottom: 12px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.app-shell.polished-shell.planner-shell .detail-dl > div {
+  gap: 14px;
+  margin-block: 12px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.app-shell.polished-shell.planner-shell .detail-dl dt {
+  color: var(--ui-muted);
+}
+.app-shell.polished-shell.planner-shell :is(.detail-dl dd, .milestone-text, .project-day-detail > strong) {
+  color: var(--ui-ink);
+}
+.app-shell.polished-shell.planner-shell .project-day-task {
+  padding-block: 12px;
+  border-color: var(--ui-line);
+  font-size: 13px;
+}
+.app-shell.polished-shell.planner-shell .project-day-task p {
+  margin-top: 5px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.app-shell.polished-shell.planner-shell .project-note {
+  color: #8292ac;
+  padding-top: 22px;
+}
+.app-shell.polished-shell.planner-shell .project-note strong {
+  color: var(--ui-ink);
+  font-size: 13px;
+}
+.app-shell.polished-shell.planner-shell .project-note p {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .list-caption {
+  margin-top: 15px;
+  gap: 16px;
+}
+
+/* Review gives the measured facts room, with explanations behind fine rules. */
+.app-shell.polished-shell.planner-shell .review-checkline {
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-color: var(--ui-line);
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .time-review {
+  margin: 22px 0 30px;
+  padding: 24px 0 28px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .time-review-heading > div {
+  color: #8394af;
+}
+.app-shell.polished-shell.planner-shell .time-review-metrics {
+  gap: 26px;
+  margin-block: 23px 30px;
+}
+.app-shell.polished-shell.planner-shell .time-review-metrics span {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .time-review-metrics strong {
+  color: var(--ui-ink);
+  font-size: 24px;
+  font-weight: 550;
+  line-height: 1.45;
+  letter-spacing: -.025em;
+}
+.app-shell.polished-shell.planner-shell .time-review-chart {
+  gap: 20px;
+  padding-inline: 2px;
+}
+.app-shell.polished-shell.planner-shell .time-review-day strong {
+  color: var(--ui-muted);
+  font-size: 12px;
+  font-weight: 450;
+}
+.app-shell.polished-shell.planner-shell .time-review-day > span {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .time-review-bar {
+  height: 145px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .time-review-bar i {
+  width: 58%;
+  max-width: 56px;
+  border-radius: 5px 5px 0 0;
+  background: #90a7dc;
+}
+.app-shell.polished-shell.planner-shell .time-review-bar.unknown i {
+  width: 18px;
+  max-width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background: #e8ebf1;
+}
+.app-shell.polished-shell.planner-shell .time-review-note {
+  margin-top: 18px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .growth-panel {
+  margin-block: 28px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px #24283003;
+}
+.app-shell.polished-shell.planner-shell .growth-heading {
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+.app-shell.polished-shell.planner-shell .growth-heading h3 {
+  margin: 0;
+}
+.app-shell.polished-shell.planner-shell .growth-heading small {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .growth-coverage {
+  padding: 15px 17px;
+  border: 1px solid #e8ecf3;
+  border-radius: 9px;
+  background: #f8f9fc;
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.app-shell.polished-shell.planner-shell .growth-coverage strong {
+  color: var(--ui-ink);
+  font-weight: 550;
+}
+.app-shell.polished-shell.planner-shell .growth-coverage small {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .growth-projects {
+  margin-top: 24px;
+  gap: 25px;
+}
+.app-shell.polished-shell.planner-shell .growth-project {
+  padding-top: 18px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .growth-project h4 {
+  color: var(--ui-ink);
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.6;
+}
+.app-shell.polished-shell.planner-shell .growth-metric > strong {
+  color: var(--ui-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+.app-shell.polished-shell.planner-shell .growth-values {
+  gap: 13px;
+  margin-block: 15px;
+}
+.app-shell.polished-shell.planner-shell .growth-values span {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .growth-values b {
+  color: var(--ui-ink);
+  font-size: 22px;
+  font-weight: 550;
+  letter-spacing: -.02em;
+}
+.app-shell.polished-shell.planner-shell .growth-values small {
+  margin-top: 5px;
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell :is(.growth-metric details, .growth-followup) {
+  color: var(--ui-muted);
+  border-color: var(--ui-line);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell :is(.growth-metric summary, .growth-followup > summary) {
+  min-height: 38px;
+  padding-block: 7px;
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .growth-stock {
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .growth-stock strong {
+  color: var(--ui-ink);
+}
+.app-shell.polished-shell.planner-shell .growth-compact {
+  padding: 20px 0 0;
+  margin: 20px 0 0;
+  border: 0;
+  border-top: 1px solid var(--ui-line);
+  border-radius: 0;
+  box-shadow: none;
+}
+.app-shell.polished-shell.planner-shell .score-panel {
+  padding: 25px;
+  margin-block: 28px;
+  background: #fafbfd;
+  color: var(--ui-ink);
+  border-radius: 12px;
+  box-shadow: none;
+}
+.app-shell.polished-shell.planner-shell .score-heading .eyebrow {
+  color: var(--ui-muted);
+  font-size: 10px;
+  letter-spacing: .09em;
+  font-weight: 500;
+}
+.app-shell.polished-shell.planner-shell .score-overview {
+  gap: 60px;
+  margin-block: 24px;
+}
+.app-shell.polished-shell.planner-shell .score-value {
+  color: var(--ui-ink);
+  font-size: 44px;
+  font-weight: 500;
+  letter-spacing: -.04em;
+}
+.app-shell.polished-shell.planner-shell .score-value small {
+  color: var(--ui-muted);
+  font-size: 15px;
+  font-weight: 450;
+  letter-spacing: 0;
+}
+.app-shell.polished-shell.planner-shell :is(.score-status, .score-coverage span, .score-coverage small) {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .score-coverage strong {
+  color: var(--ui-ink);
+  font-size: 23px;
+  font-weight: 550;
+}
+.app-shell.polished-shell.planner-shell :is(.score-details, .score-history-item, .score-evidence) {
+  border-color: var(--ui-line);
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .score-evidence {
+  background: var(--ui-soft);
+  border-radius: 8px;
+}
+.app-shell.polished-shell.planner-shell :is(.score-details > summary, .score-history-item > summary) {
+  min-height: 44px;
+  padding-block: 11px;
+  color: var(--ui-muted);
+  font-size: 13px;
+}
+.app-shell.polished-shell.planner-shell .score-history-item summary small {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .score-table :is(th, td) {
+  padding: 14px 12px;
+  border-color: var(--ui-line);
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.app-shell.polished-shell.planner-shell .score-table td strong {
+  color: var(--ui-ink);
+}
+.app-shell.polished-shell.planner-shell :is(.score-table caption, .score-table td span) {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+
+/* Settings read like a calm document, not a stack of unrelated cards. */
+.app-shell.polished-shell.planner-shell .settings-page {
+  max-width: 880px;
+}
+.app-shell.polished-shell.planner-shell .main > :is(.settings-section, .backup-settings) {
+  max-width: 880px;
+}
+.app-shell.polished-shell.planner-shell .settings-section {
+  padding-block: 28px 32px;
+  border-radius: 0;
+  background: transparent;
+}
+.app-shell.polished-shell.planner-shell .settings-section h2 {
+  margin-bottom: 9px;
+}
+.app-shell.polished-shell.planner-shell .settings-section > p {
+  margin-bottom: 24px;
+}
+.app-shell.polished-shell.planner-shell .settings-form {
+  max-width: 580px;
+}
+.app-shell.polished-shell.planner-shell .settings-section .form-grid {
+  gap: 20px;
+}
+.app-shell.polished-shell.planner-shell .settings-section .field {
+  margin-bottom: 20px;
+}
+.app-shell.polished-shell.planner-shell .settings-section :is(.field small, .field-hint) {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .budget-list > div {
+  align-items: baseline;
+  gap: 16px;
+  padding-block: 15px;
+  border-color: var(--ui-line);
+  color: var(--ui-ink);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .budget-list small {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell .settings-page > details.secondary-panel,
+.app-shell.polished-shell.planner-shell .settings-page > .external-focus-tools {
+  margin-block: 0;
+  border-block: 1px solid var(--ui-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.app-shell.polished-shell.planner-shell :is(.settings-page > details, .main > details.settings-section) > summary {
+  min-height: 52px;
+  padding-block: 15px;
+  color: var(--ui-ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.app-shell.polished-shell.planner-shell .backup-settings {
+  padding-top: 30px;
+  margin-top: 30px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .backup-settings h2 {
+  color: var(--ui-ink);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.018em;
+}
+.app-shell.polished-shell.planner-shell .backup-settings :is(p, li) {
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.app-shell.polished-shell.planner-shell .backup-path {
+  padding: 11px 13px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  color: var(--ui-muted);
+  background: #f8f9fc;
+  font-size: 12px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Native dialogs keep their focus behavior; only the material and rhythm change. */
+.app-shell.polished-shell.planner-shell :is(.modal, .restore-dialog) {
+  border: 1px solid #e1e5ed;
+  border-radius: 16px;
+  color: var(--ui-ink);
+  background: #fff;
+  box-shadow: 0 4px 14px #18233c08, 0 28px 100px #18233c24;
+}
+.app-shell.polished-shell.planner-shell :is(.modal, .restore-dialog)::backdrop {
+  background: #1d263d38;
+  backdrop-filter: blur(5px);
+}
+.app-shell.polished-shell.planner-shell .modal-header {
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 28px 21px;
+  border-color: var(--ui-line);
+}
+.app-shell.polished-shell.planner-shell .modal-header h2 {
+  color: var(--ui-ink);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -.025em;
+}
+.app-shell.polished-shell.planner-shell .modal-header p {
+  margin-top: 7px;
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+.app-shell.polished-shell.planner-shell .modal-content {
+  padding: 25px 28px 14px;
+  scrollbar-gutter: stable;
+}
+.app-shell.polished-shell.planner-shell .modal-content .form-grid {
+  gap: 19px;
+}
+.app-shell.polished-shell.planner-shell .modal-content .field {
+  margin-bottom: 18px;
+}
+.app-shell.polished-shell.planner-shell .modal-content :is(.field small, .field-hint, .form-section-title) {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .form-section-title {
+  margin-block: 10px 20px;
+  padding-bottom: 12px;
+  border-color: var(--ui-line);
+  letter-spacing: 0;
+}
+.app-shell.polished-shell.planner-shell .modal-footer {
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 18px 28px;
+  border-color: var(--ui-line);
+  background: #fafbfd;
+}
+.app-shell.polished-shell.planner-shell .modal-footer .save-note {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.app-shell.polished-shell.planner-shell .quick-task-preview {
+  padding: 16px 17px;
+  border-color: #e2e7f1;
+  border-radius: 10px;
+  background: var(--ui-soft);
+  color: var(--ui-muted);
+}
+.app-shell.polished-shell.planner-shell .quick-task-preview strong {
+  color: var(--ui-ink);
+  font-size: 14px;
+  font-weight: 550;
+}
+.app-shell.polished-shell.planner-shell .quick-task-preview :is(span, p) {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .restore-dialog {
+  padding: 28px;
+}
+.app-shell.polished-shell.planner-shell .restore-dialog h2 {
+  color: var(--ui-ink);
+  font-size: 21px;
+  letter-spacing: -.025em;
+}
+.app-shell.polished-shell.planner-shell .restore-dialog :is(p, li) {
+  font-size: 13px;
+  line-height: 1.85;
+}
+.app-shell.polished-shell.planner-shell .restore-counts :is(th, td) {
+  border-color: var(--ui-line);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.app-shell.polished-shell.planner-shell .planner-command-dialog {
+  border-radius: 16px;
+}
+.app-shell.polished-shell.planner-shell .planner-command-input {
+  gap: 12px;
+  padding: 15px 20px;
+  border-color: var(--ui-line);
+  color: #8591a5;
+}
+.app-shell.polished-shell.planner-shell .planner-command-results {
+  padding: 9px;
+}
+.app-shell.polished-shell.planner-shell .planner-command-results > button {
+  min-height: 66px;
+  padding: 12px 14px;
+  gap: 14px;
+  border-radius: 9px;
+  color: #8492aa;
+}
+.app-shell.polished-shell.planner-shell .planner-command-results > button:is(:hover, .selected) {
+  background: var(--ui-soft);
+}
+.app-shell.polished-shell.planner-shell .planner-command-results strong {
+  color: var(--ui-ink);
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.6;
+}
+.app-shell.polished-shell.planner-shell .planner-command-results small {
+  margin-top: 2px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.app-shell.polished-shell.planner-shell .planner-command-dialog > footer {
+  padding: 13px 22px;
+  border-color: var(--ui-line);
+  color: var(--ui-muted);
+  background: #fafbfd;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Empty, busy, error and saved states get the same visual care as populated views. */
+.app-shell.polished-shell.planner-shell :is(.planner-empty, .empty-state) {
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.app-shell.polished-shell.planner-shell .planner-empty {
+  padding-block: 34px;
+  gap: 15px;
+}
+.app-shell.polished-shell.planner-shell :is(.planner-empty strong, .empty-state h2) {
+  color: var(--ui-ink);
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.65;
+}
+.app-shell.polished-shell.planner-shell :is(.planner-empty p, .empty-state p) {
+  margin-top: 7px;
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.app-shell.polished-shell.planner-shell :is(.planner-empty svg, .empty-state svg) {
+  color: #8a99b4;
+}
+.app-shell.polished-shell.planner-shell .loading-screen {
+  color: var(--ui-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell :is(.planner-error, .inline-error) {
+  margin-block: 16px;
+  padding: 13px 16px;
+  border: 1px solid #efdeda;
+  border-radius: 9px;
+  color: #986054;
+  background: #fdf7f5;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell :is(.planner-error, .inline-error) p {
+  color: inherit;
+}
+.app-shell.polished-shell.planner-shell .planner-error small {
+  display: block;
+  margin-top: 7px;
+  color: inherit;
+  font-size: 12px;
+}
+.app-shell.polished-shell.planner-shell :is(.score-missing, .score-warning, .metric-warning) {
+  border-color: #eadfca;
+  border-radius: 9px;
+  background: #fcf9f2;
+  color: #84663c;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .planner-notice {
+  color: #5c796d;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.app-shell.polished-shell.planner-shell .quiet-note {
+  padding: 13px 16px;
+  color: var(--ui-muted);
+  background: #f7f9fc;
+  border-left-color: #d9e2f4;
+  border-radius: 0 8px 8px 0;
+  font-size: 12px;
+  line-height: 1.85;
+}
+.app-shell.polished-shell.planner-shell .toast {
+  padding: 13px 19px;
+  border: 1px solid #ffffff1a;
+  border-radius: 11px;
+  color: #fff;
+  background: #303644;
+  box-shadow: 0 5px 20px #1922351f;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+@media (max-width: 1000px) {
+  .app-shell.polished-shell.planner-shell .portfolio-grid {
+    gap: 20px;
+  }
+  .app-shell.polished-shell.planner-shell .detail-body {
+    gap: 0 25px;
+  }
+}
+@media (max-width: 640px) {
+  .app-shell.polished-shell.planner-shell .inbox-capture {
+    padding: 14px 13px 8px;
+    border-radius: 11px;
+  }
+  .app-shell.polished-shell.planner-shell .inbox-capture-main {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .app-shell.polished-shell.planner-shell .inbox-capture-options > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .app-shell.polished-shell.planner-shell .inbox-row {
+    align-items: flex-start;
+    gap: 12px;
+    padding-block: 18px;
+  }
+  .app-shell.polished-shell.planner-shell .inbox-copy {
+    flex-basis: 100%;
+  }
+  .app-shell.polished-shell.planner-shell .inbox-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .app-shell.polished-shell.planner-shell .schedule-lanes {
+    gap: 7px;
+  }
+  .app-shell.polished-shell.planner-shell .schedule-hour {
+    font-size: 11px;
+  }
+  .app-shell.polished-shell.planner-shell .schedule-block strong {
+    font-size: 11px;
+  }
+  .app-shell.polished-shell.planner-shell .schedule-block small {
+    font-size: 10px;
+  }
+  .app-shell.polished-shell.planner-shell .schedule-point {
+    font-size: 10px;
+  }
+  .app-shell.polished-shell.planner-shell .project-identity {
+    gap: 9px;
+  }
+  .app-shell.polished-shell.planner-shell .project-name {
+    font-size: 13px;
+  }
+  .app-shell.polished-shell.planner-shell :is(.project-subtitle, .budget-cell, .status-pill, .list-head) {
+    font-size: 11px;
+  }
+  .app-shell.polished-shell.planner-shell .project-row {
+    padding-block: 19px;
+  }
+  .app-shell.polished-shell.planner-shell .list-caption {
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+  .app-shell.polished-shell.planner-shell .detail-body {
+    padding: 22px 18px 18px;
+  }
+  .app-shell.polished-shell.planner-shell .detail-heading h2 {
+    font-size: 20px;
+  }
+  .app-shell.polished-shell.planner-shell .time-review-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .app-shell.polished-shell.planner-shell .time-review-metrics strong {
+    font-size: 21px;
+  }
+  .app-shell.polished-shell.planner-shell .time-review-chart {
+    gap: 7px;
+  }
+  .app-shell.polished-shell.planner-shell .time-review-bar {
+    height: 115px;
+  }
+  .app-shell.polished-shell.planner-shell .time-review-day strong {
+    font-size: 11px;
+  }
+  .app-shell.polished-shell.planner-shell .time-review-day > span {
+    font-size: 11px;
+  }
+  .app-shell.polished-shell.planner-shell :is(.growth-panel, .score-panel) {
+    padding: 20px 17px;
+  }
+  .app-shell.polished-shell.planner-shell .growth-heading {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .app-shell.polished-shell.planner-shell .growth-projects {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-shell.polished-shell.planner-shell .growth-compact {
+    padding-inline: 0;
+  }
+  .app-shell.polished-shell.planner-shell .score-overview {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  .app-shell.polished-shell.planner-shell .score-value {
+    font-size: 38px;
+  }
+  .app-shell.polished-shell.planner-shell :is(.modal, .restore-dialog) {
+    max-width: calc(100vw - 24px);
+    border-radius: 13px;
+  }
+  .app-shell.polished-shell.planner-shell .modal-header {
+    padding: 20px 18px 17px;
+    gap: 12px;
+  }
+  .app-shell.polished-shell.planner-shell .modal-header h2 {
+    font-size: 20px;
+  }
+  .app-shell.polished-shell.planner-shell .modal-content {
+    padding: 20px 18px 11px;
+  }
+  .app-shell.polished-shell.planner-shell .modal-footer {
+    padding: 15px 18px;
+  }
+  .app-shell.polished-shell.planner-shell .restore-dialog {
+    padding: 20px 18px;
+  }
+  .app-shell.polished-shell.planner-shell .planner-command-input {
+    padding-inline: 14px;
+    gap: 8px;
+  }
+  .app-shell.polished-shell.planner-shell .planner-command-dialog > footer {
+    padding-inline: 18px;
+    font-size: 11px;
+  }
+}
+@media (pointer: coarse) {
+  .app-shell.polished-shell.planner-shell :is(.inbox-capture-options > summary, .inbox-archived > summary, .growth-metric summary, .growth-followup > summary) {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-shell.polished-shell.planner-shell .inbox-capture {
+    transition: none;
+  }
+}

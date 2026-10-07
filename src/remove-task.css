@@ -1,0 +1,14 @@
+.task-row-actions .task-remove-action { min-height: 44px; padding: 8px 10px; gap: 6px; color: var(--theme-muted, var(--ui-muted)); }
+.task-row-actions .task-remove-action:hover { color: var(--theme-danger, #b64351); background: var(--theme-danger-soft, var(--ui-soft)); }
+.remove-task-dialog { max-width: 540px; }
+.remove-task-title { display: block; font-size: 18px; overflow-wrap: anywhere; }
+.remove-task-dialog .modal-content { line-height: 1.7; }
+.remove-task-dialog .modal-content p { margin-block: 12px; }
+.remove-task-reason summary { cursor: pointer; min-height: 44px; align-content: center; }
+.remove-task-reason input { width: 100%; }
+.remove-task-dialog .modal-footer { justify-content: flex-end; flex-wrap: wrap; }
+.day-draft-card .draft-remove-action { min-height: 44px; gap: 6px; padding: 8px; }
+@media (max-width: 640px) {
+  .day-draft-card .draft-remove-action { grid-column: 2 / -1; justify-self: start; }
+  .remove-task-dialog .modal-footer > button { flex: 1; min-width: 112px; }
+}

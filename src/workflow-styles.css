@@ -1,0 +1,86 @@
+/* First iteration: actions first, one scroll surface per dialog, readable secondary text. */
+.today-page .page-heading{margin-bottom:24px}
+.today-page .page-heading h1{font-size:30px;line-height:1.4;letter-spacing:.5px}
+.today-page .page-heading p,.day-subtle,.field-hint,.task-meta,.day-filter>span,.save-note,.quiet-note,.modal-header p,.day-summary p{color:#596650;font-size:12px}
+.field-label{color:#48583f;font-size:13px}
+.today-page .eyebrow{color:#596650;font-size:10px;letter-spacing:1.5px}
+.day-summary{padding:18px 0;margin-bottom:18px}
+.day-summary-number strong{font-size:25px}
+.day-section{margin-top:26px}
+.day-task{padding:18px 22px;gap:20px}
+.task-main h4{font-size:16px}
+.task-main>p{font-size:13px;color:#53614a}
+.task-meta{font-size:12px}
+.task-controls{min-width:142px}
+.finish-button{font-size:12px;padding:8px 12px;white-space:nowrap}
+.task-more summary{font-size:12px;color:#53614a;cursor:pointer;text-align:right}
+.task-more>div{display:flex;gap:4px;margin-top:7px}
+.metric-warning{color:#78511b!important;background:#fff5df;border-left:2px solid #b98638;padding:9px 12px;font-size:12px;line-height:1.7;margin:9px 0}
+.secondary-panel,.github-panel{border:1px solid var(--line);border-radius:9px;background:var(--paper);margin:24px 0}
+.secondary-panel>summary,.github-panel summary{padding:16px 20px;font-size:13px;cursor:pointer;color:#405637}
+.secondary-panel>summary{font-weight:600}
+.secondary-panel>.dashboard,.secondary-panel>.report-panel,.secondary-panel>.score-panel,.secondary-panel>.quiet-note{margin:16px}
+.github-panel summary>span{float:right;font-weight:400;color:#52634b}
+.github-body{padding:0 20px 20px;font-size:13px}
+.github-body>p{margin:8px 0 12px}
+.github-body a{color:#375f31;text-decoration:underline;text-underline-offset:3px}
+.github-candidates{margin-top:20px;padding-top:12px;border-top:1px solid var(--line)}
+.github-candidate{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.github-candidate input{width:auto}
+.github-candidate small{display:block;color:#596650;margin-top:3px;font-size:12px}
+.github-candidate a{margin-left:auto;white-space:nowrap}
+.github-candidates .field{margin-top:18px}
+.github-candidates>.button-primary{margin-top:14px}
+.modal.day-modal[open]{display:flex;flex-direction:column;overflow:hidden;max-height:90dvh}
+.modal.day-modal>form{display:flex;flex-direction:column;min-height:0;max-height:none;overflow:hidden}
+.modal.day-modal .modal-content{min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.modal.day-modal .modal-header,.modal.day-modal .modal-footer{flex-shrink:0}
+.modal.day-modal .modal-header{padding:18px 24px}
+.modal.day-modal .modal-header p{line-height:1.7}
+.modal.day-modal fieldset{min-width:0}
+.modal.day-modal input,.modal.day-modal select,.modal.day-modal textarea{font-size:13px}
+.modal.day-modal .field-hint{font-size:12px;line-height:1.7}
+.modal.day-modal .checkbox-label{font-size:13px;line-height:1.8}
+.finish-section{border-bottom:1px solid var(--line);padding:10px 0 18px;margin-bottom:14px}
+.finish-section h3{font-size:15px;margin:0 0 14px;font-weight:600}
+.finish-section>.checkbox-label{margin:12px 0}
+.finish-section>p,.finish-section summary{font-size:13px;margin:10px 0}
+.finish-section details p{font-size:12px;margin:10px 0}
+.evidence-source{display:block;overflow-wrap:anywhere;color:#596650;margin-top:3px}
+.reuse-plan{background:#f2f5ed;border-radius:7px;padding:14px;margin-bottom:20px}
+.reuse-plan p{margin:8px 0 0}
+.plan-task-editor{margin-top:14px}
+:focus-visible{outline:2px solid #557345;outline-offset:3px}
+@media(max-width:760px){
+ .today-page .page-heading h1{font-size:25px}
+ .day-summary{gap:15px}
+ .day-task{padding:16px}
+ .task-controls{width:100%;align-items:center}
+ .task-more{margin-left:auto}
+ .github-panel summary>span{float:none;display:block;margin-top:6px}
+ .modal.day-modal{width:calc(100vw - 20px);max-height:94dvh}
+ .modal.day-modal .modal-content{padding:18px}
+ .modal.day-modal .modal-header,.modal.day-modal .modal-footer{padding:15px 18px}
+}
+
+.today-page .day-summary{min-height:0;padding:16px 0}
+.today-page .day-filter{margin-bottom:18px}
+.today-page .day-section-heading{margin-bottom:14px}
+.today-page .day-summary-number>span,.today-page .task-project,.today-page .block-heading p,.today-page .result-state,.today-page .button-quiet,.today-page .day-filter label>span{color:#596650;font-size:12px}
+.today-page .result-state.confirmed{color:#396c37}
+.event-item p{overflow-wrap:anywhere}
+.report-digest{font-size:13px;line-height:1.9;margin:16px 0;color:#48583f}
+.report-digest p{margin:9px 0}
+
+.plan-task-editor>summary{padding:15px 0;cursor:pointer;font-size:13px;color:#405637}
+.plan-task-preview{display:block;font-size:12px;color:#596650;margin:5px 0 0 17px;font-weight:400}
+.plan-task-editor>.button-quiet{margin:0 0 12px}
+.plan-block-editor .field{margin-bottom:0}
+
+.plan-time-budget{padding:12px 0;margin:5px 0 18px;border-block:1px solid var(--line)}
+.plan-time-budget summary{font-size:13px;cursor:pointer;color:#405637}
+
+.project-day-label{display:block;margin-top:7px;font-size:12px;color:#3e643d;white-space:normal;line-height:1.6}
+.project-day-detail>strong{font-size:14px;color:#3e643d}
+.project-day-task{border-top:1px solid var(--line);padding-top:10px;margin-top:10px;font-size:12px}
+.project-day-task p{color:#52634b;margin:4px 0}

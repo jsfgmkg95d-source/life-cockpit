@@ -1,0 +1,16 @@
+{
+  "family": "Noto Sans SC",
+  "source": "C:/Windows/Fonts/NotoSansSC-VF.ttf",
+  "officialSource": "https://github.com/google/fonts/tree/main/ofl/notosanssc",
+  "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/OFL.txt",
+  "weight": [
+    100,
+    900
+  ],
+  "glyphs": 30890,
+  "bytes": 7783332,
+  "sha256": "7c2b59b0f40b5c2d3bd4a9cd74c9a7a57c4c7829f7ab158c22eaadc35048c124",
+  "fonttools": "4.66.1",
+  "brotli": "1.2.0",
+  "conversion": "WOFF2 compression without subsetting or removing glyphs"
+}

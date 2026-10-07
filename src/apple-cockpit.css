@@ -1,0 +1,57 @@
+/* A quiet, system-native palette inspired by modern Apple interfaces. */
+:root{--paper:#fff;--ink:#22252b;--muted:#69717d;--line:#e5e5e9;--green:#0066cc;--pale:#f0f6fc;--control-ink:#242832;--control-muted:#69717d;--control-line:#dedfe4;--control-accent:#0066cc;--control-focus:#4d93df;font-family:"Segoe UI Variable","Segoe UI","Microsoft YaHei UI",sans-serif;color:#242832;background:#f5f5f7}
+body{background:#f5f5f7}
+.app-shell.polished-shell{--paper:#fff;--ink:#242832;--muted:#69717d;--line:#e5e5e9;--green:#0066cc;--pale:#f0f6fc;--control-accent:#0066cc;--control-focus:#4d93df;background:#f5f5f7;color:#242832}
+.app-shell.polished-shell .sidebar{background:#f6f7f9;border-color:#e6e7eb}
+.app-shell.polished-shell .sidebar .brand-mark{background:#1d6dc8;border-color:#1d6dc8;box-shadow:none}
+.app-shell.polished-shell .sidebar .brand-name{color:#222832}
+.app-shell.polished-shell .nav button{color:#68717d;border-radius:10px}
+.app-shell.polished-shell .nav button:hover{background:#ebeff5;color:#273f61}
+.app-shell.polished-shell .nav button.active{background:#fff;border-color:#e3e6ec;color:#145da9;box-shadow:0 1px 3px #14203709}
+.app-shell.polished-shell .nav button.active svg{color:#1b73cc}
+.app-shell.polished-shell .topbar{background:#ffffffb8;border-bottom-color:#e8e9ec;backdrop-filter:blur(18px)}
+.app-shell.polished-shell .build-tag{background:#fff;border-color:#e1e4e9;color:#77808d}
+.app-shell.polished-shell .workspace .page-heading h1{color:#20242d;font-weight:600;letter-spacing:-.04em}
+.app-shell.polished-shell .workspace .page-heading p{color:#747d89}
+.app-shell.polished-shell .button-primary,:is(.modal,.restore-dialog,.setup-page) .button-primary{background:#0066cc;border-color:#0066cc;color:#fff;border-radius:10px;box-shadow:none}
+.app-shell.polished-shell .button-primary:hover:not(:disabled),:is(.modal,.restore-dialog,.setup-page) .button-primary:hover:not(:disabled){background:#005ab5;border-color:#005ab5;box-shadow:none}
+.app-shell.polished-shell .button-secondary,:is(.modal,.restore-dialog,.setup-page) .button-secondary{background:#fff;border-color:#dcdee4;color:#3c4552;border-radius:10px;box-shadow:0 1px 2px #17203305}
+.app-shell.polished-shell .button-secondary:hover:not(:disabled),:is(.modal,.restore-dialog,.setup-page) .button-secondary:hover:not(:disabled){background:#f6f8fb;border-color:#c9d4e1}
+.app-shell.polished-shell .button-quiet:hover,:is(.modal,.restore-dialog,.setup-page) .button-quiet:hover{background:#edf3fa;color:#145da9}
+.app-shell.polished-shell :is(a,.text-link){color:#0066cc}
+.app-shell.polished-shell :is(.task-list-shell,.dashboard,.project-list,.detail-panel,.settings-section,.daily-template-choice){border-color:#e5e6ea;background:#fff;box-shadow:0 2px 14px #18203605}
+.app-shell.polished-shell .polished-day .task-list-shell{border-color:#e5e6ea;border-radius:18px;box-shadow:0 5px 24px #17243b05}
+.app-shell.polished-shell .polished-day .task-list-summary{border-bottom-color:#edeef0;color:#717b87}
+.app-shell.polished-shell .polished-day .task-list-summary strong{color:#2a303b}
+.app-shell.polished-shell .polished-day .task-row{border-color:#edeef0}
+.app-shell.polished-shell .polished-day .task-row h4{color:#252b35}
+.app-shell.polished-shell .polished-day .task-row-mark{background:#f3f6fa;border-color:#e7ecf3;color:#6f829b}
+.app-shell.polished-shell .polished-day .task-row-action{background:#fff;border-color:#dbe0e7;color:#345478}
+.app-shell.polished-shell .polished-day .task-row-action:hover:not(:disabled){background:#f4f8fc;border-color:#b9d0e8;color:#005ab5}
+.app-shell.polished-shell .polished-day .task-row-track{background:#edf2f7}
+.app-shell.polished-shell .polished-day .task-row-track>span{background:#4d91dc}
+.app-shell.polished-shell .polished-day .daily-view-switch{background:#ededf0;border-color:#e9e9ec}
+.app-shell.polished-shell .polished-day .daily-view-switch button[aria-pressed=true]{background:#fff;color:#145da9;border-color:#e2e4e9;box-shadow:0 1px 3px #17243b0c}
+.app-shell.polished-shell .polished-day .daily-extra{border-color:#e6e7ea;background:#fafbfc}
+.app-shell.polished-shell .polished-day .daily-extra[open]{background:#fff}
+.app-shell.polished-shell .timer-disclosure.timer-active{background:#eef5fd;border-color:#d8e6f7}
+.app-shell.polished-shell .timer-disclosure>summary strong{color:#1264b6}
+.app-shell.polished-shell .dashboard{border-color:#e5e6eb;border-radius:17px}
+.app-shell.polished-shell .dashboard .cockpit-cards>div{background:#f5f7fa}
+.app-shell.polished-shell .dashboard .trend-day{background:#fafbfc;border-color:#e8eaf0}
+.app-shell.polished-shell .dashboard .trend-day.selected{background:#eef5fd;border-color:#b8d4f3}
+.app-shell.polished-shell .dashboard .trend-track{background:#e9eef5}
+.app-shell.polished-shell .dashboard .trend-track>span{background:#4d91dc}
+.app-shell.polished-shell .project-row:hover{background:#f6f9fc}
+.app-shell.polished-shell .project-row.selected{background:#eef5fd}
+.app-shell.polished-shell .project-row.selected:before{background:#1c72cb}
+.app-shell.polished-shell .project-icon{background:#f1f6fb;border-color:#e0e9f4;color:#567da4}
+.app-shell.polished-shell .overview-value{font-family:inherit;color:#253447}
+.app-shell.polished-shell .toast{background:#343942;border-radius:11px;box-shadow:0 7px 24px #18213622}
+.app-shell.polished-shell :is(input,select,textarea):focus,:is(.modal,.restore-dialog,.setup-page) :is(input,select,textarea):focus{border-color:#6ca9e8;box-shadow:0 0 0 3px #4896e822}
+.modal{background:#fff;border-color:#e0e3e9;border-radius:17px;box-shadow:0 22px 75px #1720372d}
+.modal-footer{background:#fafbfc}
+.setup-page .setup-card,.restore-dialog{background:#fff;border-color:#e2e5eb;border-radius:17px}
+.setup-page .brand-mark{background:#1d6dc8;color:#fff}
+@media(max-width:690px){.app-shell.polished-shell .sidebar{background:#fafbfc;border-bottom:1px solid #e5e7ec}.app-shell.polished-shell .topbar{background:#fff}}
+@media(prefers-reduced-motion:reduce){.app-shell.polished-shell *, .modal *{transition:none!important}}

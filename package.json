@@ -1,0 +1,42 @@
+{
+  "name": "life-cockpit",
+  "private": true,
+  "version": "0.14.0-beta.1",
+  "type": "module",
+  "engines": {
+    "node": ">=24.16.0 <25"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:server": "node --watch scripts/dev-server.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build",
+    "start": "node server/index.ts",
+    "test": "node --test tests/*.test.ts",
+    "desktop:dev": "electron desktop/main.cjs",
+    "desktop:build": "npm run build && node desktop/build.mjs",
+    "test:desktop": "node --test desktop/*.test.mjs tests/desktop-*.test.ts",
+    "check:public": "node scripts/check-public.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.577.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "electron": "44.4.5",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.0"
+  },
+  "license": "MIT",
+  "description": "Local-first projects, tasks and time for independent creators",
+  "homepage": "https://github.com/jsfgmkg95d-source/life-cockpit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsfgmkg95d-source/life-cockpit.git"
+  }
+}

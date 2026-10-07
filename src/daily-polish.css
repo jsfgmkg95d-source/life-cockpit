@@ -1,0 +1,161 @@
+/* A quiet, legible workspace for daily decisions. */
+.polished-shell .polished-day{max-width:940px;margin-inline:auto;color:#202522}
+.polished-shell .polished-day .page-heading{margin:0 0 32px;gap:20px;align-items:center}
+.polished-shell .polished-day .page-heading h1{font-size:32px;font-weight:600;letter-spacing:-.035em;line-height:1.25}
+.polished-shell .polished-day .page-heading[hidden],.polished-shell .polished-day .date-switch[hidden]{display:none}
+.polished-shell .polished-day .date-switch{gap:1px;padding:4px;background:#fff;border:1px solid #e4e8e2;border-radius:10px;box-shadow:0 1px 2px #1d2c2203}
+.polished-shell .polished-day .date-switch .icon-button{width:30px;height:32px;padding:6px;color:#79817a;border-radius:6px}
+.polished-shell .polished-day .date-switch input{width:137px;min-height:32px;padding:5px 7px;border:0;background:transparent;box-shadow:none;font-size:12px;font-weight:500;color:#444d46}
+.polished-shell .polished-day .date-switch input:focus-visible{outline:2px solid #547b66;outline-offset:1px}
+.polished-shell .polished-day .daily-command-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 25px}
+.polished-shell .polished-day .daily-view-switch{display:inline-flex;flex-shrink:0;gap:3px;padding:4px;width:auto;margin:0;background:#ecefea;border:1px solid #e9ece6;border-radius:10px;box-shadow:inset 0 1px 1px #26372802}
+.polished-shell .polished-day .daily-view-switch button{flex:none;min-height:32px;margin:0;padding:7px 17px;border:0;border-radius:7px;font-size:13px;line-height:1.2;font-weight:500;color:#6e776f;background:transparent;box-shadow:none}
+.polished-shell .polished-day .daily-view-switch button[aria-pressed=true]{background:#fff;color:#26352c;font-weight:600;box-shadow:0 1px 3px #2431240b,0 0 0 1px #e2e7df}
+.polished-shell .polished-day .daily-view-switch button svg{display:none}
+.polished-shell .polished-day .daily-add-actions{display:flex;gap:12px;align-items:center;flex-wrap:nowrap;width:auto}
+.polished-shell .polished-day .daily-add-actions>.button-primary{min-height:38px;padding:8px 14px;gap:6px;font-size:13px;border-radius:9px;font-weight:500;white-space:nowrap;flex:none}
+.polished-shell .polished-day .daily-options>summary{list-style:none;border-radius:8px;padding:10px 4px;font-size:12px;color:#647068;cursor:pointer}
+.polished-shell .polished-day .daily-options>summary:hover{color:#24352a}
+.polished-shell .polished-day .daily-options>div{top:calc(100% + 8px);padding:16px;width:238px;background:#fff;border:1px solid #e2e7df;border-radius:12px;box-shadow:0 10px 30px #17271b12,0 1px 3px #17271b06}
+.polished-shell .polished-day .daily-filter-chip{margin:0 0 15px}
+.polished-shell .polished-day .daily-filter-chip button{padding:6px 10px;background:#eef2ed;font-size:12px;color:#34533d;border:1px solid #e0e7dc;border-radius:7px}
+.polished-shell .polished-day .board-section{margin:0 0 20px}
+.polished-shell .polished-day .task-list-shell{background:#fff;border:1px solid #e1e6de;border-radius:16px;box-shadow:0 2px 3px #1d2c2202,0 7px 24px #1d2c2202;overflow:visible;container-type:inline-size}
+.polished-shell .polished-day .task-list-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0;padding:20px 24px;border-bottom:1px solid #eef0ec;font-size:12px;color:#6b756d}
+.polished-shell .polished-day .task-list-summary>div{display:flex;align-items:center;gap:12px;min-width:0}
+.polished-shell .polished-day .task-list-summary strong{font-size:14px;font-weight:600;color:#354239;white-space:nowrap}
+.polished-shell .polished-day .task-list-count{font-size:12px;color:#737d74;white-space:nowrap}
+.polished-shell .polished-day .task-list-summary .task-list-meta{font-size:12px;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+.polished-shell .polished-day .task-row{position:relative;grid-template-columns:34px minmax(0,1fr) 130px auto;gap:0 18px;margin:0 24px;padding:23px 0 16px;border-bottom:1px solid #eef0ec;align-items:center;transition:background 150ms ease}
+.polished-shell .polished-day .task-row:last-child{border-bottom:0}
+.polished-shell .polished-day .task-row-mark{width:34px;height:36px;border:1px solid #e9ede6;border-radius:9px;background:#f7f9f5;color:#7c8b7d;display:grid;place-items:center;align-self:start;margin-top:2px}
+.polished-shell .polished-day .task-row-copy{grid-column:2;min-width:0}
+.polished-shell .polished-day .task-row-project{font-size:12px;line-height:1.4;color:#69756c;gap:8px;margin:0 0 6px}
+.polished-shell .polished-day .task-row-project>span{font-size:11px;line-height:1.4;color:#889087;padding-left:8px;border-left:1px solid #dde3d8}
+.polished-shell .polished-day .task-row h4{font-size:16px;font-weight:550;line-height:1.5;color:#202c24;letter-spacing:-.01em}
+.polished-shell .polished-day .task-row-acceptance{font-size:12px;line-height:1.65;color:#788279;margin-top:5px}
+.polished-shell .polished-day .task-row-result{grid-column:3;gap:6px;text-align:left;align-self:center}
+.polished-shell .polished-day .task-row-result strong{font-size:22px;font-weight:550;letter-spacing:-.04em;line-height:1.2;color:#35453a}
+.polished-shell .polished-day .task-row-result strong>span{font-size:12px;font-weight:400;letter-spacing:0;color:#7f897e}
+.polished-shell .polished-day .task-row-outcome{font-size:11px;line-height:1.4;color:#79847a}
+.polished-shell .polished-day .task-row.state-doing .task-row-outcome{color:#62766b}
+.polished-shell .polished-day .task-row.outcome-achieved .task-row-outcome{color:#407351}
+.polished-shell .polished-day .task-row.outcome-unmet .task-row-outcome,.polished-shell .polished-day .task-row.outcome-partial .task-row-outcome{color:#8c713d}
+.polished-shell .polished-day .task-row-track{margin:1px 0 0;height:3px;background:#ecf0e8}
+.polished-shell .polished-day .task-row-track>span{background:#709779}
+.polished-shell .polished-day .task-row-action{grid-column:4;padding:8px 12px;min-height:36px;font-size:12px;font-weight:500;border-radius:8px;border:1px solid #e1e7dd;background:#fff;color:#425948;box-shadow:0 1px 2px #20302304;gap:8px;white-space:nowrap}
+.polished-shell .polished-day .task-row-action:hover:not(:disabled){background:#f4f7f1;border-color:#bacbb6;color:#2a4a32}
+.polished-shell .polished-day .task-row-action:disabled{background:#f5f7f4;border-color:#e6eae4;color:#737b74;box-shadow:none;cursor:not-allowed}
+.polished-shell .polished-day .task-row-details{grid-column:2/-1;margin-top:10px;font-size:12px;color:#747f75}
+.polished-shell .polished-day .task-row-details>summary{padding:0;font-size:11px;min-height:20px;line-height:20px;color:#818b80;border-radius:3px}
+.polished-shell .polished-day .task-row-details>summary:hover{color:#365540}
+.polished-shell .polished-day .task-row-details p{font-size:12px;color:#69786b}
+.polished-shell .polished-day .task-row-details label{font-size:12px}
+.polished-shell .polished-day .task-row-details select{font-size:12px;width:145px}
+.polished-shell .polished-day .task-row-more button{font-size:12px}
+.polished-shell .polished-day .task-list-closed{margin:0;border-top:1px solid #eef0ec}
+.polished-shell .polished-day .task-list-closed>summary{font-size:12px;padding:16px 24px;cursor:pointer;color:#6f7b70}
+.polished-shell .polished-day .task-list-closed .task-row{margin-inline:24px}
+.polished-shell .polished-day .task-list-empty{padding:32px 24px;font-size:14px;color:#4f7155}
+.polished-shell .polished-day .task-list-shell .board-time{border:0;border-top:1px solid #eef0ec;margin:0;padding:0;border-radius:0 0 16px 16px}
+.polished-shell .polished-day .task-list-shell .board-time>summary{padding:15px 24px;font-size:12px;color:#7a8579;line-height:1.5}
+.polished-shell .polished-day .task-list-shell .board-time>summary>span{display:inline;margin-left:8px;font-size:11px;color:#8b9387}
+.polished-shell .polished-day .task-list-shell .board-time>div{padding:0 24px 8px}
+.polished-shell .polished-day .daily-extra{padding:0;margin-top:22px;border:1px solid #e3e8df;border-radius:12px;background:#fbfcf9}
+.polished-shell .polished-day .daily-extra>summary{padding:15px 18px;font-size:12px;color:#72816f;border-radius:12px;cursor:pointer}
+.polished-shell .polished-day .daily-extra[open]{background:#fff;padding:0 22px 18px}
+.polished-shell .polished-day .daily-extra[open]>summary{padding-inline:0}
+.polished-shell .polished-day .timer-disclosure{margin-top:12px;border:0;color:#7b8476}
+.polished-shell .polished-day .timer-disclosure>summary{padding:10px 2px;font-size:12px;color:#7b8476}
+.polished-shell .polished-day .timer-disclosure.timer-active{padding:0 16px;border:1px solid #dce7d5;background:#f0f6e9;border-radius:10px}
+.polished-shell .polished-day .daily-template-choice{background:#fff;border:1px solid #e1e6de;border-radius:14px;box-shadow:0 2px 5px #1d2c2202;margin:0 0 18px}
+.polished-shell .polished-day .daily-template-choice>summary{padding:19px 22px;font-size:14px;color:#4d6650}
+.polished-shell .polished-day .daily-template-choice>summary>span{font-size:12px;color:#88917f}
+.polished-shell .polished-day .daily-template-choice>.day-prepare{padding:4px 22px 22px}
+.polished-shell .polished-day .day-draft-card{padding:17px 0;border-bottom:1px solid #eef0ec}
+.polished-shell .polished-day .day-draft-card h3{font-size:14px;font-weight:550;line-height:1.6;color:#344137}
+.polished-shell .polished-day .day-draft-card p{font-size:12px;line-height:1.75;color:#758270}
+.polished-shell .polished-day .day-draft-card small{font-size:12px;color:#7f8878}
+.polished-shell .polished-day .day-prepare .draft-source-note{font-size:12px;line-height:1.8;color:#7d8676}
+.polished-shell .polished-day .day-prepare-footer p{font-size:12px;line-height:1.8}
+.polished-shell .polished-day .day-prepare-footer{gap:14px;margin-top:20px}
+.polished-shell .polished-day .day-empty{padding:28px;border:1px solid #e1e7dd;border-radius:14px;background:#fff;color:#7d8875;box-shadow:0 2px 5px #1d2c2202}
+.polished-shell .polished-day .day-empty h3{color:#4a624b;font-size:16px}
+.polished-shell .polished-day .harvest-calendar{margin-top:28px;--harvest-ink:#355d43;--harvest-gold:#b39661}
+.polished-shell .polished-day .harvest-month-heading>div>span{font-size:12px;color:#7e8879}
+.polished-shell .polished-day .harvest-month-heading h1{font-size:30px;letter-spacing:-.03em;color:#2a3b2d}
+.polished-shell .polished-day .harvest-month-stats{margin:22px 0;padding:19px 0;border-color:#e3e8df;gap:36px}
+.polished-shell .polished-day .harvest-month-stats strong{font-size:29px;color:#384f3c;font-weight:550;letter-spacing:-.035em}
+.polished-shell .polished-day .harvest-month-stats span,.polished-shell .polished-day .harvest-month-stats p{font-size:12px;color:#7a8471}
+.polished-shell .polished-day .harvest-month-panel{padding:23px;background:#fff;border:1px solid #e1e6de;border-radius:16px;box-shadow:0 2px 3px #1d2c2202}
+.polished-shell .polished-day .harvest-weekdays{font-size:12px;color:#8a9184;margin-bottom:12px}
+.polished-shell .polished-day .harvest-date{border-color:transparent;background:#fbfcf9;min-height:85px;border-radius:8px;color:#7e8973;transform:none}
+.polished-shell .polished-day .harvest-date:hover{background:#f0f4ea;border-color:#d3dfc8;transform:none}
+.polished-shell .polished-day .harvest-date.is-selected{box-shadow:inset 0 0 0 1px #62855a;border-color:#62855a;background:#eff4e7}
+.polished-shell .polished-day .harvest-date-number{font-size:12px;font-weight:500}
+.polished-shell .polished-day .harvest-date.tone-bloom{background:#e7f0dc;color:#54764a}
+.polished-shell .polished-day .harvest-date.tone-harvest{background:#f0f5e8;color:#67865a}
+.polished-shell .polished-day .harvest-date.tone-rest{background:#f5f3e9;color:#a68e60}
+.polished-shell .polished-day .harvest-date.tone-future{background:#fff;color:#a0a798;border:1px solid #f0f2ed}
+.polished-shell .polished-day .harvest-detail,.polished-shell .polished-day .harvest-detail.tone-bloom{border:1px solid #e1e6de;border-radius:16px;background:#fff;padding:23px;box-shadow:0 2px 3px #1d2c2202}
+.polished-shell .polished-day .harvest-detail-art{background:#f1f5ea;color:#6b8b5f;width:88px;height:88px}
+.polished-shell .polished-day .harvest-detail-art .harvest-flower{width:65px;height:65px}
+.polished-shell .polished-day .harvest-detail h3{font-size:16px;color:#3b563c}
+.polished-shell .polished-day .harvest-detail-message,.polished-shell .polished-day .harvest-footnote{font-size:12px;line-height:1.85;color:#7f8975}
+.polished-shell .polished-day .harvest-legend{font-size:11px;color:#8a927f}
+.polished-shell .polished-day .harvest-reward{background:#f1f6e9;border-color:#d4e1c8;box-shadow:0 2px 3px #1d2c2202;border-radius:12px}
+@container(max-width:660px){
+  .polished-shell .polished-day .task-row{grid-template-columns:30px minmax(0,1fr) auto;gap:0 12px;margin-inline:18px;padding-block:20px 15px}
+  .polished-shell .polished-day .task-row-mark{width:30px;height:32px;border-radius:8px}
+  .polished-shell .polished-day .task-row-copy{grid-column:2/-1;grid-row:1}
+  .polished-shell .polished-day .task-row-result{grid-column:2;grid-row:2;margin-top:14px;text-align:left;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .polished-shell .polished-day .task-row-action{grid-column:3;grid-row:2;margin-top:12px}
+  .polished-shell .polished-day .task-row-details{grid-column:2/-1;grid-row:3;margin-top:10px}
+  .polished-shell .polished-day .task-row-track{display:none}
+  .polished-shell .polished-day .task-list-summary{padding:18px;flex-wrap:wrap;gap:8px}
+  .polished-shell .polished-day .task-list-summary .task-list-meta{font-size:11px;gap:12px}
+  .polished-shell .polished-day .task-list-closed>summary{padding-inline:18px}
+  .polished-shell .polished-day .task-list-closed .task-row{margin-inline:18px}
+  .polished-shell .polished-day .task-list-shell .board-time>summary{padding-inline:18px}
+  .polished-shell .polished-day .task-list-shell .board-time>div{padding-inline:18px}
+}
+@media(max-width:690px){
+  .polished-shell .polished-day .page-heading{flex-direction:row;gap:10px;margin-bottom:24px}
+  .polished-shell .polished-day .page-heading h1{font-size:28px}
+  .polished-shell .polished-day .date-switch{padding:3px}
+  .polished-shell .polished-day .date-switch input{width:122px;font-size:11px}
+  .polished-shell .polished-day .daily-command-bar{gap:8px;margin-bottom:20px}
+  .polished-shell .polished-day .daily-view-switch button{padding:7px 12px;font-size:12px;min-height:31px}
+  .polished-shell .polished-day .daily-add-actions{gap:8px}
+  .polished-shell .polished-day .daily-add-actions>.button-primary{padding:8px 11px;min-height:37px;font-size:12px}
+  .polished-shell .polished-day .daily-options>summary{font-size:11px}
+  .polished-shell .polished-day .task-row h4{font-size:15px}
+  .polished-shell .polished-day .task-row-acceptance{font-size:12px}
+  .polished-shell .polished-day .harvest-month-panel{padding:15px}
+  .polished-shell .polished-day .harvest-detail{padding:18px}
+  .polished-shell .polished-day .harvest-month-stats{gap:25px;flex-wrap:wrap}
+  .polished-shell .polished-day .harvest-month-stats p{width:100%;text-align:left}
+  .polished-shell .polished-day .harvest-detail-art{width:64px;height:72px}
+  .polished-shell .polished-day .harvest-detail-art .harvest-flower{width:55px;height:55px}
+}
+@media(max-width:370px){
+  .polished-shell .polished-day .daily-view-switch{padding:3px;gap:2px}
+  .polished-shell .polished-day .daily-view-switch button{padding-inline:10px}
+  .polished-shell .polished-day .daily-add-actions>.button-primary{padding-inline:9px;font-size:11px}
+  .polished-shell .polished-day .daily-add-actions{gap:6px}
+  .polished-shell .polished-day .date-switch input{width:122px}
+  .polished-shell .polished-day .date-switch .icon-button{width:25px}
+  .polished-shell .polished-day .task-row{margin-inline:15px;gap:0 10px;grid-template-columns:26px minmax(0,1fr) auto}
+  .polished-shell .polished-day .task-row-mark{width:26px;height:29px}
+  .polished-shell .polished-day .task-row-mark svg{width:15px}
+  .polished-shell .polished-day .task-row-result strong{font-size:20px}
+  .polished-shell .polished-day .task-row-result strong>span{font-size:11px}
+  .polished-shell .polished-day .task-row-action{font-size:11px;padding:7px 8px;gap:4px}
+  .polished-shell .polished-day .task-list-summary{padding-inline:15px}
+  .polished-shell .polished-day .task-list-summary>div{gap:8px}
+  .polished-shell .polished-day .task-list-meta{width:100%;justify-content:flex-start!important}
+  .polished-shell .polished-day .harvest-month-panel{padding:12px}
+  .polished-shell .polished-day .harvest-date{min-height:70px}
+}
+@media(pointer:coarse){.polished-shell .polished-day .task-row-action,.polished-shell .polished-day .task-row-details>summary,.polished-shell .polished-day .daily-options>summary{min-height:44px}.polished-shell .polished-day .task-row-details>summary{display:inline-flex;align-items:center}}
+@media(prefers-reduced-motion:reduce){.polished-shell .polished-day .task-row{transition:none}}

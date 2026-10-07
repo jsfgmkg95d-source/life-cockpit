@@ -1,0 +1,22 @@
+name: Bug report / 问题反馈
+description: Report a reproducible problem without sharing private data.
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Application and Windows version / 软件与 Windows 版本
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and expected result / 操作步骤与预期
+      description: Use invented project names. Do not attach a ledger, backup, API key or private log.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened / 实际发生了什么
+    validations:
+      required: true

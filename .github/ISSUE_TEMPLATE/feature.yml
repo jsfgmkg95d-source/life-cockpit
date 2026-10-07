@@ -1,0 +1,13 @@
+name: Feature idea / 功能建议
+description: Tell us about a workflow that could be easier.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do / 想解决什么问题
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested behavior / 期望如何使用

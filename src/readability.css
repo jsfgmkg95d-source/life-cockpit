@@ -1,0 +1,224 @@
+/* Shared type scale for all appearances. Keep actual font sizes large instead
+   of scaling the canvas, so text wraps and controls retain their hit targets. */
+#root {
+  --type-body: 16px;
+  --type-small: 14px;
+  --type-task: 18px;
+  --type-section: 20px;
+}
+
+#root .app-shell,
+#root :is(p, li, label, input, select, textarea, button, summary, td, th) {
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+#root :is(input, select, textarea, button) { line-height: 1.5; }
+#root :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  min-height: 44px;
+}
+#root :is(.button-primary, .button-secondary, .button-quiet, .icon-button,
+  .task-focus-action, .task-row-action, .daily-options > summary,
+  .time-inline-link, .focus-duration-options button, .theme-quick-picker select) {
+  min-height: 44px;
+}
+#root :is(.icon-button, .task-row-mark) { flex-shrink: 0; }
+#root :is(.field-label, .inbox-capture-options > label,
+  .quick-task-preview strong, .planner-command-results strong,
+  .task-list-summary strong, .project-day-task, .project-note strong,
+  .budget-list > div, .detail-dl > div, .review-checkline, .growth-stock,
+  .growth-coverage, .score-details, .score-history-item, .score-evidence,
+  .planner-empty, .empty-state, .loading-screen, .planner-error,
+  .inline-error, .planner-notice, .toast, .score-missing, .score-warning,
+  .metric-warning, .insights-loading, .insights-error, .harvest-loading,
+  .harvest-load-error, .milestone-text, .setup-project, .setup-total,
+  .conflict-comparison dl, .report-card, .report-saved, .adoption-form,
+  .score-ack, .focus-bridge-feedback, .focus-bridge-row strong,
+  .life-action-copy strong, .life-month-grid strong,
+  .life-month-avoid strong) {
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+
+/* Secondary information stays distinct through weight and color, not tiny type. */
+#root :is(small, kbd, .eyebrow, .brand-subtitle, .local-indicator,
+  .nav-label, .nav-count, .build-tag, .overview-label, .overview-note,
+  .field-hint, .quiet-note, .save-note, .form-section-title, .backup-path,
+  .day-subtle, .detail-caption, .list-caption, .list-head, .detail-top,
+  .project-subtitle, .role-label, .budget-cell, .status-pill,
+  .task-list-count, .task-list-meta, .task-row-project,
+  .task-row-project > span, .task-row-time, .task-row-outcome,
+  .task-row-result strong > span, .daily-draft-notice,
+  .draft-source-note, .draft-preview-kicker, .draft-preview-badge,
+  .draft-task-number, .draft-project-name, .cockpit-project-meta,
+  .cockpit-project-action > span, .cockpit-projects-heading > span,
+  .inbox-meta, .inbox-count, .schedule-legend, .schedule-hour,
+  .schedule-lane-label, .schedule-point, .schedule-now-line span,
+  .schedule-footnote, .schedule-task-row span, .schedule-detail-row span,
+  .planner-day-metrics span, .time-review-metrics span, .time-review-day > span,
+  .growth-metric > strong, .growth-values span, .score-status,
+  .score-coverage span, .score-table caption, .score-table td span,
+  .planner-command-dialog > footer, .theme-option-description,
+  .theme-save-state, .harvest-weekdays, .harvest-date-number,
+  .harvest-date-caption, .harvest-legend, .harvest-detail-date > span,
+  .harvest-detail-progress > span, .harvest-detail-totals li > span,
+  .harvest-month-stats > div > span, .harvest-month-heading > div > span,
+  .setup-project .minutes, .setup-note, .small-title, .report-refs,
+  .score-coverage, .focus-bridge-intro span, .focus-bridge-preview-head,
+  .focus-bridge-done, .focus-bridge-confirm span, .focus-bridge-note,
+  .board-time > summary > span, .board-time-row span,
+  .day-summary-number > span, .cockpit-cards > div > span,
+  .metric-totals span, .trend-day strong,
+  .life-overline, .life-date, .life-column-label, .life-subtle,
+  .life-fortune-focus, .life-project-context span, .life-metrics,
+  .life-practice > span, .life-save-banner, .life-action-kicker,
+  .life-action-copy details, .life-save-row > span, .life-source,
+  .life-focus-disclosure > summary span, .life-details > summary span:last-child) {
+  font-size: var(--type-small);
+  line-height: 1.6;
+}
+#root :is(.task-row-details p, .day-draft-card p, .cockpit-project-card > p,
+  .vital-progress-copy > p, .harvest-detail-message, .harvest-reward-copy p,
+  .inbox-copy p, .project-day-task p, .project-note p, .settings-section > p,
+  .modal-header p, .restore-dialog p, .backup-settings p) {
+  font-size: var(--type-body);
+  line-height: 1.75;
+}
+#root :is(.task-row-details > summary, .task-list-closed > summary,
+  .draft-preview-more > summary, .growth-followup > summary,
+  .growth-metric summary, .score-details > summary,
+  .score-history-item > summary, .schedule-details > summary,
+  .inbox-capture-options > summary, .inbox-archived > summary,
+  .quick-task-quantity > summary, .quick-task-note > summary,
+  .planner-personal > summary, .daily-extra > summary) {
+  font-size: var(--type-body);
+  min-height: 44px;
+  line-height: 1.65;
+}
+
+#root :is(.page-heading h1, .planner-day-heading h1) {
+  font-size: 32px;
+  line-height: 1.4;
+}
+#root :is(.planner-panel-head h2, .time-review-heading h2,
+  .growth-heading h3, .score-heading h2, .settings-section h2,
+  .backup-settings h2, .cockpit-projects-heading h2,
+  .draft-preview-heading h2, .vital-insights-heading h2,
+  .vital-progress-copy h3, .harvest-detail h3) {
+  font-size: var(--type-section);
+  line-height: 1.5;
+}
+#root :is(.task-row h4, .day-draft-card h3, .inbox-copy h3,
+  .project-name, .cockpit-project-card h3, .growth-project h4,
+  .schedule-task-row strong, .schedule-detail-row strong,
+  .schedule-unscheduled h3, .vital-task-preview strong,
+  .vital-result h4, .harvest-reward-copy > strong,
+  .theme-option-title strong, .planner-empty strong, .empty-state h2) {
+  font-size: var(--type-task);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+#root :is(.detail-heading h2, .modal-header h2, .restore-dialog h2) {
+  font-size: 24px;
+  line-height: 1.5;
+}
+#root .detail-section h3 { font-size: var(--type-body); }
+#root .board-time-row strong { font-size: var(--type-body); line-height: 1.6; }
+#root .time-clock text { font-size: 21px; }
+#root .day-draft-card .draft-remove-action { grid-column: 3; justify-self: end; }
+#root .sidebar .brand-name { font-size: 20px; }
+#root :is(.nav button, .sidebar-settings, .planner-search-button,
+  .daily-view-switch button, .daily-add-actions > .button-primary,
+  .cockpit-project-action, .cockpit-projects-heading .button-quiet,
+  .inbox-actions button, .schedule-detail-actions button) {
+  font-size: var(--type-body);
+}
+#root .theme-quick-picker select { width: 138px; font-size: var(--type-body); }
+#root :is(.planner-day-metrics strong, .time-review-metrics strong) {
+  font-size: 28px;
+  line-height: 1.4;
+}
+#root :is(.task-row-result strong, .time-accumulation strong) {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+/* The focus card is deliberately compact; let its larger labels wrap. */
+#root :is(.time-state, .time-dial > span, .time-kicker,
+  .time-context, .time-hint, .focus-target-hint,
+  .time-accumulation span, .time-compound > span,
+  .time-history-note, .time-timeline li > div > span,
+  .time-history > summary > span, .time-week-preview > header > span,
+  .time-week strong, .global-focus-context,
+  .vital-kicker, .vital-confirmation-label,
+  .vital-progress-prompt, .vital-result-legend > span,
+  .vital-time-caption, .vital-footprints header > span,
+  .vital-footprint > span:first-child, .vital-footprint-detail,
+  .vital-result div > span, .vital-odette-label) {
+  font-size: var(--type-small);
+  line-height: 1.6;
+}
+#root :is(.time-heading h2, .time-week-preview h3,
+  .vital-footprints h3, .global-focus-context strong,
+  .vital-ring-caption > strong.vital-ring-word) {
+  font-size: var(--type-body);
+  line-height: 1.5;
+}
+#root .time-readout { font-size: 38px; line-height: 1.25; }
+#root :is(.time-heading, .time-actions, .time-history > summary,
+  .task-row-actions, .task-list-summary, .draft-preview-heading) {
+  flex-wrap: wrap;
+}
+#root .time-actions button { flex: 1 1 112px; white-space: normal; }
+#root .time-accumulation { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#root .time-history > summary > span { margin-left: 0; }
+#root :is(.time-context, .time-kicker, .time-hint, .global-focus-context,
+  .task-row-result, .harvest-date-caption, .vital-footprint > span:first-child) {
+  overflow-wrap: anywhere;
+}
+#root .vital-footprint > span:first-child { white-space: normal; }
+#root .harvest-date-caption { white-space: normal; min-height: 22px; }
+#root .schedule-hour { white-space: nowrap; }
+#root .schedule-block strong { font-size: var(--type-body); line-height: 1.4; }
+#root .schedule-block.compact strong { font-size: var(--type-small); line-height: 1.25; }
+#root .schedule-block :is(span, small) { font-size: var(--type-small); line-height: 1.4; }
+#root :is(.schedule-task-row, .schedule-detail-row) { flex-wrap: wrap; }
+#root .time-review-day strong { font-size: var(--type-small); overflow-wrap: anywhere; }
+
+/* Keep the established small-screen structure; make room for readable labels. */
+@media (min-width: 901px) {
+  #root .task-row-actions { display: grid; grid-template-columns: repeat(2, max-content); gap: 3px; }
+  #root .task-row-actions > .task-focus-action { grid-column: 1 / -1; grid-row: 1; justify-self: end; }
+  #root .task-row-actions > .task-row-action { grid-column: 1; grid-row: 2; }
+  #root .task-row-actions > .task-remove-action { grid-column: 2; grid-row: 2; }
+}
+@media (max-width: 1200px) {
+  #root .task-row-actions > button { max-width: 100%; white-space: normal; }
+}
+@media (max-width: 768px) {
+  #root .sidebar-bottom .sidebar-settings { font-size: 0; }
+}
+@media (max-width: 640px) {
+  #root :is(.page-heading h1, .planner-day-heading h1) { font-size: 28px; }
+  #root .planner-topbar-actions > .button-quiet { font-size: 0; }
+  #root .planner-day-heading { flex-wrap: wrap; }
+  #root .date-switch input { width: 158px; font-size: var(--type-body); }
+  #root .daily-view-switch button { padding-inline: 7px; }
+  #root .task-row-actions { gap: 7px; }
+  #root .task-row-actions > button { flex: 0 1 auto; }
+  #root .day-draft-card { grid-template-columns: 24px minmax(0, 1fr); }
+  #root .day-draft-card > small { grid-column: 2; max-width: none; text-align: left; }
+  #root .day-draft-card .draft-remove-action { grid-column: 2 / -1; justify-self: start; }
+  #root .vital-progress-main { grid-template-columns: 106px minmax(0, 1fr); align-items: start; gap: 12px; }
+  #root .harvest-date { padding-inline: 1px; }
+  #root .harvest-weekdays, #root .harvest-month-grid { gap: 3px; }
+  #root .theme-option-card { grid-template-columns: 86px minmax(0, 1fr); column-gap: 12px; }
+  #root .theme-option-description { overflow-wrap: anywhere; }
+  #root :is(.modal-footer, .detail-actions, .harvest-month-stats, .harvest-month-heading) { flex-wrap: wrap; }
+}
+@media (max-width: 380px) {
+  #root .vital-progress-main { grid-template-columns: minmax(0, 1fr); }
+  #root .vital-progress-character { justify-self: center; }
+  #root .vital-footprint-days { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  #root .time-readout { font-size: 34px; }
+  #root .theme-quick-picker select { width: 130px; }
+}

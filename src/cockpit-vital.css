@@ -1,0 +1,208 @@
+/* The everyday workspace uses a fresh green accent, with coral and lavender details. */
+.app-shell.polished-shell.planner-shell {
+  --vital-green: #13a77a;
+  --vital-green-bright: #57d6a5;
+  --vital-green-ink: #16775b;
+  --vital-green-soft: #eaf9f1;
+  --vital-coral: #ed927e;
+  --vital-coral-soft: #fff2ed;
+  --vital-purple: #9a7bdd;
+  --vital-purple-soft: #f4efff;
+  --ui-accent: #0d805d;
+  --planner-accent: var(--ui-accent);
+  --planner-accent-hover: #086b4d;
+  --control-accent: var(--ui-accent);
+  --control-focus: var(--ui-accent);
+  --green: var(--ui-accent);
+  --pale: var(--vital-green-soft);
+  --cockpit-canvas: #f5f7f3;
+  --graphic-blue: var(--vital-green);
+  --graphic-purple: var(--vital-purple);
+  --graphic-teal: var(--vital-coral);
+  --graphic-gold: var(--vital-purple);
+  background: var(--cockpit-canvas);
+}
+.app-shell.polished-shell.planner-shell .sidebar { background: #f1f5ef; }
+.app-shell.polished-shell.planner-shell .sidebar .brand-mark { color: #8b70c7; background: #faf8ff; border-color: #e9e2f5; }
+.app-shell.polished-shell.planner-shell .nav button.active { color: #31624e; background: #fff; border-color: #dde8df; }
+.app-shell.polished-shell.planner-shell .nav button.active svg { color: var(--ui-accent); }
+.app-shell.polished-shell.planner-shell .button-primary { background: var(--ui-accent); border-color: var(--ui-accent); }
+.app-shell.polished-shell.planner-shell .button-primary:hover:not(:disabled) { background: var(--planner-accent-hover); border-color: var(--planner-accent-hover); }
+.app-shell.polished-shell.planner-shell .planner-day .planner-tabs .daily-view-switch button[aria-pressed="true"] { color: #28644c; border-bottom-color: var(--vital-green); }
+.app-shell.polished-shell.planner-shell .planner-day-metrics > div:nth-child(1) { --metric-accent: #8a6ac9; --metric-tint: var(--vital-purple-soft); }
+.app-shell.polished-shell.planner-shell .planner-day-metrics > div:nth-child(2) { --metric-accent: #b46e58; --metric-tint: var(--vital-coral-soft); }
+.app-shell.polished-shell.planner-shell .planner-day-metrics > div:nth-child(3) { --metric-accent: var(--vital-green-ink); --metric-tint: var(--vital-green-soft); }
+.app-shell.polished-shell.planner-shell .planner-day-metrics > div:nth-child(4) { --metric-accent: #8a6ac9; --metric-tint: var(--vital-purple-soft); }
+.app-shell.polished-shell.planner-shell .cockpit-project-card.role-cashflow { --project-accent: #69b997; --project-tint: #eef9f2; }
+.app-shell.polished-shell.planner-shell .cockpit-project-card.role-growth { --project-accent: #ca876f; --project-tint: var(--vital-coral-soft); }
+.app-shell.polished-shell.planner-shell .cockpit-project-card.role-future_asset { --project-accent: #9b81cf; --project-tint: var(--vital-purple-soft); }
+.app-shell.polished-shell.planner-shell .cockpit-project-card.role-maintenance { --project-accent: #6aa89a; --project-tint: #edf7f4; }
+.app-shell.polished-shell.planner-shell .cockpit-project-card .cockpit-project-meta > span:first-child { color: #617667; }
+.app-shell.polished-shell.planner-shell .cockpit-project-card > button.cockpit-project-action { color: #487c64; }
+.app-shell.polished-shell.planner-shell .cockpit-project-card > button.cockpit-project-action:hover:not(:disabled) { color: var(--vital-green-ink); background: #f0faf3; }
+
+/* Every part of the completion ring corresponds to a confirmed result or an explicit unknown. */
+.app-shell.polished-shell.planner-shell .vital-insights { min-width: 0; padding: 16px 20px; border: 1px solid #e1e9e2; border-radius: 16px; background: #fff; box-shadow: 0 3px 16px #316f4e04; }
+.app-shell.polished-shell.planner-shell .vital-insights-heading { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 7px 14px; margin-bottom: 10px; }
+.app-shell.polished-shell.planner-shell .vital-kicker { display: inline-flex; align-items: center; gap: 6px; color: #7a8795; font-size: 11px; line-height: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-kicker > svg { color: #70b895; }
+.app-shell.polished-shell.planner-shell .vital-insights-heading h2 { margin: 5px 0 0; color: #354647; font-size: 20px; font-weight: 550; line-height: 1.4; letter-spacing: -.02em; }
+.app-shell.polished-shell.planner-shell .vital-confirmation-label { display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; padding: 5px 8px; border-radius: 7px; color: #7d6a9c; background: #f7f3fc; font-size: 10px; line-height: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-progress-main { display: grid; grid-template-columns: 166px minmax(0, 1fr); align-items: center; gap: 24px; }
+.app-shell.polished-shell.planner-shell .vital-ring-wrap { position: relative; width: 166px; height: 166px; }
+.app-shell.polished-shell.planner-shell .vital-ring { display: block; width: 100%; height: 100%; overflow: visible; }
+.app-shell.polished-shell.planner-shell .vital-ring :is(circle, path) { fill: none; stroke-width: 12px; }
+.app-shell.polished-shell.planner-shell .vital-ring-track { stroke: #eaf3ed; }
+.app-shell.polished-shell.planner-shell .vital-ring-achieved { stroke: var(--vital-green); }
+.app-shell.polished-shell.planner-shell .vital-ring-unmet { stroke: var(--vital-coral); }
+.app-shell.polished-shell.planner-shell .vital-ring .vital-ring-pending { stroke: #b5a2df; stroke-width: 5px; stroke-dasharray: 2 7; stroke-linecap: round; }
+.app-shell.polished-shell.planner-shell .vital-ring-copy { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; text-align: center; }
+.app-shell.polished-shell.planner-shell .vital-ring-copy > svg { color: #8ca597; stroke-width: 1.4; }
+.app-shell.polished-shell.planner-shell .vital-ring-copy > strong { color: #315b48; font-size: 36px; font-weight: 550; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.app-shell.polished-shell.planner-shell .vital-ring-copy > strong > span { color: #87928f; font-size: 18px; font-weight: 400; }
+.app-shell.polished-shell.planner-shell .vital-ring-copy > strong.vital-ring-word { color: #708479; font-size: 19px; font-weight: 500; }
+.app-shell.polished-shell.planner-shell .vital-ring-copy small { color: #768b7e; font-size: 11px; line-height: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-progress-copy { min-width: 0; }
+.app-shell.polished-shell.planner-shell .vital-progress-copy h3 { margin: 5px 0; color: #394b47; font-size: 19px; font-weight: 500; line-height: 1.45; letter-spacing: -.02em; }
+.app-shell.polished-shell.planner-shell .vital-progress-copy > p { margin: 0; color: #6f7c73; font-size: 11px; line-height: 1.65; }
+.app-shell.polished-shell.planner-shell .vital-task-preview { display: grid; gap: 6px; margin: 9px 0 0; padding: 0; list-style: none; }
+.app-shell.polished-shell.planner-shell .vital-task-preview li { display: flex; align-items: flex-start; gap: 8px; min-width: 0; }
+.app-shell.polished-shell.planner-shell .vital-task-mark { display: grid; place-items: center; flex: 0 0 22px; width: 22px; height: 22px; margin-top: 2px; border-radius: 7px; color: #8f7eb5; background: #f4f0fb; }
+.app-shell.polished-shell.planner-shell .vital-task-preview .is-achieved .vital-task-mark { color: #2d9270; background: var(--vital-green-soft); }
+.app-shell.polished-shell.planner-shell .vital-task-preview .is-unmet .vital-task-mark { color: #b27b65; background: var(--vital-coral-soft); }
+.app-shell.polished-shell.planner-shell .vital-task-preview li > div { min-width: 0; }
+.app-shell.polished-shell.planner-shell .vital-task-preview strong { display: block; color: #53645a; font-size: 12px; font-weight: 500; line-height: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-task-preview small { display: block; margin-top: 2px; color: #748079; font-size: 10px; line-height: 1.6; }
+.app-shell.polished-shell.planner-shell .vital-progress-prompt { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 12px; padding: 9px 11px; border-radius: 8px; color: #669077; background: #f4faf5; font-size: 11px; line-height: 1.6; }
+.app-shell.polished-shell.planner-shell .vital-result-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 12px; margin: 8px 0 0; }
+.app-shell.polished-shell.planner-shell .vital-result-legend > span { display: inline-flex; align-items: center; gap: 5px; color: #748079; font-size: 10px; line-height: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-result-legend i { width: 6px; height: 6px; border-radius: 50%; background: var(--vital-green); }
+.app-shell.polished-shell.planner-shell .vital-result-legend .is-unmet i { background: var(--vital-coral); }
+.app-shell.polished-shell.planner-shell .vital-result-legend .is-pending i { background: transparent; border: 1px dashed var(--vital-purple); }
+.app-shell.polished-shell.planner-shell .vital-time-caption { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 8px; margin-top: 8px; padding: 7px 10px; border-radius: 8px; color: #6d7f70; background: #f7faf7; font-size: 11px; line-height: 1.6; }
+.app-shell.polished-shell.planner-shell .vital-time-caption > svg { color: #79a48a; }
+.app-shell.polished-shell.planner-shell .vital-time-caption > span:last-child { margin-left: auto; color: #78867c; }
+
+/* Flowers mark achieved task results; other records and unknown days use distinct symbols. */
+.app-shell.polished-shell.planner-shell .vital-footprints { margin-top: 12px; padding-top: 10px; border-top: 1px solid #edf0ec; }
+.app-shell.polished-shell.planner-shell .vital-footprints > header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 5px 10px; }
+.app-shell.polished-shell.planner-shell .vital-footprints h3 { display: flex; align-items: center; gap: 6px; margin: 0; color: #61766b; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-footprints h3 > svg { color: #82bb9c; stroke-width: 1.7; }
+.app-shell.polished-shell.planner-shell .vital-footprints header p { margin: 3px 0 0; color: #78857b; font-size: 10px; line-height: 1.6; }
+.app-shell.polished-shell.planner-shell .vital-footprints header > span { color: #7b8f80; font-size: 10px; }
+.app-shell.polished-shell.planner-shell .vital-footprint-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; margin-top: 9px; }
+.app-shell.polished-shell.planner-shell .vital-footprint { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 5px; min-width: 0; min-height: 76px; padding: 7px 2px 6px; border: 1px solid transparent; border-radius: 10px; color: #728073; background: transparent; font: inherit; cursor: pointer; transition: background-color 140ms ease, border-color 140ms ease; }
+.app-shell.polished-shell.planner-shell .vital-footprint:hover { background: #f5f8f3; }
+.app-shell.polished-shell.planner-shell .vital-footprint[aria-pressed="true"] { color: #688a73; border-color: #dcebe0; background: #edf8f0; }
+.app-shell.polished-shell.planner-shell .vital-footprint > span:first-child { font-size: 10px; font-variant-numeric: tabular-nums; line-height: 1.4; white-space: nowrap; }
+.app-shell.polished-shell.planner-shell .vital-footprint-symbol { display: grid; place-items: center; height: 26px; color: #bcc6bb; }
+.app-shell.polished-shell.planner-shell .vital-footprint-symbol > svg { stroke-width: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-footprint small { max-width: 100%; min-height: 14px; color: inherit; font-size: 10px; line-height: 1.4; overflow-wrap: anywhere; }
+.app-shell.polished-shell.planner-shell .vital-footprint.is-achieved .vital-footprint-symbol { color: var(--vital-green); }
+.app-shell.polished-shell.planner-shell .vital-footprint.is-recorded .vital-footprint-symbol { color: #a185d4; }
+.app-shell.polished-shell.planner-shell .vital-footprint.is-pending .vital-footprint-symbol { color: #b5a3d4; }
+.app-shell.polished-shell.planner-shell .vital-footprint.is-rest .vital-footprint-symbol { color: #c4a28c; }
+.app-shell.polished-shell.planner-shell .vital-footprint.is-checked .vital-footprint-symbol { color: #cf9a86; }
+.app-shell.polished-shell.planner-shell .vital-footprint.is-timed .vital-footprint-symbol { color: #86afa2; }
+.app-shell.polished-shell.planner-shell .vital-footprint-detail { margin: 9px 0 0; color: #738077; font-size: 10px; line-height: 1.65; }
+.app-shell.polished-shell.planner-shell .vital-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-top: 10px; }
+.app-shell.polished-shell.planner-shell .vital-result { display: flex; align-items: flex-start; gap: 8px; min-width: 0; padding: 10px; border: 1px solid #ede8f5; border-radius: 10px; background: #fdfbff; }
+.app-shell.polished-shell.planner-shell .vital-result:nth-child(2) { border-color: #f1e5de; background: #fffaf7; }
+.app-shell.polished-shell.planner-shell .vital-result-emblem { display: grid; place-items: center; flex: 0 0 28px; width: 28px; height: 28px; border-radius: 9px; color: #9b81c9; background: #f2ecfb; }
+.app-shell.polished-shell.planner-shell .vital-result:nth-child(2) .vital-result-emblem { color: #c8957e; background: #fdefe6; }
+.app-shell.polished-shell.planner-shell .vital-result > div { min-width: 0; }
+.app-shell.polished-shell.planner-shell .vital-result div > span { display: block; color: #82778d; font-size: 10px; line-height: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-result h4 { margin: 3px 0; color: #706777; font-size: 12px; font-weight: 500; line-height: 1.5; }
+.app-shell.polished-shell.planner-shell .vital-result small { display: block; color: #82748c; font-size: 10px; line-height: 1.6; }
+
+/* The familiar timer remains the primary action and comes before the summary on phones. */
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-cockpit { border-color: #dbe9df; border-radius: 14px; background: linear-gradient(150deg, #fff, #f8fcf9); box-shadow: 0 3px 15px #42725905; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-cockpit.is-running { border-color: #b9dbc6; background: #f7fcf8; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-heading h2 { color: #536f5c; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-state i { background: #acc9b6; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .is-running .time-state i { background: var(--vital-green); }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-clock-second.running { stroke: var(--vital-green); }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .focus-duration-options { border-color: #e0eae2; background: #eef5ee; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .focus-duration-options button[aria-pressed="true"] { color: #277550; border-color: #d8e8da; background: #fff; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-actions > .button-primary { background: var(--ui-accent); border-color: var(--ui-accent); }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-actions > .button-primary:hover:not(:disabled) { background: var(--planner-accent-hover); border-color: var(--planner-accent-hover); }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-readout { color: #3c5b48; }
+.app-shell.polished-shell.planner-shell .planner-focus-pane .time-compound .time-inline-link { color: #729d7b; }
+.app-shell.polished-shell.planner-shell .global-focus-bar { color: #447358; border-bottom-color: #d4e9da; background: #edf8f0; }
+.app-shell.polished-shell.planner-shell .global-focus-bar :is(time, .global-focus-duration) { color: #247049; }
+
+@media (min-width: 1201px) {
+  .app-shell.polished-shell.planner-shell .vital-insights { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0 18px; }
+  .app-shell.polished-shell.planner-shell .vital-insights-heading,
+  .app-shell.polished-shell.planner-shell .vital-results,
+  .app-shell.polished-shell.planner-shell .vital-insights > :is(.insights-loading, .insights-error) { grid-column: 1 / -1; }
+  .app-shell.polished-shell.planner-shell .vital-insights-heading > div { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+  .app-shell.polished-shell.planner-shell .vital-insights-heading h2 { margin: 0; }
+  .app-shell.polished-shell.planner-shell .vital-progress-main { grid-template-columns: 128px minmax(0, 1fr); gap: 14px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-wrap { width: 128px; height: 128px; }
+  .app-shell.polished-shell.planner-shell .vital-footprints { margin: 0; padding: 0 0 0 16px; border-top: 0; border-left: 1px solid #edf0ec; }
+  .app-shell.polished-shell.planner-shell .vital-footprint-days { margin-top: 7px; gap: 3px; }
+  .app-shell.polished-shell.planner-shell .vital-footprint { min-height: 76px; }
+  .app-shell.polished-shell.planner-shell .vital-results { margin-top: 12px; }
+}
+
+@media (max-width: 1200px) {
+  .app-shell.polished-shell.planner-shell .vital-insights { padding: 17px 16px 16px; }
+  .app-shell.polished-shell.planner-shell .vital-progress-main { grid-template-columns: 136px minmax(0, 1fr); gap: 17px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-wrap { width: 136px; height: 136px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy > strong { font-size: 31px; }
+  .app-shell.polished-shell.planner-shell .vital-progress-copy h3 { font-size: 17px; }
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .app-shell.polished-shell.planner-shell .vital-progress-main { grid-template-columns: 112px minmax(0, 1fr); gap: 13px; align-items: start; }
+  .app-shell.polished-shell.planner-shell .vital-ring-wrap { width: 112px; height: 112px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy > strong.vital-ring-word { font-size: 17px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy small { font-size: 10px; }
+  .app-shell.polished-shell.planner-shell .vital-confirmation-label { margin: 0; }
+  .app-shell.polished-shell.planner-shell .vital-results { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 900px) {
+  .app-shell.polished-shell.planner-shell .planner-focus-pane { order: -1; }
+  .app-shell.polished-shell.planner-shell .vital-progress-main { grid-template-columns: 146px minmax(0, 1fr); gap: 19px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-wrap { width: 146px; height: 146px; }
+}
+@media (max-width: 640px) {
+  .app-shell.polished-shell.planner-shell .planner-focus-pane .time-actions > button,
+  .app-shell.polished-shell.planner-shell .planner-focus-pane .focus-duration-options > button,
+  .app-shell.polished-shell.planner-shell .planner-focus-pane .time-cockpit select { min-height: 44px; }
+  .app-shell.polished-shell.planner-shell .vital-insights { padding: 16px 14px; }
+  .app-shell.polished-shell.planner-shell .vital-insights-heading h2 { font-size: 19px; }
+  .app-shell.polished-shell.planner-shell .vital-confirmation-label { font-size: 10px; }
+  .app-shell.polished-shell.planner-shell .vital-progress-main { grid-template-columns: 110px minmax(0, 1fr); align-items: start; gap: 12px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-wrap { width: 110px; height: 110px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy > strong { font-size: 28px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy > strong > span { font-size: 15px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy > strong.vital-ring-word { font-size: 16px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy > svg { width: 21px; height: 21px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy small { font-size: 10px; }
+  .app-shell.polished-shell.planner-shell .vital-progress-copy h3 { margin-top: 4px; font-size: 16px; }
+  .app-shell.polished-shell.planner-shell .vital-progress-copy > p { font-size: 11px; }
+  .app-shell.polished-shell.planner-shell .vital-task-preview { gap: 7px; margin-top: 10px; }
+  .app-shell.polished-shell.planner-shell .vital-task-preview strong { font-size: 11px; }
+  .app-shell.polished-shell.planner-shell .vital-task-preview small { font-size: 10px; }
+  .app-shell.polished-shell.planner-shell .vital-time-caption { font-size: 10px; }
+  .app-shell.polished-shell.planner-shell .vital-time-caption > span:last-child { flex-basis: 100%; margin-left: 21px; }
+  .app-shell.polished-shell.planner-shell .vital-footprint-days { gap: 2px; }
+  .app-shell.polished-shell.planner-shell .vital-footprint { min-height: 83px; padding-inline: 1px; }
+  .app-shell.polished-shell.planner-shell .vital-footprint small { min-height: 26px; font-size: 9px; }
+  .app-shell.polished-shell.planner-shell .vital-results { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 360px) {
+  .app-shell.polished-shell.planner-shell .vital-footprint-days { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+  .app-shell.polished-shell.planner-shell .vital-insights { padding-inline: 12px; }
+  .app-shell.polished-shell.planner-shell .vital-progress-main { grid-template-columns: 98px minmax(0, 1fr); gap: 10px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-wrap { width: 98px; height: 98px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy > strong { font-size: 25px; }
+  .app-shell.polished-shell.planner-shell .vital-ring-copy > strong.vital-ring-word { font-size: 15px; }
+  .app-shell.polished-shell.planner-shell .vital-task-preview li { gap: 6px; }
+  .app-shell.polished-shell.planner-shell .vital-task-mark { flex-basis: 19px; width: 19px; height: 19px; }
+  .app-shell.polished-shell.planner-shell .vital-progress-copy h3 { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-shell.polished-shell.planner-shell .vital-footprint { transition: none; }
+}

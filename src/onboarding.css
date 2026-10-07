@@ -1,0 +1,11 @@
+.setup-demo-choice { border-top: 1px solid var(--theme-line, #e4e7ec); margin-top: 30px; padding-top: 24px; }
+.setup-top .build-tag { color: var(--theme-muted, #5d6981); background: var(--theme-soft, #edf1fc); border: 1px solid var(--theme-line, #dce2f3); }
+.setup-demo-choice h3 { font-size: 17px; margin: 0 0 10px; }
+.setup-demo-choice p { margin: 0 0 18px; line-height: 1.8; }
+.demo-banner { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 28px; padding: 16px 20px; border: 1px solid var(--theme-line, #ddd); border-radius: 12px; color: var(--theme-ink, #243144); background: var(--theme-soft, #f4f6fa); line-height: 1.7; }
+.demo-banner button { flex-shrink: 0; }
+@media (max-width: 768px) { .demo-banner { align-items: stretch; flex-direction: column; gap: 14px; } }
+
+.project-advanced { border-top: 1px solid var(--theme-line, #e4e7ec); margin-top: 24px; padding-top: 18px; }
+.project-advanced > summary { cursor: pointer; color: var(--theme-muted, #657181); font-size: 14px; padding-block: 6px; }
+.project-advanced[open] > summary { margin-bottom: 20px; }
