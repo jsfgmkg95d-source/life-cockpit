@@ -4,9 +4,11 @@
 
 面向独立创作者的开源 Windows 工作台：安排今天的任务，记录实际投入，回顾一周留下的成果。核心功能离线可用，数据保存在本机，无需注册。
 
-**[下载 Windows 版](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.1)** · **[三步上手](docs/quickstart.md)** · **[反馈问题](https://github.com/jsfgmkg95d-source/life-cockpit/issues/new/choose)** · [English](README.en.md)
+**[下载 Windows 版](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.2)** · **[三步上手](docs/quickstart.md)** · **[反馈问题](https://github.com/jsfgmkg95d-source/life-cockpit/issues/new/choose)** · [English](README.en.md)
 
 Windows x64 · 免费开源 · MIT · Beta
+
+Beta 2：每日计划会随任务自动调整评分维度和比例，无需手工勾选或凑分。[查看更新说明](docs/releases/v0.14.0-beta.2.md)
 
 [项目介绍](https://jsfgmkg95d-source.github.io/life-cockpit/) · [60 秒演示视频](https://github.com/jsfgmkg95d-source/life-cockpit/releases/download/v0.14.0-beta.1/life-cockpit-demo-60s.mp4)
 
@@ -25,7 +27,7 @@ Windows x64 · 免费开源 · MIT · Beta
 
 ## 开始使用
 
-1. 在 [Release 页面](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.1) 下载 **Windows x64 完整 ZIP**，解压整个文件夹。不要下载页面底部的 `Source code` 作为安装包。
+1. 在 [Release 页面](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.2) 下载 **Windows x64 完整 ZIP**，解压整个文件夹。不要下载页面底部的 `Source code` 作为安装包。
 2. 双击 **人生驾驶舱.exe**，建立自己的工作台。也可以先体验合成示例。
 3. 创建一项今天要做的事，开始计时；暂停保存后点“完成”，再到回顾页查看记录。
 

@@ -82,7 +82,7 @@ test('空日期GET不写库、候选稳定且未知不伪造；旧日期时区�
   } finally { await f.cleanup(); }
 });
 
-test('确认严格阻止不完整计划/失衡权重/超容量，失败原子回滚；草稿不覆盖原计划', async () => {
+test('确认自动分配权重且仍阻止不完整计划与超容量，失败原子回滚；草稿不覆盖原计划', async () => {
   const f = await fixture();
   try {
     const original = plan(f.initial.projects);
@@ -90,7 +90,6 @@ test('确认严格阻止不完整计划/失衡权重/超容量，失败原子回
       { ...original, available_minutes: null },
       { ...original, tasks: original.tasks.map((task, index) => index === 0 ? { ...task, acceptance: '' } : task) },
       { ...original, tasks: original.tasks.map((task, index) => index === 0 ? { ...task, target_value: 0 } : task) },
-      { ...original, tasks: original.tasks.map((task, index) => index === 0 ? { ...task, raw_points: 24 } : task) },
       { ...original, tasks: original.tasks.map((task, index) => index === 0 ? { ...task, work_block_id: 'missing' } : task) },
       { ...original, work_blocks: [{ ...original.work_blocks[0], budget_minutes: null }] },
       { ...original, available_minutes: 10 },
@@ -99,12 +98,13 @@ test('确认严格阻止不完整计划/失衡权重/超容量，失败原子回
       assert.equal((await f.write('/confirm', { draft, acknowledgeOverCapacity: false })).status, 400);
       assert.equal((await f.read()).log, null);
     }
-    const confirmed = await f.write('/confirm', { draft: { ...original, available_minutes: 10 }, acknowledgeOverCapacity: true });
+    const confirmed = await f.write('/confirm', { draft: { ...original, available_minutes: 10, tasks: original.tasks.map((task, index) => index === 0 ? { ...task, raw_points: 24 } : task) }, acknowledgeOverCapacity: true });
     assert.equal(confirmed.status, 200);
     const state = confirmed.body as DayState;
     assert.equal(state.log!.current_plan_version, 1);
     assert.equal(state.log!.plan_snapshots[0].over_capacity_acknowledged, true);
     assert.equal(state.tasks.length, 2);
+    assert.deepEqual(state.tasks.map(task => task.raw_points), [24, 26]);
     const originalSnapshot = structuredClone(state.log!.plan_snapshots[0]);
     const changed = draftFrom(state); changed.tasks[0].target_value = 500;
     const draftSave = await f.write('/draft', { draft: changed }, DATE, 'PUT');
@@ -352,5 +352,74 @@ test('项目完成汇总直接按完成标志，数量更正与项目阶段保�
     assert.equal(projectStageLabel('待确认'), '项目阶段未设置');
     assert.equal(projectStageLabel('连载'), '连载');
     assert.equal((await f.call('GET', '/api/state')).body.projects.find((item: Project) => item.id === projectId).stage, '待确认');
+  } finally { await f.cleanup(); }
+});
+
+
+test('旧草稿维度和零权重自动适配；原始请求幂等，重新分配不改完成记录与历史', async () => {
+  const f = await fixture();
+  try {
+    const draft = plan(f.initial.projects);
+    draft.tasks[0].raw_points = 0;
+    draft.tasks[1].raw_points = 0; draft.tasks[1].scoring_dimension = 'asset';
+    draft.dimensions.cashflow = { applicable: false, reason: '' };
+    draft.dimensions.health = { applicable: true, reason: '' };
+    const payload = { requestId: randomUUID(), revision: 0, draft, acknowledgeOverCapacity: false };
+    const confirmed = await f.call('POST', `/api/days/${DATE}/confirm`, payload);
+    assert.equal(confirmed.status, 200);
+    const initial = confirmed.body as DayState;
+    assert.deepEqual(initial.tasks.map(task => task.raw_points), [50, 30]);
+    assert.deepEqual(initial.log!.plan_snapshots[0].dimensions, {
+      cashflow: { applicable: true, reason: '' }, asset: { applicable: true, reason: '' },
+      health: { applicable: false, reason: '本日未安排此维度任务' }, learning: { applicable: false, reason: '今天未安排' },
+    });
+    assert.deepEqual((await f.call('POST', `/api/days/${DATE}/confirm`, payload)).body, initial);
+    // This different raw input has the same normalized result, but is not the same request.
+    const altered = { ...payload, draft: { ...draft, tasks: draft.tasks.map((task, index) => ({ ...task, raw_points: index === 0 ? 50 : 30 })) } };
+    assert.equal((await f.call('POST', `/api/days/${DATE}/confirm`, altered)).status, 409);
+    assert.deepEqual(await f.read(), initial);
+    const quant = initial.tasks[0];
+    await f.write(`/tasks/${quant.task_id}/status`, { status: 'done' });
+    await f.write('/events', { event: event(initial, { value: 400 }) });
+    await f.write(`/tasks/${quant.task_id}/result`, { binary_value: null, explanation: '已核对数量', clear: false });
+    await f.write('/actuals', { block_id: 'block-shared', minutes: 18, source: '整段计时' }, DATE, 'PUT');
+    const before = await f.read();
+    const adjusted = draftFrom(before);
+    adjusted.tasks.forEach(task => { task.scoring_dimension = 'asset'; task.raw_points = 0; });
+    const result = await f.write('/confirm', { draft: adjusted, acknowledgeOverCapacity: false });
+    assert.equal(result.status, 200);
+    const after = result.body as DayState;
+    assert.deepEqual(after.tasks.map(task => task.raw_points), [15, 15]);
+    assert.deepEqual(after.tasks.map(task => task.task_id), before.tasks.map(task => task.task_id));
+    assert.equal(after.tasks[0].status, 'done');
+    assert.equal(after.tasks[0].result_state, 'confirmed');
+    assert.deepEqual(after.tasks[0].confirmed_result, before.tasks[0].confirmed_result);
+    assert.deepEqual(after.events, before.events);
+    assert.deepEqual(after.log!.work_block_actuals, before.log!.work_block_actuals);
+    assert.deepEqual(after.log!.plan_snapshots[0], before.log!.plan_snapshots[0]);
+    const latest = after.log!.plan_snapshots.at(-1)!;
+    assert.equal(latest.dimensions.cashflow.applicable, false);
+    assert.equal(latest.dimensions.asset.applicable, true);
+    assert.equal(latest.work_blocks[0].id, 'block-shared');
+  } finally { await f.cleanup(); }
+});
+
+test('维度任务数超限返回中文400并回滚，空工作和带任务休息计划仍不可确认', async () => {
+  const f = await fixture();
+  try {
+    const draft = plan(f.initial.projects);
+    const excessive: PlanDraft = { ...draft, tasks: Array.from({ length: 31 }, (_, index) => ({
+      ...draft.tasks[1], candidate_id: `asset-${index}`, title: `合成任务 ${index}`, scoring_dimension: 'asset', raw_points: 0,
+    })) };
+    const denied = await f.write('/confirm', { draft: excessive, acknowledgeOverCapacity: false });
+    assert.equal(denied.status, 400);
+    assert.match(denied.body.error.message, /长期资产最多安排 30 项任务/u);
+    assert.equal((await f.read()).log, null);
+    const empty = await f.write('/confirm', { draft: { ...draft, tasks: [], work_blocks: [] }, acknowledgeOverCapacity: false });
+    assert.equal(empty.status, 400); assert.match(empty.body.error.message, /至少需要一项明确的任务/u);
+    assert.equal((await f.read()).log, null);
+    const rest = await f.write('/confirm', { draft: { ...draft, day_mode: 'rest' }, acknowledgeOverCapacity: false });
+    assert.equal(rest.status, 400); assert.match(rest.body.error.message, /休息计划不包含计分任务/u);
+    assert.equal((await f.read()).log, null);
   } finally { await f.cleanup(); }
 });

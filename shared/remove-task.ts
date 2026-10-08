@@ -1,14 +1,21 @@
 import { DIMENSION_WEIGHTS, type DayState, type PlanDraft } from './day-contracts.ts';
 import { apportion } from './plan-weights.ts';
 
-/** Remove one candidate without changing the source draft or unrelated dimensions. */
-export function removeDraftCandidate(source: PlanDraft, candidateId: string): PlanDraft {
+/** Editing a draft must preserve the remaining relative-weight inputs, including blank/zero. */
+export function removeUnconfirmedCandidate(source: PlanDraft, candidateId: string): PlanDraft {
   const removed = source.tasks.find(task => task.candidate_id === candidateId);
   if (!removed) throw new Error('这项任务已不在当前安排中，请读取最新内容。');
   const draft = structuredClone(source);
   draft.tasks = draft.tasks.filter(task => task.candidate_id !== candidateId);
   draft.work_blocks = draft.work_blocks.filter(block => block.id !== removed.work_block_id || draft.tasks.some(task => task.work_block_id === block.id));
-  const dimension = removed.scoring_dimension;
+  return draft;
+}
+
+/** Rebalance a confirmed plan while retaining its positive integer allocation. */
+export function removeDraftCandidate(source: PlanDraft, candidateId: string): PlanDraft {
+  const removed = source.tasks.find(task => task.candidate_id === candidateId);
+  const draft = removeUnconfirmedCandidate(source, candidateId);
+  const dimension = removed!.scoring_dimension;
   const remaining = draft.tasks.filter(task => task.scoring_dimension === dimension);
   if (remaining.length > DIMENSION_WEIGHTS[dimension]) {
     // Drafts may be incomplete or overfull. Always let the user reduce them;

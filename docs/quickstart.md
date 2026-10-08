@@ -4,7 +4,7 @@
 
 ## 1. 下载并打开
 
-打开 [Windows Beta 下载页](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.1)，下载完整的 `life-cockpit-0.14.0-beta.1-windows-x64.zip`。页面底部的 `Source code` 是开发者源码包。
+打开 [Windows Beta 下载页](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.2)，下载完整的 `life-cockpit-0.14.0-beta.2-windows-x64.zip`。页面底部的 `Source code` 是开发者源码包。
 
 右键 ZIP →“全部解压”，将整个文件夹放到一个固定位置，再双击 **人生驾驶舱.exe**。保留同文件夹中的 `resources` 等配套文件；只移动 EXE 无法运行。
 

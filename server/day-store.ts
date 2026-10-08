@@ -6,6 +6,7 @@ import { AppError, invalid } from './errors.ts';
 import { DELTA_METRICS, completionWrite, parseDraft, removeTaskWrite, validateStage } from './day-validation.ts';
 import { buildQuickTaskDraft } from '../shared/quick-task.ts';
 import { buildRemoveTaskDraft } from '../shared/remove-task.ts';
+import { normalizePlanScoring } from '../shared/plan-scoring.ts';
 import type { QuickTaskWrite } from '../shared/quick-task.ts';
 import type { Store } from './store.ts';
 import { checkedChapters, chapterMatches, chaptersFor, chapterReplacementRoots, unknownBatches } from './chapter-store.ts';
@@ -187,6 +188,9 @@ export class DayStore {
   }
 
   private applyPlan(date: string, log: DailyLog, input: ConfirmPlanWrite, preserveDraft = false, allowEmptyWorkPlan = false, allowUnknownBudget = false): void {
+      // Normalize only the working copy. mutate() keeps the original request for idempotency.
+      try { input = { ...input, draft: normalizePlanScoring(input.draft) }; }
+      catch (error) { invalid(error instanceof Error ? error.message : '无法自动分配任务权重，请检查当天安排。'); }
       this.validatePlan(log, input, allowEmptyWorkPlan, allowUnknownBudget);
       const now = new Date().toISOString();
       const tasks: SnapshotTask[] = [];

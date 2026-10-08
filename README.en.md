@@ -4,9 +4,11 @@
 
 An open-source Windows workspace for independent creators. Plan today's tasks, track the time you actually spend, and review the outcomes you recorded. Core features work offline, with data stored on your computer. No account required.
 
-**[Download for Windows](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.1)** · [Quick start](docs/quickstart.md) · [Report an issue](https://github.com/jsfgmkg95d-source/life-cockpit/issues/new/choose) · [简体中文](README.md)
+**[Download for Windows](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.2)** · [Quick start](docs/quickstart.md) · [Report an issue](https://github.com/jsfgmkg95d-source/life-cockpit/issues/new/choose) · [简体中文](README.md)
 
 Windows x64 · Free and open source · MIT · Beta · Primarily Chinese UI
+
+Beta 2 automatically adjusts daily scoring categories and allocations to match your tasks. [Release notes](docs/releases/v0.14.0-beta.2.md)
 
 ![Tasks and timer in Life Cockpit. All content shown is synthetic demo data.](docs/images/today.jpg)
 
@@ -20,7 +22,7 @@ Task completion, elapsed time and outcomes remain separate records. Completing a
 
 ## Install
 
-Download the **complete Windows x64 ZIP** from the [Beta release](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.1), extract the entire folder, and launch **人生驾驶舱.exe**. The `Source code` archives are for developers. You do not need Node.js or an API key to run the desktop package.
+Download the **complete Windows x64 ZIP** from the [Beta release](https://github.com/jsfgmkg95d-source/life-cockpit/releases/tag/v0.14.0-beta.2), extract the entire folder, and launch **人生驾驶舱.exe**. The `Source code` archives are for developers. You do not need Node.js or an API key to run the desktop package.
 
 Create your own workspace or explore synthetic sample projects. The current interface and detailed guide are primarily in Chinese.
 
